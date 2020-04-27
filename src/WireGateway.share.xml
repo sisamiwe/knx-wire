@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KNX xmlns:mc="http://github.com/mumpf/multiply-channels" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://knx.org/xml/project/14 ../../../knx.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CreatedBy="KNX MT" ToolVersion="5.1.255.16695" xmlns="http://knx.org/xml/project/14">
+  <ManufacturerData>
+    <Manufacturer RefId="M-00FA">
+      <Catalog>
+        <CatalogSection Id="M-00FA_CS-1" Name="Geräte" Number="1" DefaultLanguage="de">
+          <CatalogItem Id="M-00FA_H-WPKNX104-1_HP-0001-01-0000_CI-SELFWIRE-1" Name="1-Wire-Gateway" Number="1" ProductRefId="M-00FA_H-WPKNX104-1_P-SELFWIRE" Hardware2ProgramRefId="M-00FA_H-WPKNX104-1_HP-0001-01-0000" DefaultLanguage="de" />
+        </CatalogSection>
+      </Catalog>
+      <ApplicationPrograms>
+        <ApplicationProgram Id="M-00FA_A-0001-01-0000" ApplicationNumber="104" ApplicationVersion="10" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="WP-1WireGateway-Logic" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="true" MinEtsVersion="4.0">
+          <Static>
+            <Code>
+              <RelativeSegment Id="M-00FA_A-0001-01-0000_RS-04-00000" Name="Parameters" Offset="0" Size="0" LoadStateMachine="4" />
+            </Code>
+            <ParameterTypes>
+              <!-- Parameter types for 1WireGateway -->
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeviceId" Name="DeviceId">
+                <TypeText SizeInBit="56" />
+              </ParameterType>
+              <!-- The following values represent directly the 1-Wire family type -->
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-FamilyCode" Name="FamilyCode">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="00-kein Device" Value="0" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-0" />
+                  <Enumeration Text="01-iButton (DS1990)" Value="1" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-3" />
+                  <Enumeration Text="10-Temperatur (DS18S20)" Value="16" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-6" />
+                  <Enumeration Text="26-Analog (DS2438)" Value="38" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-2" />
+                  <Enumeration Text="28-Temperatur (DS18B20)" Value="40" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-1" />
+                  <Enumeration Text="29-I/O 8-Kanal (DS2408)" Value="41" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-5" />
+                  <Enumeration Text="3A-I/O 2-Kanal (DS2413)" Value="58" Id="M-00FA_A-0001-01-0000_PT-FamilyCode_EN-4" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-String2" Name="String2">
+                <TypeText SizeInBit="16" />
+              </ParameterType>
+
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-Nibble" Name="Nibble">
+                <TypeRestriction Base="Value" SizeInBit="4">
+                  <Enumeration Text="0" Value="0" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-0" />
+                  <Enumeration Text="1" Value="1" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-1" />
+                  <Enumeration Text="2" Value="2" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-2" />
+                  <Enumeration Text="3" Value="3" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-3" />
+                  <Enumeration Text="4" Value="4" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-4" />
+                  <Enumeration Text="5" Value="5" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-5" />
+                  <Enumeration Text="6" Value="6" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-6" />
+                  <Enumeration Text="7" Value="7" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-7" />
+                  <Enumeration Text="8" Value="8" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-8" />
+                  <Enumeration Text="9" Value="9" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-9" />
+                  <Enumeration Text="A" Value="10" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-10" />
+                  <Enumeration Text="B" Value="11" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-11" />
+                  <Enumeration Text="C" Value="12" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-12" />
+                  <Enumeration Text="D" Value="13" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-13" />
+                  <Enumeration Text="E" Value="14" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-14" />
+                  <Enumeration Text="F" Value="15" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-15" />
+                </TypeRestriction>
+              </ParameterType>
+              <!-- <ParameterType Id="M-00FA_A-0001-01-0000_PT-OffsetTemp" Name="OffsetTemp">
+                <TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-50" maxInclusive="50" />
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeltaAbsTemp" Name="DeltaAbsTemp">
+                <TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="500" />
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeltaRelTemp" Name="DeltaRelTemp">
+                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
+              </ParameterType> -->
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunction" Name="ModelFunction">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="Default" Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-0" />
+                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-1" />
+                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-2" />
+                  <Enumeration Text="Bit 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-3" />
+                  <Enumeration Text="Bit 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-4" />
+                  <Enumeration Text="Bit 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-5" />
+                  <Enumeration Text="Bit 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-6" />
+                  <Enumeration Text="Bit 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-7" />
+                  <Enumeration Text="Bit 8" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-8" />
+                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-9" />
+                  <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-10" />
+                  <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-11" />
+                  <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-12" />
+                  <Enumeration Text="AD1: Benutzerdefiniert" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-13" />
+                  <Enumeration Text="AD2: Helligkeit" Value="14" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-14" />
+                  <Enumeration Text="AD2: Benutzerdefiniert" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-15" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Name="ModelFunctionDS2408">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-1" />
+                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-2" />
+                  <Enumeration Text="Bit 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-3" />
+                  <Enumeration Text="Bit 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-4" />
+                  <Enumeration Text="Bit 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-5" />
+                  <Enumeration Text="Bit 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-6" />
+                  <Enumeration Text="Bit 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-7" />
+                  <Enumeration Text="Bit 8" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-8" />
+                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-9" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413" Name="ModelFunctionDS2413">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-1" />
+                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-2" />
+                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-9" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438" Name="ModelFunctionDS2438">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-10" />
+                  <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-11" />
+                  <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-12" />
+                  <Enumeration Text="AD1: Benutzerdefiniert" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-13" />
+                  <Enumeration Text="AD2: Helligkeit" Value="14" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-14" />
+                  <Enumeration Text="AD2: Benutzerdefiniert" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-15" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-Group" Name="Group">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="keiner Gruppe" Value="0" Id="M-00FA_A-0001-01-0000_PT-Group_EN-0" />
+                  <Enumeration Text="Gruppe 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-Group_EN-1" />
+                  <Enumeration Text="Gruppe 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-Group_EN-2" />
+                  <Enumeration Text="Gruppe 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-Group_EN-3" />
+                  <Enumeration Text="Gruppe 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-Group_EN-4" />
+                  <Enumeration Text="Gruppe 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-Group_EN-5" />
+                  <Enumeration Text="Gruppe 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-Group_EN-6" />
+                  <Enumeration Text="Gruppe 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-Group_EN-7" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterCount" Name="BusMasterCount">
+                <TypeRestriction Base="Value" SizeInBit="2">
+                  <Enumeration Text="1 Busmaster (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-0" />
+                  <Enumeration Text="2 Busmaster (links+rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-1" />
+                  <Enumeration Text="3 Busmaster (links+rechts+unten)" Value="3" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-2" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect1" Name="BusMasterSelect1">
+                <TypeRestriction Base="Value" SizeInBit="2">
+                  <Enumeration Text="Busmaster 1 (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect1_EN-0" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2" Name="BusMasterSelect2">
+                <TypeRestriction Base="Value" SizeInBit="2">
+                  <Enumeration Text="Busmaster 1 (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2_EN-0" />
+                  <Enumeration Text="Busmaster 2 (rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3" Name="BusMasterSelect3">
+                <TypeRestriction Base="Value" SizeInBit="2">
+                  <Enumeration Text="Busmaster 1 (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-0" />
+                  <Enumeration Text="Busmaster 2 (rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-1" />
+                  <Enumeration Text="Busmaster 3 (unten)" Value="3" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-2" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-IdSearch" Name="IdSearch">
+                <TypeRestriction Base="Value" SizeInBit="1">
+                  <Enumeration Text="neue Devices ignorieren" Value="0" Id="M-00FA_A-0001-01-0000_PT-IdSearch_EN-0" />
+                  <Enumeration Text="neue Id auf den Bus senden" Value="1" Id="M-00FA_A-0001-01-0000_PT-IdSearch_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
+            </ParameterTypes>
+            <Parameters>
+              <Union SizeInBit="8">
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="200" BitOffset="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-500" Name="WireError" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-OnOffYesNo" Text="Fehler- und Diagnoseobjekt anzeigen" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-501" Name="BusMasterCount" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterCount" Text="Installierte Busmaster" Value="1" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-502" Name="IdSearch" Offset="0" BitOffset="3" ParameterType="M-00FA_A-0001-01-0000_PT-IdSearch" Text="Device-Suche" Value="1" />
+              </Union>
+            </Parameters>
+            <ParameterRefs>
+              <!-- General -->
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-5_R-51" RefId="M-00FA_A-0001-01-0000_UP-5" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-6_R-61" RefId="M-00FA_A-0001-01-0000_UP-6" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-7_R-71" RefId="M-00FA_A-0001-01-0000_UP-7" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-8_R-81" RefId="M-00FA_A-0001-01-0000_UP-8" />
+
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-500_R-5001" RefId="M-00FA_A-0001-01-0000_UP-500" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-501_R-5011" RefId="M-00FA_A-0001-01-0000_UP-501" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-502_R-5021" RefId="M-00FA_A-0001-01-0000_UP-502" />
+            </ParameterRefs>
+            <ComObjectTable>
+              <ComObject Id="M-00FA_A-0001-01-0000_O-401" Name="ErrorBusmaster1" Text="Devicefehler Busmaster 1" Number="401" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-402" Name="ErrorBusmaster2" Text="Devicefehler Busmaster 2" Number="402" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-403" Name="ErrorBusmaster3" Text="Devicefehler Busmaster 3" Number="403" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-404" Name="NewId" Text="Unbekannte Devices" Number="404" FunctionText="Device-Id" ObjectSize="14 Bytes" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-16-1" />
+            </ComObjectTable>
+            <ComObjectRefs>
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-401_R-4011" RefId="M-00FA_A-0001-01-0000_O-401" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-402_R-4021" RefId="M-00FA_A-0001-01-0000_O-402" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-403_R-4031" RefId="M-00FA_A-0001-01-0000_O-403" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-404_R-4041" RefId="M-00FA_A-0001-01-0000_O-404" />
+            </ComObjectRefs>
+            <AddressTable MaxEntries="65535" />
+            <AssociationTable MaxEntries="65535" />
+            <LoadProcedures>
+              <LoadProcedure MergeId="2">
+                <LdCtrlRelSegment AppliesTo="full" LsmIdx="4" Size="0" Mode="0" Fill="0" />
+              </LoadProcedure>
+              <LoadProcedure MergeId="4">
+                <LdCtrlWriteRelMem ObjIdx="4" Offset="0" Size="0" Verify="true" />
+              </LoadProcedure>
+            </LoadProcedures>
+            <Options />
+          </Static>
+          <Dynamic>
+            <ChannelIndependentBlock>
+              <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-nnn" Name="General" Text="Allgemeine Parameter">
+                <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-2_R-21" />
+                <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-3_R-31" />
+                <!-- the following parameter is readonly and necessary (number of logik channels used in knxdprod) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-1_R-11" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-2_R-21" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-3_R-31" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-4_R-41" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_P-3_R-31">
+                  <when test="!=0">
+                    <!-- show heartbeat only if it is parametrized -->
+                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-1_R-11" />
+                  </when>
+                </choose>
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-12" Text="" UIHint="HorizontalRuler" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-501_R-5011" />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-13" Text="" UIHint="HorizontalRuler" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-502_R-5021" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-502_R-5021">
+                  <when test="1">
+                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-404_R-4041" />
+                  </when>
+                </choose>
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-11" Text="" UIHint="HorizontalRuler" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-500_R-5001" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-500_R-5001">
+                  <when test="1">
+                    <!-- show error object only if it is parametrized -->
+                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-401_R-4011" />
+                    <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-1" Text="Das Fehlerobjekt KO-401 ist eine Bitleiste, bei der ein Bit auf 1 gesetzt wird, wenn der entsprechende Device einen Fehler aufweist:" />
+                    <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-2" Text="  Bit 0: Fehler vom Busmaster selbst" />
+                    <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-3" Text="  Bit 1-31: Fehler vom Device 1 bis 31" />
+                    <choose ParamRefId="M-00FA_A-0001-01-0000_UP-501_R-5011">
+                      <when test="2">
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-402_R-4021" />
+                        <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-4" Text="Das gilt für das Fehlerobjekt KO-402 anlaog." />
+                      </when>
+                      <when test="3">
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-402_R-4021" />
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-403_R-4031" />
+                        <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-14" Text="Das gilt für das Fehlerobjekt KO-402 und KO-403 anlaog." />
+                      </when>
+                    </choose>
+                  </when>
+                </choose>
+              </ParameterBlock>
+            </ChannelIndependentBlock>
+          </Dynamic>
+        </ApplicationProgram>
+      </ApplicationPrograms>
+      <Hardware>
+        <Hardware Id="M-00FA_H-WPKNX104-1" Name="WP-OneWire" SerialNumber="WPKNX104" VersionNumber="1" BusCurrent="10" HasIndividualAddress="true" HasApplicationProgram="true">
+          <Products>
+            <Product Id="M-00FA_H-WPKNX104-1_P-SELFWIRE" Text="1-Wire-Gateway" OrderNumber="SELFWIRE" IsRailMounted="false" DefaultLanguage="de">
+              <RegistrationInfo RegistrationStatus="Registered" />
+            </Product>
+          </Products>
+          <Hardware2Programs>
+            <Hardware2Program Id="M-00FA_H-WPKNX104-1_HP-0001-01-0000" MediumTypes="MT-0 MT-5">
+              <ApplicationProgramRef RefId="M-00FA_A-0001-01-0000" />
+              <RegistrationInfo RegistrationStatus="Registered" RegistrationNumber="0001/110" />
+            </Hardware2Program>
+          </Hardware2Programs>
+        </Hardware>
+      </Hardware>
+    </Manufacturer>
+  </ManufacturerData>
+</KNX>
