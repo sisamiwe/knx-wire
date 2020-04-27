@@ -2,85 +2,68 @@
 #include <knx.h>
 
 // Parameter with single occurance
-#define WIRE_NumChannels                0      // uint8_t
-#define WIRE_StartupDelay               1      // int32_t
-#define WIRE_Heartbeat                  5      // int32_t
-#define WIRE_ReadTimeDate               9      // 1 Bit, Bit 7
-#define WIRE_BuzzerInstalled            9      // 1 Bit, Bit 6
-#define WIRE_LedInstalled               9      // 1 Bit, Bit 5
-#define WIRE_EepromInstalled            9      // 1 Bit, Bit 4
-#define WIRE_NCN5130Installed           9      // 1 Bit, Bit 3
-#define WIRE_WireError                 200      // 1 Bit, Bit 7
-#define WIRE_BusMasterCount            200      // 2 Bits, Bit 6-5
-#define WIRE_IdSearch                  200      // 1 Bit, Bit 4
+#define LOG_NumChannels                0      // uint8_t
+#define LOG_StartupDelay               1      // int32_t
+#define LOG_Heartbeat                  5      // int32_t
+#define LOG_ReadTimeDate               9      // 1 Bit, Bit 7
+#define LOG_BuzzerInstalled            9      // 1 Bit, Bit 6
+#define LOG_LedInstalled               9      // 1 Bit, Bit 5
+#define LOG_EepromInstalled            9      // 1 Bit, Bit 4
+#define LOG_NCN5130Installed           9      // 1 Bit, Bit 3
+#define LOG_VacationKo                 9      // 1 Bit, Bit 2
+#define LOG_HolidayKo                  9      // 1 Bit, Bit 1
+#define LOG_VacationRead               9      // 1 Bit, Bit 1
+#define LOG_HolidaySend               10      // 1 Bit, Bit 7
+#define LOG_Timezone                  10      // 2 Bits, Bit 6-5
+#define LOG_UseSummertime             12      // 1 Bit, Bit 6
+#define LOG_Neujahr                   11      // 1 Bit, Bit 7
+#define LOG_DreiKoenige               11      // 1 Bit, Bit 6
+#define LOG_Weiberfastnacht           11      // 1 Bit, Bit 5
+#define LOG_Rosenmontag               11      // 1 Bit, Bit 4
+#define LOG_Fastnachtsdienstag        11      // 1 Bit, Bit 3
+#define LOG_Aschermittwoch            11      // 1 Bit, Bit 2
+#define LOG_Gruendonnerstag           11      // 1 Bit, Bit 1
+#define LOG_Karfreitag                11      // 1 Bit, Bit 0
+#define LOG_Ostersonntag              12      // 1 Bit, Bit 7
+#define LOG_Ostermontag               12      // 1 Bit, Bit 6
+#define LOG_TagDerArbeit              12      // 1 Bit, Bit 5
+#define LOG_Himmelfahrt               12      // 1 Bit, Bit 4
+#define LOG_Pfingstsonntag            12      // 1 Bit, Bit 3
+#define LOG_Pfingstmontag             12      // 1 Bit, Bit 2
+#define LOG_Frohleichnam              12      // 1 Bit, Bit 1
+#define LOG_Friedensfest              12      // 1 Bit, Bit 0
+#define LOG_MariaHimmelfahrt          13      // 1 Bit, Bit 7
+#define LOG_DeutscheEinheit           13      // 1 Bit, Bit 6
+#define LOG_Reformationstag           13      // 1 Bit, Bit 5
+#define LOG_Allerheiligen             13      // 1 Bit, Bit 4
+#define LOG_BussBettag                13      // 1 Bit, Bit 3
+#define LOG_Advent1                   13      // 1 Bit, Bit 2
+#define LOG_Advent2                   13      // 1 Bit, Bit 1
+#define LOG_Advent3                   13      // 1 Bit, Bit 0
+#define LOG_Advent4                   14      // 1 Bit, Bit 7
+#define LOG_Heiligabend               14      // 1 Bit, Bit 6
+#define LOG_Weihnachtstag1            14      // 1 Bit, Bit 5
+#define LOG_Weihnachtstag2            14      // 1 Bit, Bit 4
+#define LOG_Silvester                 14      // 1 Bit, Bit 3
+#define LOG_Latitude                  15      // float
+#define LOG_Longitude                 19      // float
+#define LOG_WireError                 200      // 1 Bit, Bit 7
+#define LOG_BusMasterCount            200      // 2 Bits, Bit 6-5
+#define LOG_IdSearch                  200      // 1 Bit, Bit 4
 
 // Parameter per channel
-#define WIRE_ParamBlockOffset 201
-#define WIRE_ParamBlockSize 17
-#define WIRE_sDeviceId                  0      // char*, 7 Byte
-#define WIRE_sFamilyCode                0      // 8 Bits, Bit 7-0
-#define WIRE_sId0                       1      // 4 Bits, Bit 7-4
-#define WIRE_sId1                       1      // 4 Bits, Bit 3-0
-#define WIRE_sId2                       2      // 4 Bits, Bit 7-4
-#define WIRE_sId3                       2      // 4 Bits, Bit 3-0
-#define WIRE_sId4                       3      // 4 Bits, Bit 7-4
-#define WIRE_sId5                       3      // 4 Bits, Bit 3-0
-#define WIRE_sId6                       4      // 4 Bits, Bit 7-4
-#define WIRE_sId7                       4      // 4 Bits, Bit 3-0
-#define WIRE_sId8                       5      // 4 Bits, Bit 7-4
-#define WIRE_sId9                       5      // 4 Bits, Bit 3-0
-#define WIRE_sIdA                       6      // 4 Bits, Bit 7-4
-#define WIRE_sIdB                       6      // 4 Bits, Bit 3-0
-#define WIRE_sModelFunction             7      // 8 Bits, Bit 7-0
-#define WIRE_sModelFunctionDS2408       7      // 8 Bits, Bit 7-0
-#define WIRE_sModelFunctionDS2413       7      // 8 Bits, Bit 7-0
-#define WIRE_sModelFunctionDS2438       7      // 8 Bits, Bit 7-0
-#define WIRE_sSensorOffset              8      // int8_t
-#define WIRE_sSensorCycle               9      // int32_t
-#define WIRE_sSensorDeltaAbs           13      // uint16_t
-#define WIRE_sSensorDeltaPercent       15      // uint8_t
-#define WIRE_sSensorSmooth             16      // uint8_t
-#define WIRE_sGroup1                    8      // 1 Bit, Bit 7
-#define WIRE_sGroup2                    8      // 1 Bit, Bit 6
-#define WIRE_sGroup3                    8      // 1 Bit, Bit 5
-#define WIRE_sGroup4                    8      // 1 Bit, Bit 4
-#define WIRE_sGroup5                    8      // 1 Bit, Bit 3
-#define WIRE_sGroup6                    8      // 1 Bit, Bit 2
-#define WIRE_sGroup7                    8      // 1 Bit, Bit 1
-#define WIRE_sGroup8                    8      // 1 Bit, Bit 0
-#define WIRE_sIoBitmask0                8      // 1 Bit, Bit 0
-#define WIRE_sIoBitmask1                8      // 1 Bit, Bit 1
-#define WIRE_sIoBitmask2                8      // 1 Bit, Bit 2
-#define WIRE_sIoBitmask3                8      // 1 Bit, Bit 3
-#define WIRE_sIoBitmask4                8      // 1 Bit, Bit 4
-#define WIRE_sIoBitmask5                8      // 1 Bit, Bit 5
-#define WIRE_sIoBitmask6                8      // 1 Bit, Bit 6
-#define WIRE_sIoBitmask7                8      // 1 Bit, Bit 7
-#define WIRE_sIoInvertBitmask0          9      // 1 Bit, Bit 0
-#define WIRE_sIoInvertBitmask1          9      // 1 Bit, Bit 1
-#define WIRE_sIoInvertBitmask2          9      // 1 Bit, Bit 2
-#define WIRE_sIoInvertBitmask3          9      // 1 Bit, Bit 3
-#define WIRE_sIoInvertBitmask4          9      // 1 Bit, Bit 4
-#define WIRE_sIoInvertBitmask5          9      // 1 Bit, Bit 5
-#define WIRE_sIoInvertBitmask6          9      // 1 Bit, Bit 6
-#define WIRE_sIoInvertBitmask7          9      // 1 Bit, Bit 7
-
-// Communication objects per channel (multiple occurance)
-#define WIRE_KoOffset 350
-#define WIRE_KoBlockSize 1
-#define WIRE_KoKOs 0
-
-// Parameter per channel
-#define LOG_ParamBlockOffset 286
+#define LOG_ParamBlockOffset 201
 #define LOG_ParamBlockSize 100
 #define LOG_fChannelDelay              0      // int32_t
 #define LOG_fLogic                     4      // 8 Bits, Bit 7-0
-#define LOG_fCalculate                 5      // 8 Bits, Bit 7-0
+#define LOG_fCalculate                 5      // 2 Bits, Bit 1-0
+#define LOG_fDisable                   5      // 1 Bit, Bit 2
 #define LOG_fTrigger                   6      // 8 Bits, Bit 7-0
 #define LOG_fTriggerE1                 6      // 1 Bit, Bit 0
 #define LOG_fTriggerE2                 6      // 1 Bit, Bit 1
 #define LOG_fTriggerI1                 6      // 1 Bit, Bit 2
 #define LOG_fTriggerI2                 6      // 1 Bit, Bit 3
+#define LOG_fTriggerTime               6      // 8 Bits, Bit 7-0
 #define LOG_fTriggerGateClose          7      // 8 Bits, Bit 7-0
 #define LOG_fTriggerGateOpen           8      // 8 Bits, Bit 7-0
 #define LOG_fE1                        9      // 4 Bits, Bit 3-0
@@ -88,13 +71,27 @@
 #define LOG_fE1Dpt                    10      // 8 Bits, Bit 7-0
 #define LOG_fE1Default                11      // 2 Bits, Bit 1-0
 #define LOG_fE1DefaultEEPROM          11      // 1 Bit, Bit 2
+#define LOG_fE1DefaultRepeat          11      // 1 Bit, Bit 3
+#define LOG_fTYearDay                 11      // 1 Bit, Bit 4
+#define LOG_fTRestoreState            11      // 2 Bits, Bit 6-5
 #define LOG_fE1Repeat                 12      // int32_t
 #define LOG_fE2                       16      // 4 Bits, Bit 3-0
 #define LOG_fE2Convert                16      // 4 Bits, Bit 7-4
 #define LOG_fE2Dpt                    17      // 8 Bits, Bit 7-0
 #define LOG_fE2Default                18      // 2 Bits, Bit 1-0
 #define LOG_fE2DefaultEEPROM          18      // 1 Bit, Bit 2
+#define LOG_fE2DefaultRepeat          18      // 1 Bit, Bit 3
+#define LOG_fTHoliday                 18      // 2 Bits, Bit 4-3
+#define LOG_fTVacation                18      // 2 Bits, Bit 6-5
 #define LOG_fE2Repeat                 19      // int32_t
+#define LOG_fTd1DuskDawn              19      // 4 Bits, Bit 7-4
+#define LOG_fTd2DuskDawn              19      // 4 Bits, Bit 3-0
+#define LOG_fTd3DuskDawn              20      // 4 Bits, Bit 7-4
+#define LOG_fTd4DuskDawn              20      // 4 Bits, Bit 3-0
+#define LOG_fTd5DuskDawn              21      // 4 Bits, Bit 7-4
+#define LOG_fTd6DuskDawn              21      // 4 Bits, Bit 3-0
+#define LOG_fTd7DuskDawn              22      // 4 Bits, Bit 7-4
+#define LOG_fTd8DuskDawn              22      // 4 Bits, Bit 3-0
 #define LOG_fE1LowDelta               23      // int32_t
 #define LOG_fE1HighDelta              27      // int32_t
 #define LOG_fE1LowDpt2                23      // 8 Bits, Bit 7-0
@@ -151,6 +148,94 @@
 #define LOG_fE2Low7Dpt17              38      // 8 Bits, Bit 7-0
 #define LOG_fE2LowDptRGB              31      // int32_t
 #define LOG_fE2HighDptRGB             35      // int32_t
+#define LOG_fTd1Value                 23      // 1 Bit, Bit 7
+#define LOG_fTd1HourAbs               23      // 5 Bits, Bit 5-1
+#define LOG_fTd1HourRel               23      // 5 Bits, Bit 5-1
+#define LOG_fTd1MinuteAbs             23      // 6 Bits, Bit 0--5
+#define LOG_fTd1MinuteRel             23      // 6 Bits, Bit 0--5
+#define LOG_fTd1Weekday               24      // 3 Bits, Bit 2-0
+#define LOG_fTd2Value                 25      // 1 Bit, Bit 7
+#define LOG_fTd2HourAbs               25      // 5 Bits, Bit 5-1
+#define LOG_fTd2HourRel               25      // 5 Bits, Bit 5-1
+#define LOG_fTd2MinuteAbs             25      // 6 Bits, Bit 0--5
+#define LOG_fTd2MinuteRel             25      // 6 Bits, Bit 0--5
+#define LOG_fTd2Weekday               26      // 3 Bits, Bit 2-0
+#define LOG_fTd3Value                 27      // 1 Bit, Bit 7
+#define LOG_fTd3HourAbs               27      // 5 Bits, Bit 5-1
+#define LOG_fTd3HourRel               27      // 5 Bits, Bit 5-1
+#define LOG_fTd3MinuteAbs             27      // 6 Bits, Bit 0--5
+#define LOG_fTd3MinuteRel             27      // 6 Bits, Bit 0--5
+#define LOG_fTd3Weekday               28      // 3 Bits, Bit 2-0
+#define LOG_fTd4Value                 29      // 1 Bit, Bit 7
+#define LOG_fTd4HourAbs               29      // 5 Bits, Bit 5-1
+#define LOG_fTd4HourRel               29      // 5 Bits, Bit 5-1
+#define LOG_fTd4MinuteAbs             29      // 6 Bits, Bit 0--5
+#define LOG_fTd4MinuteRel             29      // 6 Bits, Bit 0--5
+#define LOG_fTd4Weekday               30      // 3 Bits, Bit 2-0
+#define LOG_fTd5Value                 31      // 1 Bit, Bit 7
+#define LOG_fTd5HourAbs               31      // 5 Bits, Bit 5-1
+#define LOG_fTd5HourRel               31      // 5 Bits, Bit 5-1
+#define LOG_fTd5MinuteAbs             31      // 6 Bits, Bit 0--5
+#define LOG_fTd5MinuteRel             31      // 6 Bits, Bit 0--5
+#define LOG_fTd5Weekday               32      // 3 Bits, Bit 2-0
+#define LOG_fTd6Value                 33      // 1 Bit, Bit 7
+#define LOG_fTd6HourAbs               33      // 5 Bits, Bit 5-1
+#define LOG_fTd6HourRel               33      // 5 Bits, Bit 5-1
+#define LOG_fTd6MinuteAbs             33      // 6 Bits, Bit 0--5
+#define LOG_fTd6MinuteRel             33      // 6 Bits, Bit 0--5
+#define LOG_fTd6Weekday               34      // 3 Bits, Bit 2-0
+#define LOG_fTd7Value                 35      // 1 Bit, Bit 7
+#define LOG_fTd7HourAbs               35      // 5 Bits, Bit 5-1
+#define LOG_fTd7HourRel               35      // 5 Bits, Bit 5-1
+#define LOG_fTd7MinuteAbs             35      // 6 Bits, Bit 0--5
+#define LOG_fTd7MinuteRel             35      // 6 Bits, Bit 0--5
+#define LOG_fTd7Weekday               36      // 3 Bits, Bit 2-0
+#define LOG_fTd8Value                 37      // 1 Bit, Bit 7
+#define LOG_fTd8HourAbs               37      // 5 Bits, Bit 5-1
+#define LOG_fTd8HourRel               37      // 5 Bits, Bit 5-1
+#define LOG_fTd8MinuteAbs             37      // 6 Bits, Bit 0--5
+#define LOG_fTd8MinuteRel             37      // 6 Bits, Bit 0--5
+#define LOG_fTd8Weekday               38      // 3 Bits, Bit 2-0
+#define LOG_fTy1Weekday1              31      // 1 Bit, Bit 7
+#define LOG_fTy1Weekday2              31      // 1 Bit, Bit 6
+#define LOG_fTy1Weekday3              31      // 1 Bit, Bit 5
+#define LOG_fTy1Weekday4              31      // 1 Bit, Bit 4
+#define LOG_fTy1Weekday5              31      // 1 Bit, Bit 3
+#define LOG_fTy1Weekday6              31      // 1 Bit, Bit 2
+#define LOG_fTy1Weekday7              31      // 1 Bit, Bit 1
+#define LOG_fTy1Day                   31      // 7 Bits, Bit 7-1
+#define LOG_fTy1IsWeekday             31      // 1 Bit, Bit 0
+#define LOG_fTy1Month                 32      // 4 Bits, Bit 7-4
+#define LOG_fTy2Weekday1              33      // 1 Bit, Bit 7
+#define LOG_fTy2Weekday2              33      // 1 Bit, Bit 6
+#define LOG_fTy2Weekday3              33      // 1 Bit, Bit 5
+#define LOG_fTy2Weekday4              33      // 1 Bit, Bit 4
+#define LOG_fTy2Weekday5              33      // 1 Bit, Bit 3
+#define LOG_fTy2Weekday6              33      // 1 Bit, Bit 2
+#define LOG_fTy2Weekday7              33      // 1 Bit, Bit 1
+#define LOG_fTy2Day                   33      // 7 Bits, Bit 7-1
+#define LOG_fTy2IsWeekday             33      // 1 Bit, Bit 0
+#define LOG_fTy2Month                 34      // 4 Bits, Bit 7-4
+#define LOG_fTy3Weekday1              35      // 1 Bit, Bit 7
+#define LOG_fTy3Weekday2              35      // 1 Bit, Bit 6
+#define LOG_fTy3Weekday3              35      // 1 Bit, Bit 5
+#define LOG_fTy3Weekday4              35      // 1 Bit, Bit 4
+#define LOG_fTy3Weekday5              35      // 1 Bit, Bit 3
+#define LOG_fTy3Weekday6              35      // 1 Bit, Bit 2
+#define LOG_fTy3Weekday7              35      // 1 Bit, Bit 1
+#define LOG_fTy3Day                   35      // 7 Bits, Bit 7-1
+#define LOG_fTy3IsWeekday             35      // 1 Bit, Bit 0
+#define LOG_fTy3Month                 36      // 4 Bits, Bit 7-4
+#define LOG_fTy4Weekday1              37      // 1 Bit, Bit 7
+#define LOG_fTy4Weekday2              37      // 1 Bit, Bit 6
+#define LOG_fTy4Weekday3              37      // 1 Bit, Bit 5
+#define LOG_fTy4Weekday4              37      // 1 Bit, Bit 4
+#define LOG_fTy4Weekday5              37      // 1 Bit, Bit 3
+#define LOG_fTy4Weekday6              37      // 1 Bit, Bit 2
+#define LOG_fTy4Weekday7              37      // 1 Bit, Bit 1
+#define LOG_fTy4Day                   37      // 7 Bits, Bit 7-1
+#define LOG_fTy4IsWeekday             37      // 1 Bit, Bit 0
+#define LOG_fTy4Month                 38      // 4 Bits, Bit 7-4
 #define LOG_fI1                       39      // 4 Bits, Bit 7-4
 #define LOG_fI2                       39      // 4 Bits, Bit 3-0
 #define LOG_fI1Function               40      // uint8_t
@@ -219,12 +304,71 @@
 #define LOG_KoKOfE2 1
 #define LOG_KoKOfO 2
 
+// Parameter per channel
+#define WIRE_ParamBlockOffset 1201
+#define WIRE_ParamBlockSize 17
+#define WIRE_sDeviceId                  0      // char*, 7 Byte
+#define WIRE_sFamilyCode                0      // 8 Bits, Bit 7-0
+#define WIRE_sId0                       1      // 4 Bits, Bit 7-4
+#define WIRE_sId1                       1      // 4 Bits, Bit 3-0
+#define WIRE_sId2                       2      // 4 Bits, Bit 7-4
+#define WIRE_sId3                       2      // 4 Bits, Bit 3-0
+#define WIRE_sId4                       3      // 4 Bits, Bit 7-4
+#define WIRE_sId5                       3      // 4 Bits, Bit 3-0
+#define WIRE_sId6                       4      // 4 Bits, Bit 7-4
+#define WIRE_sId7                       4      // 4 Bits, Bit 3-0
+#define WIRE_sId8                       5      // 4 Bits, Bit 7-4
+#define WIRE_sId9                       5      // 4 Bits, Bit 3-0
+#define WIRE_sIdA                       6      // 4 Bits, Bit 7-4
+#define WIRE_sIdB                       6      // 4 Bits, Bit 3-0
+#define WIRE_sModelFunction             7      // 8 Bits, Bit 7-0
+#define WIRE_sModelFunctionDS2408       7      // 8 Bits, Bit 7-0
+#define WIRE_sModelFunctionDS2413       7      // 8 Bits, Bit 7-0
+#define WIRE_sModelFunctionDS2438       7      // 8 Bits, Bit 7-0
+#define WIRE_sSensorOffset              8      // int8_t
+#define WIRE_sSensorCycle               9      // int32_t
+#define WIRE_sSensorDeltaAbs           13      // uint16_t
+#define WIRE_sSensorDeltaPercent       15      // uint8_t
+#define WIRE_sSensorSmooth             16      // uint8_t
+#define WIRE_sGroup1                    8      // 1 Bit, Bit 7
+#define WIRE_sGroup2                    8      // 1 Bit, Bit 6
+#define WIRE_sGroup3                    8      // 1 Bit, Bit 5
+#define WIRE_sGroup4                    8      // 1 Bit, Bit 4
+#define WIRE_sGroup5                    8      // 1 Bit, Bit 3
+#define WIRE_sGroup6                    8      // 1 Bit, Bit 2
+#define WIRE_sGroup7                    8      // 1 Bit, Bit 1
+#define WIRE_sGroup8                    8      // 1 Bit, Bit 0
+#define WIRE_sIoBitmask0                8      // 1 Bit, Bit 0
+#define WIRE_sIoBitmask1                8      // 1 Bit, Bit 1
+#define WIRE_sIoBitmask2                8      // 1 Bit, Bit 2
+#define WIRE_sIoBitmask3                8      // 1 Bit, Bit 3
+#define WIRE_sIoBitmask4                8      // 1 Bit, Bit 4
+#define WIRE_sIoBitmask5                8      // 1 Bit, Bit 5
+#define WIRE_sIoBitmask6                8      // 1 Bit, Bit 6
+#define WIRE_sIoBitmask7                8      // 1 Bit, Bit 7
+#define WIRE_sIoInvertBitmask0          9      // 1 Bit, Bit 0
+#define WIRE_sIoInvertBitmask1          9      // 1 Bit, Bit 1
+#define WIRE_sIoInvertBitmask2          9      // 1 Bit, Bit 2
+#define WIRE_sIoInvertBitmask3          9      // 1 Bit, Bit 3
+#define WIRE_sIoInvertBitmask4          9      // 1 Bit, Bit 4
+#define WIRE_sIoInvertBitmask5          9      // 1 Bit, Bit 5
+#define WIRE_sIoInvertBitmask6          9      // 1 Bit, Bit 6
+#define WIRE_sIoInvertBitmask7          9      // 1 Bit, Bit 7
+
+// Communication objects per channel (multiple occurance)
+#define WIRE_KoOffset 350
+#define WIRE_KoBlockSize 1
+#define WIRE_KoKOs 0
+
 // Communication objects with single occurance
-#define WIRE_KoHeartbeat 1
-#define WIRE_KoTime 2
-#define WIRE_KoDate 3
-#define WIRE_KoErrorBusmaster1 401
-#define WIRE_KoErrorBusmaster2 402
-#define WIRE_KoErrorBusmaster3 403
-#define WIRE_KoNewId 404
+#define LOG_KoHeartbeat 1
+#define LOG_KoTime 2
+#define LOG_KoDate 3
+#define LOG_KoVacation 4
+#define LOG_KoHoliday1 5
+#define LOG_KoHoliday2 6
+#define LOG_KoErrorBusmaster1 401
+#define LOG_KoErrorBusmaster2 402
+#define LOG_KoErrorBusmaster3 403
+#define LOG_KoNewId 404
 

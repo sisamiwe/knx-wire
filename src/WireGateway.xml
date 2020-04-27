@@ -27,8 +27,8 @@
               <mc:include href="WireGateway.share.xml" xpath="//Parameters/Parameter|//Parameters/Union" prefix="WIRE" />
 
               <!-- Parameter for this device, channel dependent -->
-              <mc:include href="WireGateway.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" header="WireGateway.h" prefix="WIRE" />
               <mc:include href="../../knx-logic/src/Logikmodul.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" header="WireGateway.h" prefix="LOG" />
+              <mc:include href="WireGateway.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" header="WireGateway.h" prefix="WIRE" />
             </Parameters>
             <ParameterRefs>
               <!-- General -->
@@ -42,8 +42,8 @@
               <mc:include href="../../knx-logic/src/Logikmodul.share.xml" xpath="//ComObjectTable/ComObject" prefix="LOG" />
               <mc:include href="WireGateway.share.xml" xpath="//ComObjectTable/ComObject" prefix="WIRE" />
 
-              <mc:include href="WireGateway.templ.xml" xpath="//ComObjectTable/ComObject" header="WireGateway.h" prefix="WIRE" />
               <mc:include href="../../knx-logic/src/Logikmodul.templ.xml" xpath="//ComObjectTable/ComObject" header="WireGateway.h" prefix="LOG" />
+              <mc:include href="WireGateway.templ.xml" xpath="//ComObjectTable/ComObject" header="WireGateway.h" prefix="WIRE" />
 
             </ComObjectTable>
             <ComObjectRefs>
