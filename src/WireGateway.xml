@@ -8,13 +8,13 @@
         </CatalogSection>
       </Catalog>
       <ApplicationPrograms>
-        <ApplicationProgram Id="M-00FA_A-0001-01-0000" ApplicationNumber="110" ApplicationVersion="1" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="WP-1WireGateway-Logic" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="true" MinEtsVersion="4.0">
+        <ApplicationProgram Id="M-00FA_A-0001-01-0000" ApplicationNumber="110" ApplicationVersion="13" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="WP-1WireGateway-Logic" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="true" MinEtsVersion="4.0">
           <Static>
             <Code>
               <RelativeSegment Id="M-00FA_A-0001-01-0000_RS-04-00000" Name="Parameters" Offset="0" Size="0" LoadStateMachine="4" />
             </Code>
             <mc:define prefix="LOG" NumChannels="10" KoOffset="50" />
-            <mc:define prefix="WIRE" NumChannels="30" KoOffset="350" />
+            <mc:define prefix="WIRE" NumChannels="90" KoOffset="450" />
             <ParameterTypes>
               <!-- generic parameter types from logicmodule -->
               <mc:include href="../../knx-logic/src/Logikmodul.share.xml" xpath="//ParameterTypes/ParameterType" prefix="LOG" />
@@ -50,7 +50,7 @@
               <mc:include href="../../knx-logic/src/Logikmodul.share.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="LOG" />
               <mc:include href="WireGateway.share.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="WIRE" />
 
-              <mc:include href="WireGateway.templ.xml" xpath="//ComObjectRefsComObjectRef" header="WireGateway.h" prefix="WIRE" />
+              <mc:include href="WireGateway.templ.xml" xpath="//ComObjectRefs/ComObjectRef" header="WireGateway.h" prefix="WIRE" />
               <mc:include href="../../knx-logic/src/Logikmodul.templ.xml" xpath="//ComObjectRefs/ComObjectRef" header="WireGateway.h" prefix="LOG" />
             </ComObjectRefs>
             <AddressTable MaxEntries="65535" />
@@ -66,12 +66,20 @@
             <Options />
           </Static>
           <Dynamic>
-            <mc:include href="WireGateway.share.xml" xpath="//Dynamic/*" prefix="WIRE" />
-            <mc:include href="../../knx-logic/src/Logikmodul.share.xml" xpath="//Dynamic/Channel" header="WireGateway.h" prefix="LOG" />
-            <Channel Id="M-00FA_A-0001-01-0000_CH-4" Name="Devices" Number="4" Text="1-Wire-Geräte">
+            <ChannelIndependentBlock>
+              <!-- Generic parameters of WireGateway -->
+              <mc:include href="WireGateway.share.xml" xpath="//Dynamic/ChannelIndependentBlock/*" prefix="WIRE" />
+            </ChannelIndependentBlock>
+            <Channel Id="M-00FA_A-0001-01-0000_CH-4" Name="Devices" Number="4" Text="1-Wire">
+              <!-- OneWire channel independent settings -->
+              <mc:include href="WireGateway.share.xml" xpath="//Dynamic/Channel/*" header="WireGateway.h" prefix="LOG" />
+              <!-- OneWire channel settings -->
               <mc:include href="WireGateway.templ.xml" xpath="//Dynamic/*" header="WireGateway.h" prefix="WIRE" />
             </Channel>
-            <Channel Id="M-00FA_A-0001-01-0000_CH-5" Name="Logikkanaele" Number="5" Text="Logikkanäle">
+            <Channel Id="M-00FA_A-0001-01-0000_CH-5" Name="Logik" Number="5" Text="Logik">
+              <!-- Logic channel independent settings -->
+              <mc:include href="../../knx-logic/src/Logikmodul.share.xml" xpath="//Dynamic/Channel/*" prefix="LOG" />
+              <!-- Logic channel settings -->
               <mc:include href="../../knx-logic/src/Logikmodul.templ.xml" xpath="//Dynamic/*" header="WireGateway.h" prefix="LOG" />
             </Channel>
           </Dynamic>

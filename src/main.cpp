@@ -1,5 +1,4 @@
 #include <knx.h>
-#include <Wire.h>
 #include "Hardware.h"
 
 void appSetup(bool iSaveSupported);
@@ -9,7 +8,7 @@ void setup()
 {
     SerialUSB.begin(115200);
     pinMode(PROG_LED_PIN, OUTPUT);
-    digitalWrite(PROG_LED_PIN, HIGH); 
+    digitalWrite(PROG_LED_PIN, HIGH);
     delay(6000);
     digitalWrite(PROG_LED_PIN, LOW);
     SerialUSB.println("Startup called...");
@@ -18,9 +17,9 @@ void setup()
 #ifdef LED_YELLOW_PIN
     pinMode(LED_YELLOW_PIN, OUTPUT);
     digitalWrite(LED_YELLOW_PIN, HIGH);
-#endif    
+#endif
 
-    Wire.begin();    
+    // Wire.begin();
     knx.readMemory();
 
     // pin or GPIO the programming led is connected to. Default is LED_BUILDIN

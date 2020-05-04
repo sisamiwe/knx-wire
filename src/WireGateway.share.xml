@@ -33,7 +33,6 @@
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-String2" Name="String2">
                 <TypeText SizeInBit="16" />
               </ParameterType>
-
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-Nibble" Name="Nibble">
                 <TypeRestriction Base="Value" SizeInBit="4">
                   <Enumeration Text="0" Value="0" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-0" />
@@ -54,15 +53,6 @@
                   <Enumeration Text="F" Value="15" Id="M-00FA_A-0001-01-0000_PT-Nibble_EN-15" />
                 </TypeRestriction>
               </ParameterType>
-              <!-- <ParameterType Id="M-00FA_A-0001-01-0000_PT-OffsetTemp" Name="OffsetTemp">
-                <TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-50" maxInclusive="50" />
-              </ParameterType>
-              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeltaAbsTemp" Name="DeltaAbsTemp">
-                <TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="500" />
-              </ParameterType>
-              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeltaRelTemp" Name="DeltaRelTemp">
-                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
-              </ParameterType> -->
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunction" Name="ModelFunction">
                 <TypeRestriction Base="Value" SizeInBit="8">
                   <Enumeration Text="Default" Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-0" />
@@ -78,29 +68,57 @@
                   <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-10" />
                   <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-11" />
                   <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-12" />
-                  <Enumeration Text="AD1: Benutzerdefiniert" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-13" />
-                  <Enumeration Text="AD2: Helligkeit" Value="14" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-14" />
-                  <Enumeration Text="AD2: Benutzerdefiniert" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-15" />
+                  <Enumeration Text="AD2: Helligkeit" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-13" />
+                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-20" />
+                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-21" />
+                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-22" />
+                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-23" />
+                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-24" />
+                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-25" />
+                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-26" />
+                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-27" />
+                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-28" />
+                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-29" />
+                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-30" />
+                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-31" />
+                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-32" />
+                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-33" />
+                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-34" />
+                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-35" />
+                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-36" />
+                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-37" />
+                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-38" />
+                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-39" />
+                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-40" />
+                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-41" />
+                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-42" />
+                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-43" />
+                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-44" />
+                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-45" />
+                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-46" />
+                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-47" />
+                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-48" />
+                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-49" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Name="ModelFunctionDS2408">
                 <TypeRestriction Base="Value" SizeInBit="8">
-                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-1" />
-                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-2" />
-                  <Enumeration Text="Bit 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-3" />
-                  <Enumeration Text="Bit 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-4" />
-                  <Enumeration Text="Bit 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-5" />
-                  <Enumeration Text="Bit 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-6" />
-                  <Enumeration Text="Bit 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-7" />
-                  <Enumeration Text="Bit 8" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-8" />
-                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-9" />
+                  <Enumeration Text="Bit 0" Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-1" />
+                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-2" />
+                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-3" />
+                  <Enumeration Text="Bit 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-4" />
+                  <Enumeration Text="Bit 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-5" />
+                  <Enumeration Text="Bit 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-6" />
+                  <Enumeration Text="Bit 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-7" />
+                  <Enumeration Text="Bit 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-8" />
+                  <Enumeration Text="Byte" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-9" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413" Name="ModelFunctionDS2413">
                 <TypeRestriction Base="Value" SizeInBit="8">
-                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-1" />
-                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-2" />
-                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-9" />
+                  <Enumeration Text="Bit 0" Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-1" />
+                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-2" />
+                  <Enumeration Text="Byte" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-9" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438" Name="ModelFunctionDS2438">
@@ -108,9 +126,37 @@
                   <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-10" />
                   <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-11" />
                   <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-12" />
-                  <Enumeration Text="AD1: Benutzerdefiniert" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-13" />
-                  <Enumeration Text="AD2: Helligkeit" Value="14" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-14" />
-                  <Enumeration Text="AD2: Benutzerdefiniert" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-15" />
+                  <Enumeration Text="AD2: Helligkeit" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-13" />
+                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-20" />
+                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-21" />
+                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-22" />
+                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-23" />
+                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-24" />
+                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-25" />
+                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-26" />
+                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-27" />
+                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-28" />
+                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-29" />
+                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-30" />
+                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-31" />
+                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-32" />
+                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-33" />
+                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-34" />
+                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-35" />
+                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-36" />
+                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-37" />
+                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-38" />
+                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-39" />
+                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-40" />
+                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-41" />
+                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-42" />
+                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-43" />
+                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-44" />
+                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-45" />
+                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-46" />
+                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-47" />
+                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-48" />
+                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-49" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-Group" Name="Group">
@@ -156,37 +202,102 @@
                   <Enumeration Text="neue Id auf den Bus senden" Value="1" Id="M-00FA_A-0001-01-0000_PT-IdSearch_EN-1" />
                 </TypeRestriction>
               </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-GroupType" Name="GroupType">
+                <TypeRestriction Base="Value" SizeInBit="1">
+                  <Enumeration Text="ODER-Gruppe" Value="0" Id="M-00FA_A-0001-01-0000_PT-GroupType_EN-0" />
+                  <Enumeration Text="UND-Gruppe" Value="1" Id="M-00FA_A-0001-01-0000_PT-GroupType_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
             </ParameterTypes>
             <Parameters>
+              <Parameter Id="M-00FA_A-0001-01-0000_P-528" Name="DeviceCount" ParameterType="M-00FA_A-0001-01-0000_PT-ValueDpt5" Text="Wire-Devices" Value="0" Access="None" />
               <Union SizeInBit="8">
                 <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="200" BitOffset="0" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-500" Name="WireError" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-OnOffYesNo" Text="Fehler- und Diagnoseobjekt anzeigen" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-500" Name="WireError" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-OnOffYesNo" Text="Fehlerobjekt(e) anzeigen" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-501" Name="BusMasterCount" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterCount" Text="Installierte Busmaster" Value="1" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-502" Name="IdSearch" Offset="0" BitOffset="3" ParameterType="M-00FA_A-0001-01-0000_PT-IdSearch" Text="Device-Suche" Value="1" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-503" Name="IButton1" Offset="0" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-CheckBox" Text="iButton auf Busmaster 1 auswerten?" Value="1" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-504" Name="IButton2" Offset="0" BitOffset="5" ParameterType="M-00FA_A-0001-01-0000_PT-CheckBox" Text="iButton auf Busmaster 2 auswerten?" Value="1" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-505" Name="IButton3" Offset="0" BitOffset="6" ParameterType="M-00FA_A-0001-01-0000_PT-CheckBox" Text="iButton auf Busmaster 3 auswerten?" Value="1" />
+              </Union>
+              <Parameter Id="M-00FA_A-0001-01-0000_P-510" Name="GroupText1" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 1: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-511" Name="GroupText2" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 2: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-512" Name="GroupText3" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 3: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-513" Name="GroupText4" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 4: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-514" Name="GroupText5" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 5: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-515" Name="GroupText6" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 6: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-516" Name="GroupText7" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 7: Name" Value="" />
+              <Parameter Id="M-00FA_A-0001-01-0000_P-517" Name="GroupText8" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 8: Name" Value="" />
+              <Union SizeInBit="8">
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="201" BitOffset="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-520" Name="Group1" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-521" Name="Group2" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-522" Name="Group3" Offset="0" BitOffset="2" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-523" Name="Group4" Offset="0" BitOffset="3" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-524" Name="Group5" Offset="0" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-525" Name="Group6" Offset="0" BitOffset="5" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-526" Name="Group7" Offset="0" BitOffset="6" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-527" Name="Group8" Offset="0" BitOffset="7" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
               </Union>
             </Parameters>
             <ParameterRefs>
               <!-- General -->
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-5_R-51" RefId="M-00FA_A-0001-01-0000_UP-5" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-6_R-61" RefId="M-00FA_A-0001-01-0000_UP-6" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-7_R-71" RefId="M-00FA_A-0001-01-0000_UP-7" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-8_R-81" RefId="M-00FA_A-0001-01-0000_UP-8" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-5_R-51" RefId="M-00FA_A-0001-01-0000_UP-5" Value="0" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-6_R-61" RefId="M-00FA_A-0001-01-0000_UP-6" Value="0" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-7_R-71" RefId="M-00FA_A-0001-01-0000_UP-7" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-8_R-81" RefId="M-00FA_A-0001-01-0000_UP-8" Access="None" />
 
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-500_R-5001" RefId="M-00FA_A-0001-01-0000_UP-500" />
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-501_R-5011" RefId="M-00FA_A-0001-01-0000_UP-501" />
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-502_R-5021" RefId="M-00FA_A-0001-01-0000_UP-502" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-503_R-5031" RefId="M-00FA_A-0001-01-0000_UP-503" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-504_R-5041" RefId="M-00FA_A-0001-01-0000_UP-504" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-505_R-5051" RefId="M-00FA_A-0001-01-0000_UP-505" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-510_R-5101" RefId="M-00FA_A-0001-01-0000_P-510" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-511_R-5111" RefId="M-00FA_A-0001-01-0000_P-511" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-512_R-5121" RefId="M-00FA_A-0001-01-0000_P-512" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-513_R-5131" RefId="M-00FA_A-0001-01-0000_P-513" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-514_R-5141" RefId="M-00FA_A-0001-01-0000_P-514" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-515_R-5151" RefId="M-00FA_A-0001-01-0000_P-515" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-516_R-5161" RefId="M-00FA_A-0001-01-0000_P-516" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-517_R-5171" RefId="M-00FA_A-0001-01-0000_P-517" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-520_R-5201" RefId="M-00FA_A-0001-01-0000_UP-520" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-521_R-5211" RefId="M-00FA_A-0001-01-0000_UP-521" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-522_R-5221" RefId="M-00FA_A-0001-01-0000_UP-522" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-523_R-5231" RefId="M-00FA_A-0001-01-0000_UP-523" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-524_R-5241" RefId="M-00FA_A-0001-01-0000_UP-524" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-525_R-5251" RefId="M-00FA_A-0001-01-0000_UP-525" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-526_R-5261" RefId="M-00FA_A-0001-01-0000_UP-526" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-527_R-5271" RefId="M-00FA_A-0001-01-0000_UP-527" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_P-528_R-5281" RefId="M-00FA_A-0001-01-0000_P-528" />
             </ParameterRefs>
             <ComObjectTable>
               <ComObject Id="M-00FA_A-0001-01-0000_O-401" Name="ErrorBusmaster1" Text="Devicefehler Busmaster 1" Number="401" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
               <ComObject Id="M-00FA_A-0001-01-0000_O-402" Name="ErrorBusmaster2" Text="Devicefehler Busmaster 2" Number="402" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
               <ComObject Id="M-00FA_A-0001-01-0000_O-403" Name="ErrorBusmaster3" Text="Devicefehler Busmaster 3" Number="403" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
               <ComObject Id="M-00FA_A-0001-01-0000_O-404" Name="NewId" Text="Unbekannte Devices" Number="404" FunctionText="Device-Id" ObjectSize="14 Bytes" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-16-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-405" Name="Group1" Text="Gruppe 1" Number="405" FunctionText="Gruppe 1, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-406" Name="Group2" Text="Gruppe 2" Number="406" FunctionText="Gruppe 2, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-407" Name="Group3" Text="Gruppe 3" Number="407" FunctionText="Gruppe 3, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-408" Name="Group4" Text="Gruppe 4" Number="408" FunctionText="Gruppe 4, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-409" Name="Group5" Text="Gruppe 5" Number="409" FunctionText="Gruppe 5, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-410" Name="Group6" Text="Gruppe 6" Number="410" FunctionText="Gruppe 6, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-411" Name="Group7" Text="Gruppe 7" Number="411" FunctionText="Gruppe 7, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-412" Name="Group8" Text="Gruppe 8" Number="412" FunctionText="Gruppe 8, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
             </ComObjectTable>
             <ComObjectRefs>
               <ComObjectRef Id="M-00FA_A-0001-01-0000_O-401_R-4011" RefId="M-00FA_A-0001-01-0000_O-401" />
               <ComObjectRef Id="M-00FA_A-0001-01-0000_O-402_R-4021" RefId="M-00FA_A-0001-01-0000_O-402" />
               <ComObjectRef Id="M-00FA_A-0001-01-0000_O-403_R-4031" RefId="M-00FA_A-0001-01-0000_O-403" />
               <ComObjectRef Id="M-00FA_A-0001-01-0000_O-404_R-4041" RefId="M-00FA_A-0001-01-0000_O-404" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-405_R-4051" RefId="M-00FA_A-0001-01-0000_O-405" Text="{{0:Gruppe 1}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-510_R-5101" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-406_R-4061" RefId="M-00FA_A-0001-01-0000_O-406" Text="{{0:Gruppe 2}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-511_R-5111" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-407_R-4071" RefId="M-00FA_A-0001-01-0000_O-407" Text="{{0:Gruppe 3}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-512_R-5121" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-408_R-4081" RefId="M-00FA_A-0001-01-0000_O-408" Text="{{0:Gruppe 4}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-513_R-5131" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-409_R-4091" RefId="M-00FA_A-0001-01-0000_O-409" Text="{{0:Gruppe 5}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-514_R-5141" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-410_R-4101" RefId="M-00FA_A-0001-01-0000_O-410" Text="{{0:Gruppe 6}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-515_R-5151" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-411_R-4111" RefId="M-00FA_A-0001-01-0000_O-411" Text="{{0:Gruppe 7}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-516_R-5161" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-412_R-4121" RefId="M-00FA_A-0001-01-0000_O-412" Text="{{0:Gruppe 8}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-517_R-5171" />
             </ComObjectRefs>
             <AddressTable MaxEntries="65535" />
             <AssociationTable MaxEntries="65535" />
@@ -203,21 +314,60 @@
           <Dynamic>
             <ChannelIndependentBlock>
               <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-nnn" Name="General" Text="Allgemeine Parameter">
+                <!-- Calculated number of 1-Wire-Devices supported -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-528_R-5281" />
+                <!-- the following parameter is read only and necessary (number of logik channels used in knxdprod) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-1_R-11" />
+                <!-- startup delay -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-2_R-21" />
+                <!-- heartbeat delay -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-3_R-31" />
+                <!-- buzzer available (invisible, false) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-4_R-41" />
+                <!-- rgb led available (invisible, false) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-5_R-51" />
+                <!-- eeprom available (invisible, true) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-6_R-61" />
+                <!-- ncn5130 available (invisible, true) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-7_R-71" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-7_R-71">
+                  <when test="0">
+                    <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Ohne EEPROM kann das Logikmodul Werte der Eingänge nicht speichern und nach einem Neustart wieder zur Verfügung stellen. Diese Funktion wird in der Applikation nicht angeboten." UIHint="Information" />
+                  </when>
+                </choose>
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-8_R-81" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-8_R-81">
+                  <when test="0">
+                    <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Ohne Abschaltmöglichkeit der Zusatzhardware (RGB-LED, Buzzer) kann das Logikmodul Werte der Eingänge nicht speichern und nach einem Neustart wieder zur Verfügung stellen. Diese Funktion wird in der Applikation nicht angeboten." UIHint="Information" />
+                  </when>
+                </choose>
                 <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-2_R-21" />
                 <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-3_R-31" />
-                <!-- the following parameter is readonly and necessary (number of logik channels used in knxdprod) -->
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-1_R-11" />
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-2_R-21" />
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-3_R-31" />
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-4_R-41" />
                 <choose ParamRefId="M-00FA_A-0001-01-0000_P-3_R-31">
                   <when test="!=0">
                     <!-- show heartbeat only if it is parametrized -->
                     <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-1_R-11" />
                   </when>
                 </choose>
-                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-12" Text="" UIHint="HorizontalRuler" />
+              </ParameterBlock>
+            </ChannelIndependentBlock>
+            <Channel Id="M-00FA_A-0001-01-0000_CH-6" Name="BM" Number="6" Text="1-Wire-Bus" >
+              <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-1" Name="BM" Text="Busmaster-Einstellungen">
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-501_R-5011" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-501_R-5011">
+                  <when test="1">
+                    <!-- one Busmaster supports 30 Devices -->
+                    <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-528_R-5281" Value="30" />
+                  </when>
+                  <when test="2">
+                    <!-- two Busmaster support 60 Devices -->
+                    <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-528_R-5281" Value="60" />
+                  </when>
+                  <when test="3">
+                    <!-- three Busmaster support 90 Devices -->
+                    <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-528_R-5281" Value="90" />
+                  </when>
+                </choose>
                 <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-13" Text="" UIHint="HorizontalRuler" />
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-502_R-5021" />
                 <choose ParamRefId="M-00FA_A-0001-01-0000_UP-502_R-5021">
@@ -248,7 +398,30 @@
                   </when>
                 </choose>
               </ParameterBlock>
-            </ChannelIndependentBlock>
+              <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-2" Name="IButtonGroups" Text="iButton Gruppierung">
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-25" Text="iButton-Gruppen" UIHint="Headline" />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-26" Text="iButtons können in Gruppen organisiert werden, die es erlauben, für mehrere iButtons ein Telegramm zu bekommen." />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-30" Text="Es gibt folgende Gruppentypen:" />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-31" Text="ODER-Gruppe: Sobald ein iButton dieser Gruppe erkannt wird, sendet diese Gruppe ein EIN-Signal. Nur wenn alle iButton dieser Gruppe entfernt sind, sendet diese Gruppe ein AUS-Signal." />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-32" Text="UND-Gruppe: Nur wenn alle iButton dieser Gruppe erkannt werden, sendet diese Gruppe ein EIN-Signal. Sobald nur ein iButton dieser Gruppe entfernt ist, sendet diese Gruppe ein AUS-Signal." />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-510_R-5101" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-520_R-5201" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-511_R-5111" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-521_R-5211" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-512_R-5121" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-522_R-5221" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-513_R-5131" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-523_R-5231" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-514_R-5141" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-524_R-5241" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-515_R-5151" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-525_R-5251" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-516_R-5161" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-526_R-5261" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-517_R-5171" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-527_R-5271" />
+              </ParameterBlock>
+            </Channel>
           </Dynamic>
         </ApplicationProgram>
       </ApplicationPrograms>

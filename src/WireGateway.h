@@ -50,9 +50,20 @@
 #define LOG_WireError                 200      // 1 Bit, Bit 7
 #define LOG_BusMasterCount            200      // 2 Bits, Bit 6-5
 #define LOG_IdSearch                  200      // 1 Bit, Bit 4
+#define LOG_IButton1                  200      // 1 Bit, Bit 3
+#define LOG_IButton2                  200      // 1 Bit, Bit 2
+#define LOG_IButton3                  200      // 1 Bit, Bit 1
+#define LOG_Group1                    201      // 1 Bit, Bit 7
+#define LOG_Group2                    201      // 1 Bit, Bit 6
+#define LOG_Group3                    201      // 1 Bit, Bit 5
+#define LOG_Group4                    201      // 1 Bit, Bit 4
+#define LOG_Group5                    201      // 1 Bit, Bit 3
+#define LOG_Group6                    201      // 1 Bit, Bit 2
+#define LOG_Group7                    201      // 1 Bit, Bit 1
+#define LOG_Group8                    201      // 1 Bit, Bit 0
 
 // Parameter per channel
-#define LOG_ParamBlockOffset 201
+#define LOG_ParamBlockOffset 202
 #define LOG_ParamBlockSize 100
 #define LOG_fChannelDelay              0      // int32_t
 #define LOG_fLogic                     4      // 8 Bits, Bit 7-0
@@ -305,7 +316,7 @@
 #define LOG_KoKOfO 2
 
 // Parameter per channel
-#define WIRE_ParamBlockOffset 1201
+#define WIRE_ParamBlockOffset 1202
 #define WIRE_ParamBlockSize 17
 #define WIRE_sDeviceId                  0      // char*, 7 Byte
 #define WIRE_sFamilyCode                0      // 8 Bits, Bit 7-0
@@ -356,7 +367,7 @@
 #define WIRE_sIoInvertBitmask7          9      // 1 Bit, Bit 7
 
 // Communication objects per channel (multiple occurance)
-#define WIRE_KoOffset 350
+#define WIRE_KoOffset 450
 #define WIRE_KoBlockSize 1
 #define WIRE_KoKOs 0
 
@@ -371,4 +382,12 @@
 #define LOG_KoErrorBusmaster2 402
 #define LOG_KoErrorBusmaster3 403
 #define LOG_KoNewId 404
+#define LOG_KoGroup1 405
+#define LOG_KoGroup2 406
+#define LOG_KoGroup3 407
+#define LOG_KoGroup4 408
+#define LOG_KoGroup5 409
+#define LOG_KoGroup6 410
+#define LOG_KoGroup7 411
+#define LOG_KoGroup8 412
 
