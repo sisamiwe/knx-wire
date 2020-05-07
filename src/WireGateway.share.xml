@@ -242,10 +242,10 @@
             </Parameters>
             <ParameterRefs>
               <!-- General -->
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-5_R-51" RefId="M-00FA_A-0001-01-0000_UP-5" Value="0" Access="None" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-6_R-61" RefId="M-00FA_A-0001-01-0000_UP-6" Value="0" Access="None" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-7_R-71" RefId="M-00FA_A-0001-01-0000_UP-7" Access="None" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-8_R-81" RefId="M-00FA_A-0001-01-0000_UP-8" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-5_R-52" RefId="M-00FA_A-0001-01-0000_UP-5" Value="0" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-6_R-62" RefId="M-00FA_A-0001-01-0000_UP-6" Value="0" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-7_R-72" RefId="M-00FA_A-0001-01-0000_UP-7" Access="None" />
+              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-8_R-82" RefId="M-00FA_A-0001-01-0000_UP-8" Access="None" />
 
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-500_R-5001" RefId="M-00FA_A-0001-01-0000_UP-500" />
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-501_R-5011" RefId="M-00FA_A-0001-01-0000_UP-501" />
@@ -272,32 +272,32 @@
               <ParameterRef Id="M-00FA_A-0001-01-0000_P-528_R-5281" RefId="M-00FA_A-0001-01-0000_P-528" />
             </ParameterRefs>
             <ComObjectTable>
-              <ComObject Id="M-00FA_A-0001-01-0000_O-401" Name="ErrorBusmaster1" Text="Devicefehler Busmaster 1" Number="401" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-402" Name="ErrorBusmaster2" Text="Devicefehler Busmaster 2" Number="402" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-403" Name="ErrorBusmaster3" Text="Devicefehler Busmaster 3" Number="403" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-404" Name="NewId" Text="Unbekannte Devices" Number="404" FunctionText="Device-Id" ObjectSize="14 Bytes" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-16-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-405" Name="Group1" Text="Gruppe 1" Number="405" FunctionText="Gruppe 1, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-406" Name="Group2" Text="Gruppe 2" Number="406" FunctionText="Gruppe 2, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-407" Name="Group3" Text="Gruppe 3" Number="407" FunctionText="Gruppe 3, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-408" Name="Group4" Text="Gruppe 4" Number="408" FunctionText="Gruppe 4, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-409" Name="Group5" Text="Gruppe 5" Number="409" FunctionText="Gruppe 5, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-410" Name="Group6" Text="Gruppe 6" Number="410" FunctionText="Gruppe 6, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-411" Name="Group7" Text="Gruppe 7" Number="411" FunctionText="Gruppe 7, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
-              <ComObject Id="M-00FA_A-0001-01-0000_O-412" Name="Group8" Text="Gruppe 8" Number="412" FunctionText="Gruppe 8, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-20" Name="NewId" Text="Unbekannte Devices" Number="20" FunctionText="Device-Id" ObjectSize="14 Bytes" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-16-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-21" Name="ErrorBusmaster1" Text="Devicefehler Busmaster 1" Number="21" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-22" Name="ErrorBusmaster2" Text="Devicefehler Busmaster 2" Number="22" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-23" Name="ErrorBusmaster3" Text="Devicefehler Busmaster 3" Number="23" FunctionText="Bitleiste" ObjectSize="4 Bytes" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-12-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-24" Name="Group1" Text="Gruppe 1" Number="24" FunctionText="Gruppe 1, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-25" Name="Group2" Text="Gruppe 2" Number="25" FunctionText="Gruppe 2, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-26" Name="Group3" Text="Gruppe 3" Number="26" FunctionText="Gruppe 3, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-27" Name="Group4" Text="Gruppe 4" Number="27" FunctionText="Gruppe 4, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-28" Name="Group5" Text="Gruppe 5" Number="28" FunctionText="Gruppe 5, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-29" Name="Group6" Text="Gruppe 6" Number="29" FunctionText="Gruppe 6, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-30" Name="Group7" Text="Gruppe 7" Number="30" FunctionText="Gruppe 7, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
+              <ComObject Id="M-00FA_A-0001-01-0000_O-31" Name="Group8" Text="Gruppe 8" Number="31" FunctionText="Gruppe 8, Ausgang" ObjectSize="1 Bit" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-1-1" />
             </ComObjectTable>
             <ComObjectRefs>
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-401_R-4011" RefId="M-00FA_A-0001-01-0000_O-401" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-402_R-4021" RefId="M-00FA_A-0001-01-0000_O-402" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-403_R-4031" RefId="M-00FA_A-0001-01-0000_O-403" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-404_R-4041" RefId="M-00FA_A-0001-01-0000_O-404" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-405_R-4051" RefId="M-00FA_A-0001-01-0000_O-405" Text="{{0:Gruppe 1}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-510_R-5101" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-406_R-4061" RefId="M-00FA_A-0001-01-0000_O-406" Text="{{0:Gruppe 2}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-511_R-5111" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-407_R-4071" RefId="M-00FA_A-0001-01-0000_O-407" Text="{{0:Gruppe 3}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-512_R-5121" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-408_R-4081" RefId="M-00FA_A-0001-01-0000_O-408" Text="{{0:Gruppe 4}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-513_R-5131" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-409_R-4091" RefId="M-00FA_A-0001-01-0000_O-409" Text="{{0:Gruppe 5}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-514_R-5141" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-410_R-4101" RefId="M-00FA_A-0001-01-0000_O-410" Text="{{0:Gruppe 6}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-515_R-5151" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-411_R-4111" RefId="M-00FA_A-0001-01-0000_O-411" Text="{{0:Gruppe 7}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-516_R-5161" />
-              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-412_R-4121" RefId="M-00FA_A-0001-01-0000_O-412" Text="{{0:Gruppe 8}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-517_R-5171" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-20_R-201" RefId="M-00FA_A-0001-01-0000_O-20" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-21_R-211" RefId="M-00FA_A-0001-01-0000_O-21" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-22_R-221" RefId="M-00FA_A-0001-01-0000_O-22" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-23_R-231" RefId="M-00FA_A-0001-01-0000_O-23" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-24_R-241" RefId="M-00FA_A-0001-01-0000_O-24" Text="{{0:Gruppe 1}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-510_R-5101" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-25_R-251" RefId="M-00FA_A-0001-01-0000_O-25" Text="{{0:Gruppe 2}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-511_R-5111" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-26_R-261" RefId="M-00FA_A-0001-01-0000_O-26" Text="{{0:Gruppe 3}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-512_R-5121" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-27_R-271" RefId="M-00FA_A-0001-01-0000_O-27" Text="{{0:Gruppe 4}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-513_R-5131" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-28_R-281" RefId="M-00FA_A-0001-01-0000_O-28" Text="{{0:Gruppe 5}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-514_R-5141" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-29_R-291" RefId="M-00FA_A-0001-01-0000_O-29" Text="{{0:Gruppe 6}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-515_R-5151" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-30_R-301" RefId="M-00FA_A-0001-01-0000_O-30" Text="{{0:Gruppe 7}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-516_R-5161" />
+              <ComObjectRef Id="M-00FA_A-0001-01-0000_O-31_R-311" RefId="M-00FA_A-0001-01-0000_O-31" Text="{{0:Gruppe 8}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-517_R-5171" />
             </ComObjectRefs>
             <AddressTable MaxEntries="65535" />
             <AssociationTable MaxEntries="65535" />
@@ -322,21 +322,22 @@
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-2_R-21" />
                 <!-- heartbeat delay -->
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_P-3_R-31" />
-                <!-- buzzer available (invisible, false) -->
+                <!-- Read Time and Date on startup -->
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-4_R-41" />
+                <!-- buzzer available (invisible, false) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-5_R-52" />
                 <!-- rgb led available (invisible, false) -->
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-5_R-51" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-6_R-62" />
                 <!-- eeprom available (invisible, true) -->
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-6_R-61" />
-                <!-- ncn5130 available (invisible, true) -->
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-7_R-71" />
-                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-7_R-71">
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-7_R-72" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-7_R-72">
                   <when test="0">
                     <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Ohne EEPROM kann das Logikmodul Werte der Eingänge nicht speichern und nach einem Neustart wieder zur Verfügung stellen. Diese Funktion wird in der Applikation nicht angeboten." UIHint="Information" />
                   </when>
                 </choose>
-                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-8_R-81" />
-                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-8_R-81">
+                <!-- ncn5130 available (invisible, true) -->
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-8_R-82" />
+                <choose ParamRefId="M-00FA_A-0001-01-0000_UP-8_R-82">
                   <when test="0">
                     <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Ohne Abschaltmöglichkeit der Zusatzhardware (RGB-LED, Buzzer) kann das Logikmodul Werte der Eingänge nicht speichern und nach einem Neustart wieder zur Verfügung stellen. Diese Funktion wird in der Applikation nicht angeboten." UIHint="Information" />
                   </when>
@@ -372,7 +373,7 @@
                 <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-502_R-5021" />
                 <choose ParamRefId="M-00FA_A-0001-01-0000_UP-502_R-5021">
                   <when test="1">
-                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-404_R-4041" />
+                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-20_R-201" />
                   </when>
                 </choose>
                 <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-11" Text="" UIHint="HorizontalRuler" />
@@ -380,18 +381,18 @@
                 <choose ParamRefId="M-00FA_A-0001-01-0000_UP-500_R-5001">
                   <when test="1">
                     <!-- show error object only if it is parametrized -->
-                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-401_R-4011" />
+                    <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-21_R-211" />
                     <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-1" Text="Das Fehlerobjekt KO-401 ist eine Bitleiste, bei der ein Bit auf 1 gesetzt wird, wenn der entsprechende Device einen Fehler aufweist:" />
                     <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-2" Text="  Bit 0: Fehler vom Busmaster selbst" />
                     <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-3" Text="  Bit 1-31: Fehler vom Device 1 bis 31" />
                     <choose ParamRefId="M-00FA_A-0001-01-0000_UP-501_R-5011">
                       <when test="2">
-                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-402_R-4021" />
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-22_R-221" />
                         <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-4" Text="Das gilt für das Fehlerobjekt KO-402 anlaog." />
                       </when>
                       <when test="3">
-                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-402_R-4021" />
-                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-403_R-4031" />
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-22_R-221" />
+                        <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-23_R-231" />
                         <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-14" Text="Das gilt für das Fehlerobjekt KO-402 und KO-403 anlaog." />
                       </when>
                     </choose>

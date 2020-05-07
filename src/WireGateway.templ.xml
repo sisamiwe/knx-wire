@@ -295,42 +295,42 @@
               <!-- turn on according group-KO if any iButton is part of the group -->
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%31_R-100%C%311">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-405_R-4051" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-24_R-241" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%32_R-100%C%321">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-406_R-4061" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-25_R-251" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%33_R-100%C%331">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-407_R-4071" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-26_R-261" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%34_R-100%C%341">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-408_R-4081" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-27_R-271" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%35_R-100%C%351">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-409_R-4091" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-28_R-281" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%36_R-100%C%361">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-410_R-4101" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-29_R-291" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%37_R-100%C%371">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-411_R-4111" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-30_R-301" />
                 </when>
               </choose>
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%38_R-100%C%381">
                 <when test="1">
-                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-412_R-4121" />
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-31_R-311" />
                 </when>
               </choose>
             </when>

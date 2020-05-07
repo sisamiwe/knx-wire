@@ -15,7 +15,8 @@
 #define LOG_VacationRead               9      // 1 Bit, Bit 1
 #define LOG_HolidaySend               10      // 1 Bit, Bit 7
 #define LOG_Timezone                  10      // 2 Bits, Bit 6-5
-#define LOG_UseSummertime             12      // 1 Bit, Bit 6
+#define LOG_UseSummertime             10      // 1 Bit, Bit 4
+#define LOG_Diagnose                  10      // 1 Bit, Bit 3
 #define LOG_Neujahr                   11      // 1 Bit, Bit 7
 #define LOG_DreiKoenige               11      // 1 Bit, Bit 6
 #define LOG_Weiberfastnacht           11      // 1 Bit, Bit 5
@@ -309,7 +310,7 @@
 #define LOG_fOOffPADevice             87      // uint8_t
 
 // Communication objects per channel (multiple occurance)
-#define LOG_KoOffset 50
+#define LOG_KoOffset 150
 #define LOG_KoBlockSize 3
 #define LOG_KoKOfE1 0
 #define LOG_KoKOfE2 1
@@ -367,7 +368,7 @@
 #define WIRE_sIoInvertBitmask7          9      // 1 Bit, Bit 7
 
 // Communication objects per channel (multiple occurance)
-#define WIRE_KoOffset 450
+#define WIRE_KoOffset 50
 #define WIRE_KoBlockSize 1
 #define WIRE_KoKOs 0
 
@@ -378,16 +379,17 @@
 #define LOG_KoVacation 4
 #define LOG_KoHoliday1 5
 #define LOG_KoHoliday2 6
-#define LOG_KoErrorBusmaster1 401
-#define LOG_KoErrorBusmaster2 402
-#define LOG_KoErrorBusmaster3 403
-#define LOG_KoNewId 404
-#define LOG_KoGroup1 405
-#define LOG_KoGroup2 406
-#define LOG_KoGroup3 407
-#define LOG_KoGroup4 408
-#define LOG_KoGroup5 409
-#define LOG_KoGroup6 410
-#define LOG_KoGroup7 411
-#define LOG_KoGroup8 412
+#define LOG_KoDiagnose 7
+#define LOG_KoNewId 20
+#define LOG_KoErrorBusmaster1 21
+#define LOG_KoErrorBusmaster2 22
+#define LOG_KoErrorBusmaster3 23
+#define LOG_KoGroup1 24
+#define LOG_KoGroup2 25
+#define LOG_KoGroup3 26
+#define LOG_KoGroup4 27
+#define LOG_KoGroup5 28
+#define LOG_KoGroup6 29
+#define LOG_KoGroup7 30
+#define LOG_KoGroup8 31
 

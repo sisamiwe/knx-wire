@@ -13,7 +13,7 @@
 // #include "../../knx-logic/src/LogikmodulCore.h"
 #include "Logic.h"
 
-const uint8_t cFirmwareMajor = 2;    // 0-31
+const uint8_t cFirmwareMajor = 3;    // 0-31
 const uint8_t cFirmwareMinor = 0;    // 0-31
 const uint8_t cFirmwareRevision = 0; // 0-63
 
@@ -77,37 +77,40 @@ bool startupDelay()
     return !delayCheck(gStartupDelay, knx.paramInt(LOG_StartupDelay) * 1000);
 }
 
-void ProcessDiagnoseCommand(GroupObject &iKo) {
+bool processDiagnoseCommand()
+{
+    char *lBuffer = gLogic.getDiagnoseBuffer();
+    bool lOutput = false;
+    if (lBuffer[0] == 'v')
+    {
+        // Command v: retrun fimware version, do not forward this to logic,
+        // because it means firmware version of the outermost module
+        sprintf(lBuffer, "VER [%d] %d.%d", cFirmwareMajor, cFirmwareMinor, cFirmwareRevision);
+        lOutput = true;
+    }
+    else
+    {
+        // let's check other modules for this command
+        lOutput = gLogic.processDiagnoseCommand();
+    }
+    return lOutput;
+}
+
+void ProcessDiagnoseCommand(GroupObject &iKo)
+{
     // this method is called as soon as iKo is changed
     // an external change is expected
-    // because this iKo is changed within this method,
+    // because this iKo also is changed within this method,
     // the method is called again. This might result in
     // an endless loop. This is prevented by the isCalled pattern.
     static bool sIsCalled = false;
-    if (!sIsCalled) {
+    if (!sIsCalled)
+    {
         sIsCalled = true;
-        uint8_t *lCommand = iKo.valueRef();
-        bool lOutput = false;
         //diagnose is interactive and reacts on commands
-        char lBuffer[16];
-        if (lCommand[0] == 'v') {
-            // Command v: retrun fimware version
-            sprintf(lBuffer, "VER [%d] %d.%d", cFirmwareMajor, cFirmwareMinor, cFirmwareRevision);
-            lOutput = true;
-        } else if (lCommand[0] == 's') {
-            // Command s: Number of save-Interupts (= false-save)
-            sprintf(lBuffer, "SAVE %d", gCountSaveInterrupt);
-            lOutput = true;
-        } else {
-            // let's check other modules for this command
-            for (uint8_t i = 0; i < 14 && lCommand[i] > 0; i++)
-                lBuffer[i] = lCommand[i];
-            lOutput = gLogic.processDiagnoseCommand(lBuffer);
-        }
-        if (lOutput) {
-            iKo.value(lBuffer, getDPT(VAL_DPT_16));
-            printDebug("Diagnose: %s\n", lBuffer);
-        }
+        gLogic.initDiagnose(iKo);
+        if (processDiagnoseCommand())
+            gLogic.outputDiagnose(iKo);
         sIsCalled = false;
     }
 };
