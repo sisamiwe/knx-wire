@@ -48,23 +48,23 @@
 #define LOG_Silvester                 14      // 1 Bit, Bit 3
 #define LOG_Latitude                  15      // float
 #define LOG_Longitude                 19      // float
-#define LOG_WireError                 200      // 1 Bit, Bit 7
-#define LOG_BusMasterCount            200      // 2 Bits, Bit 6-5
-#define LOG_IdSearch                  200      // 1 Bit, Bit 4
-#define LOG_IButton1                  200      // 1 Bit, Bit 3
-#define LOG_IButton2                  200      // 1 Bit, Bit 2
-#define LOG_IButton3                  200      // 1 Bit, Bit 1
-#define LOG_Group1                    201      // 1 Bit, Bit 7
-#define LOG_Group2                    201      // 1 Bit, Bit 6
-#define LOG_Group3                    201      // 1 Bit, Bit 5
-#define LOG_Group4                    201      // 1 Bit, Bit 4
-#define LOG_Group5                    201      // 1 Bit, Bit 3
-#define LOG_Group6                    201      // 1 Bit, Bit 2
-#define LOG_Group7                    201      // 1 Bit, Bit 1
-#define LOG_Group8                    201      // 1 Bit, Bit 0
+#define LOG_WireError                 25      // 1 Bit, Bit 7
+#define LOG_BusMasterCount            25      // 2 Bits, Bit 6-5
+#define LOG_IdSearch                  25      // 1 Bit, Bit 4
+#define LOG_IButton1                  25      // 1 Bit, Bit 3
+#define LOG_IButton2                  25      // 1 Bit, Bit 2
+#define LOG_IButton3                  25      // 1 Bit, Bit 1
+#define LOG_Group1                    26      // 1 Bit, Bit 7
+#define LOG_Group2                    26      // 1 Bit, Bit 6
+#define LOG_Group3                    26      // 1 Bit, Bit 5
+#define LOG_Group4                    26      // 1 Bit, Bit 4
+#define LOG_Group5                    26      // 1 Bit, Bit 3
+#define LOG_Group6                    26      // 1 Bit, Bit 2
+#define LOG_Group7                    26      // 1 Bit, Bit 1
+#define LOG_Group8                    26      // 1 Bit, Bit 0
 
 // Parameter per channel
-#define LOG_ParamBlockOffset 202
+#define LOG_ParamBlockOffset 27
 #define LOG_ParamBlockSize 100
 #define LOG_fChannelDelay              0      // int32_t
 #define LOG_fLogic                     4      // 8 Bits, Bit 7-0
@@ -317,7 +317,7 @@
 #define LOG_KoKOfO 2
 
 // Parameter per channel
-#define WIRE_ParamBlockOffset 1202
+#define WIRE_ParamBlockOffset 1027
 #define WIRE_ParamBlockSize 17
 #define WIRE_sDeviceId                  0      // char*, 7 Byte
 #define WIRE_sFamilyCode                0      // 8 Bits, Bit 7-0

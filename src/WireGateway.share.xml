@@ -212,7 +212,7 @@
             <Parameters>
               <Parameter Id="M-00FA_A-0001-01-0000_P-528" Name="DeviceCount" ParameterType="M-00FA_A-0001-01-0000_PT-ValueDpt5" Text="Wire-Devices" Value="0" Access="None" />
               <Union SizeInBit="8">
-                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="200" BitOffset="0" />
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="25" BitOffset="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-500" Name="WireError" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-OnOffYesNo" Text="Fehlerobjekt(e) anzeigen" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-501" Name="BusMasterCount" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterCount" Text="Installierte Busmaster" Value="1" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-502" Name="IdSearch" Offset="0" BitOffset="3" ParameterType="M-00FA_A-0001-01-0000_PT-IdSearch" Text="Device-Suche" Value="1" />
@@ -229,7 +229,7 @@
               <Parameter Id="M-00FA_A-0001-01-0000_P-516" Name="GroupText7" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 7: Name" Value="" />
               <Parameter Id="M-00FA_A-0001-01-0000_P-517" Name="GroupText8" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 8: Name" Value="" />
               <Union SizeInBit="8">
-                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="201" BitOffset="0" />
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="26" BitOffset="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-520" Name="Group1" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-521" Name="Group2" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-522" Name="Group3" Offset="0" BitOffset="2" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="          Typ" Value="0" />
