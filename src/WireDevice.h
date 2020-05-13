@@ -26,7 +26,7 @@ union uData
 class WireDevice
 {
   private:
-    OneWire::ModelFunction mModelFunction;
+    uint8_t mModelFunction;
     OneWire *mDevice = NULL;
     uData mData;
 
@@ -37,7 +37,8 @@ class WireDevice
     void setValue(uint8_t iValue);
     uint8_t getValue();
     void clearSendDelay();
-    void processOneWire();
-
-    void setup(OneWire *iOneWire, OneWire::ModelFunction iModelFunction);
+    void processOneWire(uint8_t iDeviceIndex);
+    bool isIO();
+    
+    void setup(OneWire *iOneWire, uint8_t iModelFunction);
 };

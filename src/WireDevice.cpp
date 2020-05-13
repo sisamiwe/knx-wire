@@ -1,4 +1,7 @@
 #include "WireDevice.h"
+#include "knx.h"
+#include "IncludeManager.h"
+#include "KnxHelper.h"
 
 WireDevice::WireDevice(/* args */)
 {
@@ -23,13 +26,18 @@ uint8_t WireDevice::getValue()
     if (mDevice != NULL) {
         mDevice->getValue(lResult, mModelFunction);
     }
+    return lResult;
 }
 
 void WireDevice::clearSendDelay() {
     mData.sensor.sendDelay = 0;
 }
 
-void WireDevice::processOneWire() {
+bool WireDevice::isIO() {
+    return (mDevice->Family() == MODEL_DS2413 || mDevice->Family() == MODEL_DS2408);
+}
+
+void WireDevice::processOneWire(uint8_t iDeviceIndex) {
     if (mDevice != NULL)
     {
         bool lLastSent = false;
@@ -46,6 +54,7 @@ void WireDevice::processOneWire() {
                 lNewState = (mDevice->Mode() == OneWire::Connected);
                 if (lLastSent != lNewState)
                 {
+                    knx.getGroupObject(iDeviceIndex + WIRE_KoOffset).value(lValue, getDPT(VAL_DPT_1));
                     // printDebug("KO%d sendet Wert %d\n", KO_1W_START + lIndex, lNewState);
                     mData.sensor.lastSentValue = lNewState;
                 }
@@ -60,6 +69,7 @@ void WireDevice::processOneWire() {
                     lValue = getValue();
                     if (lValue != mData.actor.lastInputValue)
                     {
+                        knx.getGroupObject(iDeviceIndex + WIRE_KoOffset).value(lValue, (mModelFunction == ModelFunction_IoByte) ? getDPT(VAL_DPT_5) : getDPT(VAL_DPT_1));
                         // printDebug("KO%d sendet Wert %0X\n", KO_1W_START + lIndex, lValue);
                         mData.actor.lastInputValue = lValue;
                     }
@@ -71,7 +81,7 @@ void WireDevice::processOneWire() {
     }
 }
 
-void WireDevice::setup(OneWire *iOneWire, OneWire::ModelFunction iModelFunction)
+void WireDevice::setup(OneWire *iOneWire, uint8_t iModelFunction)
 {
     mDevice = iOneWire;
     mModelFunction = iModelFunction;

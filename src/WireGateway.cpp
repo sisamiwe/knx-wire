@@ -7,11 +7,10 @@
 #include "WireBus.h"
 #include "WireDevice.h"
 
-// Reihenfolge beachten damit die Definitionen von Sensormodul.h ...
-#include "WireGateway.h"
-// ... auf jeden Fall Vorrang haben (beeinflussen auch die Logik)
-// #include "../../knx-logic/src/LogikmodulCore.h"
+#include "IncludeManager.h"
+
 #include "Logic.h"
+#include "KnxHelper.h"
 
 const uint8_t cFirmwareMajor = 3;    // 0-31
 const uint8_t cFirmwareMinor = 0;    // 0-31

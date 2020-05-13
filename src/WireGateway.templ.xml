@@ -25,8 +25,8 @@
     <Union SizeInBit="8">
       <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="7" BitOffset="0" />
       <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%30" Name="s%C%ModelFunction" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunction" Text="Modellfunktion" Value="0" Access="None" />
-      <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%43" Name="s%C%ModelFunctionDS2408" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Text="Modellfunktion" Value="8" />
-      <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%44" Name="s%C%ModelFunctionDS2413" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413" Text="Modellfunktion" Value="8" />
+      <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%43" Name="s%C%ModelFunctionDS2408" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Text="Modellfunktion" Value="9" />
+      <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%44" Name="s%C%ModelFunctionDS2413" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413" Text="Modellfunktion" Value="9" />
       <Parameter Id="M-00FA_A-0001-01-0000_UP-100%C%45" Name="s%C%ModelFunctionDS2438" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438" Text="Modellfunktion" Value="10" />
     </Union>
     <!-- Sensor-Parameter -->
@@ -338,7 +338,7 @@
               <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-100%C%24_R-100%C%241" Value="3A" />
               <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%44_R-100%C%441" />
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%44_R-100%C%441">
-                <when test="0">
+                <when test="1">
                   <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-6" Name="IoBit0%C%2" Text="IO" Inline="true" Layout="Table">
                     <Rows>
                       <Row Id="M-00FA_A-0001-01-0000_PB-6_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
@@ -347,10 +347,10 @@
                     <Columns>
                       <Column Id="M-00FA_A-0001-01-0000_PB-6_C-1" Name="Col1" Text="Bit 0" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -359,7 +359,7 @@
                     </when>
                   </choose>
                 </when>
-                <when test="1">
+                <when test="2">
                   <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-7" Name="IoBit1%C%2" Text="IO" Inline="true" Layout="Table">
                     <Rows>
                       <Row Id="M-00FA_A-0001-01-0000_PB-7_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
@@ -368,10 +368,10 @@
                     <Columns>
                       <Column Id="M-00FA_A-0001-01-0000_PB-7_C-1" Name="Col1" Text="Bit 1" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -380,7 +380,7 @@
                     </when>
                   </choose>
                 </when>
-                <when test="8">
+                <when test="9">
                   <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%07" />
                   <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-5" Name="IoByte%C%2" Text="IO" Inline="true" Layout="Table">
                     <Rows>
@@ -391,10 +391,10 @@
                       <Column Id="M-00FA_A-0001-01-0000_PB-5_C-1" Name="Col1" Text="Bit 1" Width="25%" />
                       <Column Id="M-00FA_A-0001-01-0000_PB-5_C-2" Name="Col2" Text="Bit 0" Width="25%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,2" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,2" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,2" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,2" />
                   </ParameterBlock>
                 </when>
               </choose>
@@ -403,7 +403,7 @@
               <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-100%C%24_R-100%C%241" Value="29" />
               <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%43_R-100%C%431" />
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%43_R-100%C%431">
-                <when test="0">
+                <when test="1">
                   <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-8" Name="IoBit0%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
                       <Row Id="M-00FA_A-0001-01-0000_PB-8_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
@@ -412,31 +412,10 @@
                     <Columns>
                       <Column Id="M-00FA_A-0001-01-0000_PB-8_C-1" Name="Col1" Text="Bit 0" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531">
-                    <when test="0">
-                      <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
-                    </when>
-                    <when test="1">
-                      <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%01" />
-                    </when>
-                  </choose>
-                </when>
-                <when test="1">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-9" Name="IoBit1%C%" Text="IO" Inline="true" Layout="Table">
-                    <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-9_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-9_R-2" Name="Row2" Text="Invertieren" />
-                    </Rows>
-                    <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-9_C-1" Name="Col1" Text="Bit 1" Width="41%" />
-                    </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,1" />
-                  </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -446,18 +425,18 @@
                   </choose>
                 </when>
                 <when test="2">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-10" Name="IoBit2%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-9" Name="IoBit1%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-10_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-10_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-9_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-9_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-8_C-1" Name="Col1" Text="Bit 2" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-9_C-1" Name="Col1" Text="Bit 1" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%59_R-100%C%591" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -467,18 +446,18 @@
                   </choose>
                 </when>
                 <when test="3">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-11" Name="IoBit3%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-10" Name="IoBit2%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-11_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-11_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-10_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-10_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-11_C-1" Name="Col1" Text="Bit 3" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-8_C-1" Name="Col1" Text="Bit 2" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%58_R-100%C%581" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%56_R-100%C%561" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -488,13 +467,13 @@
                   </choose>
                 </when>
                 <when test="4">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-12" Name="IoBit4%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-11" Name="IoBit3%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-12_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-12_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-11_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-11_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-12_C-1" Name="Col1" Text="Bit 4" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-11_C-1" Name="Col1" Text="Bit 3" Width="41%" />
                     </Columns>
                     <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%49_R-100%C%491" Cell="1,1" />
                     <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%57_R-100%C%571" Cell="2,1" />
@@ -509,18 +488,18 @@
                   </choose>
                 </when>
                 <when test="5">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-13" Name="IoBit5%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-12" Name="IoBit4%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-13_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-13_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-12_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-12_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-13_C-1" Name="Col1" Text="Bit 5" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-12_C-1" Name="Col1" Text="Bit 4" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%56_R-100%C%561" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%58_R-100%C%581" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -530,18 +509,18 @@
                   </choose>
                 </when>
                 <when test="6">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-14" Name="IoBit6%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-13" Name="IoBit5%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-14_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-14_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-13_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-13_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-14_C-1" Name="Col1" Text="Bit 6" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-13_C-1" Name="Col1" Text="Bit 5" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%59_R-100%C%591" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -551,18 +530,18 @@
                   </choose>
                 </when>
                 <when test="7">
-                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-15" Name="IoBit7%C%" Text="IO" Inline="true" Layout="Table">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-14" Name="IoBit6%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
-                      <Row Id="M-00FA_A-0001-01-0000_PB-15_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
-                      <Row Id="M-00FA_A-0001-01-0000_PB-15_R-2" Name="Row2" Text="Invertieren" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-14_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-14_R-2" Name="Row2" Text="Invertieren" />
                     </Rows>
                     <Columns>
-                      <Column Id="M-00FA_A-0001-01-0000_PB-15_C-1" Name="Col1" Text="Bit 7" Width="41%" />
+                      <Column Id="M-00FA_A-0001-01-0000_PB-14_C-1" Name="Col1" Text="Bit 6" Width="41%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,1" />
                   </ParameterBlock>
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461">
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521">
                     <when test="0">
                       <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
                     </when>
@@ -572,6 +551,27 @@
                   </choose>
                 </when>
                 <when test="8">
+                  <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-15" Name="IoBit7%C%" Text="IO" Inline="true" Layout="Table">
+                    <Rows>
+                      <Row Id="M-00FA_A-0001-01-0000_PB-15_R-1" Name="Row1" Text="Ein-/Ausgabe (an=Eingabe)" />
+                      <Row Id="M-00FA_A-0001-01-0000_PB-15_R-2" Name="Row2" Text="Invertieren" />
+                    </Rows>
+                    <Columns>
+                      <Column Id="M-00FA_A-0001-01-0000_PB-15_C-1" Name="Col1" Text="Bit 7" Width="41%" />
+                    </Columns>
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,1" />
+                  </ParameterBlock>
+                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531">
+                    <when test="0">
+                      <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" />
+                    </when>
+                    <when test="1">
+                      <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%01" />
+                    </when>
+                  </choose>
+                </when>
+                <when test="9">
                   <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%07" />
                   <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-4" Name="IoByte%C%" Text="IO" Inline="true" Layout="Table">
                     <Rows>
@@ -588,22 +588,22 @@
                       <Column Id="M-00FA_A-0001-01-0000_PB-4_C-7" Name="Col7" Text="Bit 1" Width="13%" />
                       <Column Id="M-00FA_A-0001-01-0000_PB-4_C-8" Name="Col8" Text="Bit 0" Width="13%" />
                     </Columns>
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,2" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481" Cell="1,3" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%49_R-100%C%491" Cell="1,4" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501" Cell="1,5" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511" Cell="1,6" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,7" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,8" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,1" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,2" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%56_R-100%C%561" Cell="2,3" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%57_R-100%C%571" Cell="2,4" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%58_R-100%C%581" Cell="2,5" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%59_R-100%C%591" Cell="2,6" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,7" />
-                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,8" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%53_R-100%C%531" Cell="1,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%52_R-100%C%521" Cell="1,2" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%51_R-100%C%511" Cell="1,3" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%50_R-100%C%501" Cell="1,4" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%49_R-100%C%491" Cell="1,5" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%48_R-100%C%481" Cell="1,6" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%47_R-100%C%471" Cell="1,7" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%46_R-100%C%461" Cell="1,8" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%61_R-100%C%611" Cell="2,1" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%60_R-100%C%601" Cell="2,2" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%59_R-100%C%591" Cell="2,3" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%58_R-100%C%581" Cell="2,4" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%57_R-100%C%571" Cell="2,5" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%56_R-100%C%561" Cell="2,6" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%55_R-100%C%551" Cell="2,7" />
+                    <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%54_R-100%C%541" Cell="2,8" />
                   </ParameterBlock>
                 </when>
               </choose>
