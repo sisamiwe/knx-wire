@@ -21,17 +21,17 @@ class WireBus
     void publishSensors(OneWireDS2482 *iBM);
     void processOneWire(bool iForce = false);
     void processUnknownDevices();
-    void processSensor(sSensorInfo *cData, getSensorValue fGetSensorValue, MeasureType iMeasureType, float iOffsetFactor, float iValueFactor, uint16_t iParamIndex, uint16_t iKoNumber);
 
   public:
     static bool processNewIdCallback(OneWire *iOneWireSensor);
     static bool measureOneWire(MeasureType iMeasureType, float &eValue);
+    static void processIButtonGroups();
 
     WireBus();
     WireBus(uint8_t iI2cAddressOffset);
     ~WireBus();
 
     void loop();
-    void setup();
+    void setup(bool iSearchNewDevices, bool iSearchIButtons);
     void processKOCallback(GroupObject &iKo);
 };

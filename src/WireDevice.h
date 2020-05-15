@@ -39,6 +39,8 @@ class WireDevice
     void clearSendDelay();
     void processOneWire(uint8_t iDeviceIndex);
     bool isIO();
-    
+    bool isIButton();
+
     void setup(OneWire *iOneWire, uint8_t iModelFunction);
+    void processSensor(float iOffsetFactor, float iValueFactor, uint16_t iParamIndex, uint16_t iKoNumber);
 };

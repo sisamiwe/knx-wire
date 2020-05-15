@@ -159,18 +159,6 @@
                   <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-49" />
                 </TypeRestriction>
               </ParameterType>
-              <ParameterType Id="M-00FA_A-0001-01-0000_PT-Group" Name="Group">
-                <TypeRestriction Base="Value" SizeInBit="8">
-                  <Enumeration Text="keiner Gruppe" Value="0" Id="M-00FA_A-0001-01-0000_PT-Group_EN-0" />
-                  <Enumeration Text="Gruppe 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-Group_EN-1" />
-                  <Enumeration Text="Gruppe 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-Group_EN-2" />
-                  <Enumeration Text="Gruppe 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-Group_EN-3" />
-                  <Enumeration Text="Gruppe 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-Group_EN-4" />
-                  <Enumeration Text="Gruppe 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-Group_EN-5" />
-                  <Enumeration Text="Gruppe 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-Group_EN-6" />
-                  <Enumeration Text="Gruppe 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-Group_EN-7" />
-                </TypeRestriction>
-              </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterCount" Name="BusMasterCount">
                 <TypeRestriction Base="Value" SizeInBit="2">
                   <Enumeration Text="1 Busmaster (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-0" />

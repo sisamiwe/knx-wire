@@ -45,75 +45,6 @@ void WireBus::processKOCallback(GroupObject &iKo)
     }
 }
 
-// generic sensor processing
-// void WireBus::processSensor(sSensorInfo *cData, getSensorValue fGetSensorValue, MeasureType iMeasureType, float iOffsetFactor, float iValueFactor, uint16_t iParamIndex, uint16_t iKoNumber)
-// {
-//     bool lForce = cData->sendDelay == 0;
-//     bool lSend = lForce;
-
-//     // process send cycle
-//     uint32_t lCycle = konnParam[iParamIndex + 1] * 1000;
-
-//     // we waited enough, let's send the value
-//     if (lCycle && delayCheck(cData->sendDelay, lCycle))
-//         lSend = true;
-
-//     float lValue = 0;
-//     ;
-//     // process read cycle
-//     if (lSend || delayCheck(cData->readDelay, 5000))
-//     {
-//         // we waited enough, let's read the sensor
-//         int32_t lOffset = konnParam[iParamIndex];
-//         bool lValid = fGetSensorValue(iMeasureType, lValue);
-//         if (lValid)
-//         {
-//             // we have now the internal sensor value, we correct it now
-//             lValue += (lOffset / iOffsetFactor);
-//             lValue = lValue / iValueFactor;
-//             // smoothing (? glätten ?) of the new value
-//             // Formel: Value = ValueAlt + (ValueNeu - ValueAlt) / p
-//             if (!(lForce && cData->lastValue == 0.0))
-//             {
-//                 lValue = cData->lastValue + (lValue - cData->lastValue) / konnParam[iParamIndex + 4];
-//             }
-//             // evaluate sending conditions (relative delta / absolute delta)
-//             if (cData->lastSentValue > 0.0)
-//             {
-//                 // currently we asume indoor measurement with values > 0.0
-//                 float lDelta = 100.0 - lValue / cData->lastSentValue * 100.0;
-//                 uint32_t lPercent = konnParam[iParamIndex + 3];
-//                 if (lPercent && (uint32_t)abs(lDelta) >= lPercent)
-//                     lSend = true;
-//                 // absolute diff we have to calculate in int due to rounding problems
-//                 uint32_t lAbsolute = konnParam[iParamIndex + 2];
-//                 if (lAbsolute > 0 && abs(lValue * iOffsetFactor - cData->lastSentValue * iOffsetFactor) >= lAbsolute)
-//                     lSend = true;
-//             }
-//             // we always store the new value in KO, even it it is not sent (to satisfy potential read request)
-//             cData->lastValue = lValue;
-//             // wenn in KONNEKTING möglich, sollte der Wert im KO gespeichert werden, ohne dass
-//             // er gesendet wird, damit ein GroupValueRead zwischendurch auch den korrekten Wert liefert
-//             // hier lValue ins KO schreiben, KO-Nummer steht in iKoNumber
-//         }
-//         else
-//         {
-//             lSend = false;
-//         }
-//         cData->readDelay = millis();
-//     }
-//     if (lSend)
-//     {
-//         // wenn in KONNEKTING möglich, dann den letzten ins KO geschriebenen Wert jetzt senden lassen
-//         // sonst einfach lValue ueber das KO senden lassen, KO-Nummer steht in iKoNumber
-//         printDebug("KO%d sendet Wert %f\n", iKoNumber, lValue);
-//         cData->lastSentValue = lValue;
-//         cData->sendDelay = millis();
-//         if (cData->sendDelay == 0)
-//             cData->sendDelay = 1;
-//     }
-// }
-
 void WireBus::processUnknownDevices()
 {
     static uint8_t sIterator = 0;
@@ -157,6 +88,84 @@ bool WireBus::measureOneWire(MeasureType iMeasureType, float &eValue)
 }
 
 // static
+void WireBus::processIButtonGroups()
+{
+    // group processing would be a loop over max 90 devices 
+    // times 8 Groups and the according logical operations
+    // this would block too long!
+    // Here we implement an asynchroneous algorithm
+    // as described in doc/iButton-Group-Handling.txt
+    // so we iterate per device just through all 8 groups
+    // final group result takes at max 90 iterations
+    static uint8_t sIndex = 0;
+    static bool sIButtonExist = true;
+    static uint8_t sToProcess = 0xFF;
+    static uint8_t sGroupType = knx.paramByte(LOG_Group1); // this is constant for the whole program runtime
+    WireDevice *lDevice;
+
+    // we iterate only if there are iButtons
+    // if (sIButtonExist) {
+        sIButtonExist = false;
+        // create start condition
+        if (sIndex == 0) {
+            sToProcess = 0xFF;
+        }
+        // search for the next iButton
+        do {
+            lDevice = sDevice[sIndex++];
+        } while (sIndex < sDeviceCount && !lDevice->isIButton());
+        // process this iButton
+        if (sIndex <= sDeviceCount && lDevice->isIButton()) {
+            sIButtonExist = true;
+            bool lValue = lDevice->getValue();
+            uint8_t lButtonGroups = knx.paramByte((sIndex - 1) * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sGroup1);
+            uint8_t lButtonGroupsToProcess = lButtonGroups & sToProcess;
+            uint8_t lGroupBit = 0x80;
+            for (uint8_t lGroupIndex = 0; lGroupIndex < 7 && lButtonGroupsToProcess; lGroupIndex++)
+            {
+                if (lButtonGroupsToProcess & lGroupBit) {
+                    //group has to be processed
+                    bool lGroupType = sGroupType & lGroupBit;
+                    if (lGroupType != lValue) {
+                        // this is the case, where 
+                        // - group type is AND and value is 0 or
+                        // - group type is OR and value is 1
+                        // we set the group KO to value...
+                        GroupObject &lKo = knx.getGroupObject(LOG_KoGroup1 + lGroupIndex);
+                        if ((bool)lKo.value(getDPT(VAL_DPT_1)) != lValue) {
+                            printDebug("KO%d sendet Wert: %d\n", LOG_KoGroup1 + lGroupIndex, lValue);
+                            lKo.value(lValue, getDPT(VAL_DPT_1));
+                        }
+                        // and mark this group as processed
+                        sToProcess &= ~lGroupBit;
+                    }
+                }
+                lGroupBit >>= 1;
+            }
+        }
+        if (sIndex >= sDeviceCount && sIButtonExist) {
+            // we iterated through all iButtons, let's process remaining groups
+            uint8_t lGroupBit = 0x80;
+            for (uint8_t lGroupIndex = 0; lGroupIndex < 7; lGroupIndex++)
+            {
+                if (sToProcess & lGroupBit) {
+                    // group was not processed, we set KO to group type
+                    GroupObject &lKo = knx.getGroupObject(LOG_KoGroup1 + lGroupIndex);
+                    bool lValue = (sGroupType & lGroupBit);
+                    if ((bool)lKo.value(getDPT(VAL_DPT_1)) != lValue)
+                    {
+                        printDebug("KO%d sendet Wert: %d\n", LOG_KoGroup1 + lGroupIndex, lValue);
+                        lKo.value(lValue, getDPT(VAL_DPT_1));
+                    }
+                }
+                lGroupBit >>= 1;
+            }
+        }
+        if (sIndex >= sDeviceCount)
+            sIndex = 0;
+    // }
+}
+
 void WireBus::processOneWire(bool iForce) {
     // are threre any OW sensors
     if (sDeviceCount > 0)
@@ -250,6 +259,7 @@ void WireBus::loop()
 {
     processOneWire(gForceSensorRead);
     processUnknownDevices();
+    processIButtonGroups();
     // falls Du auch ein KO zum anfordern der Werte anbieten willst, muss in der Routine, die das KO auswertet
     // nur die folgende Variable auf true gesetzt werden, dann werden die Sensorwerte gesendet.
     gForceSensorRead = false;
@@ -257,6 +267,6 @@ void WireBus::loop()
     gOneWireBM.loop();
 }
 
-void WireBus::setup() {
-    gOneWireBM.setup();
+void WireBus::setup(bool iSearchNewDevices, bool iSearchIButtons) {
+    gOneWireBM.setup(iSearchNewDevices, iSearchIButtons);
 }
