@@ -51,6 +51,7 @@ void WireDevice::processOneWire(uint8_t iDeviceIndex) {
         {
             case MODEL_DS18B20:
             case MODEL_DS18S20:
+            case MODEL_DS2438:
                 processSensor(10.0, 1.0, iDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset, iDeviceIndex + WIRE_KoOffset);
                 break;
             case MODEL_DS1990:
