@@ -42,5 +42,5 @@ class WireDevice
     bool isIButton();
 
     void setup(OneWire *iOneWire, uint8_t iModelFunction);
-    void processSensor(float iOffsetFactor, float iValueFactor, uint16_t iParamIndex, uint16_t iKoNumber);
+    void processSensor(float iOffsetFactor, uint16_t iParamIndex, uint16_t iKoNumber);
 };

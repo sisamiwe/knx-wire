@@ -66,39 +66,43 @@
                   <Enumeration Text="Bit 8" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-8" />
                   <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-9" />
                   <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-10" />
-                  <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-11" />
-                  <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-12" />
-                  <Enumeration Text="AD2: Helligkeit" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-13" />
-                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-20" />
-                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-21" />
-                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-22" />
-                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-23" />
-                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-24" />
-                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-25" />
-                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-26" />
-                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-27" />
-                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-28" />
-                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-29" />
-                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-30" />
-                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-31" />
-                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-32" />
-                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-33" />
-                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-34" />
-                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-35" />
-                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-36" />
-                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-37" />
-                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-38" />
-                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-39" />
-                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-40" />
-                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-41" />
-                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-42" />
-                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-43" />
-                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-44" />
-                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-45" />
-                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-46" />
-                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-47" />
-                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-48" />
-                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-49" />
+                  <Enumeration Text="Spannung vom Chip (VDD)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-11" />
+                  <Enumeration Text="Spannung vom AD-Wandler (VAD)" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-12" />
+                  <Enumeration Text="Spannung vom 2. AD-Wandler (VSens)" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-13" />
+                  <Enumeration Text="Temperatur (NTC)" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-15" />
+                  <Enumeration Text="Luftfeuchte" Value="16" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-16" />
+                  <Enumeration Text="Helligkeit" Value="17" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-17" />
+                  <!-- 18-49 future extensions -->
+                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-50" />
+                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-51" />
+                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-52" />
+                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-53" />
+                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-54" />
+                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-55" />
+                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-56" />
+                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-57" />
+                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-58" />
+                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-59" />
+                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-60" />
+                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-61" />
+                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-62" />
+                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-63" />
+                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-64" />
+                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-65" />
+                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-66" />
+                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-67" />
+                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-68" />
+                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-69" />
+                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-70" />
+                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-71" />
+                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-72" />
+                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-73" />
+                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-74" />
+                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-75" />
+                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-76" />
+                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-77" />
+                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-78" />
+                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-79" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Name="ModelFunctionDS2408">
@@ -124,39 +128,43 @@
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438" Name="ModelFunctionDS2438">
                 <TypeRestriction Base="Value" SizeInBit="8">
                   <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-10" />
-                  <Enumeration Text="AD1: Temperatur (NTC)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-11" />
-                  <Enumeration Text="AD1: Luftfeuchte" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-12" />
-                  <Enumeration Text="AD2: Helligkeit" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-13" />
-                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-20" />
-                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-21" />
-                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-22" />
-                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-23" />
-                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-24" />
-                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-25" />
-                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-26" />
-                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-27" />
-                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-28" />
-                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-29" />
-                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-30" />
-                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-31" />
-                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-32" />
-                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-33" />
-                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-34" />
-                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-35" />
-                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-36" />
-                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-37" />
-                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-38" />
-                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-39" />
-                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-40" />
-                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-41" />
-                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-42" />
-                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-43" />
-                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-44" />
-                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-45" />
-                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-46" />
-                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-47" />
-                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-48" />
-                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-49" />
+                  <Enumeration Text="Spannung vom Chip (VDD)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-11" />
+                  <Enumeration Text="Spannung vom AD-Wandler (VAD)" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-12" />
+                  <Enumeration Text="Spannung vom 2. AD-Wandler (VSens)" Value="13" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-13" />
+                  <Enumeration Text="Temperatur (NTC)" Value="15" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-15" />
+                  <Enumeration Text="Luftfeuchte" Value="16" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-16" />
+                  <Enumeration Text="Helligkeit" Value="17" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-17" />
+                  <!-- 18-49 future extensions -->
+                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-50" />
+                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-51" />
+                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-52" />
+                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-53" />
+                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-54" />
+                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-55" />
+                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-56" />
+                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-57" />
+                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-58" />
+                  <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-59" />
+                  <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-60" />
+                  <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-61" />
+                  <Enumeration Text="Benutzerdefiniert 13" Value="62" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-62" />
+                  <Enumeration Text="Benutzerdefiniert 14" Value="63" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-63" />
+                  <Enumeration Text="Benutzerdefiniert 15" Value="64" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-64" />
+                  <Enumeration Text="Benutzerdefiniert 16" Value="65" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-65" />
+                  <Enumeration Text="Benutzerdefiniert 17" Value="66" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-66" />
+                  <Enumeration Text="Benutzerdefiniert 18" Value="67" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-67" />
+                  <Enumeration Text="Benutzerdefiniert 19" Value="68" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-68" />
+                  <Enumeration Text="Benutzerdefiniert 20" Value="69" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-69" />
+                  <Enumeration Text="Benutzerdefiniert 21" Value="70" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-70" />
+                  <Enumeration Text="Benutzerdefiniert 22" Value="71" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-71" />
+                  <Enumeration Text="Benutzerdefiniert 23" Value="72" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-72" />
+                  <Enumeration Text="Benutzerdefiniert 24" Value="73" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-73" />
+                  <Enumeration Text="Benutzerdefiniert 25" Value="74" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-74" />
+                  <Enumeration Text="Benutzerdefiniert 26" Value="75" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-75" />
+                  <Enumeration Text="Benutzerdefiniert 27" Value="76" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-76" />
+                  <Enumeration Text="Benutzerdefiniert 28" Value="77" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-77" />
+                  <Enumeration Text="Benutzerdefiniert 29" Value="78" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-78" />
+                  <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-79" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterCount" Name="BusMasterCount">

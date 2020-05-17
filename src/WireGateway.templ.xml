@@ -113,6 +113,11 @@
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%27_R-100%C%274" RefId="M-00FA_A-0001-01-0000_UP-100%C%27" Text="Sensorwert bei absoluter Abweichung senden (0=nicht senden)" SuffixText="x 0.1" />
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%28_R-100%C%284" RefId="M-00FA_A-0001-01-0000_UP-100%C%28" Text="Sensorwert bei Abweichung vom vorherigen Wert senden (0=nicht senden)" />
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%29_R-100%C%294" RefId="M-00FA_A-0001-01-0000_UP-100%C%29" Text="Sensorwert glätten: P=" />
+    <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%25_R-100%C%255" RefId="M-00FA_A-0001-01-0000_UP-100%C%25" Text="Spannung anpassen" SuffixText="mV" />
+    <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%26_R-100%C%265" RefId="M-00FA_A-0001-01-0000_UP-100%C%26" Text="Spannung zyklisch senden (0=nicht senden)" />
+    <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%27_R-100%C%275" RefId="M-00FA_A-0001-01-0000_UP-100%C%27" Text="Spannung bei absoluter Abweichung senden (0=nicht senden)" SuffixText="mV" />
+    <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%28_R-100%C%285" RefId="M-00FA_A-0001-01-0000_UP-100%C%28" Text="Spannung bei Abweichung vom vorherigen Wert senden (0=nicht senden)" />
+    <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%29_R-100%C%295" RefId="M-00FA_A-0001-01-0000_UP-100%C%29" Text="Spannung glätten: P=" />
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%30_R-100%C%301" RefId="M-00FA_A-0001-01-0000_UP-100%C%30" />
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%31_R-100%C%311" RefId="M-00FA_A-0001-01-0000_UP-100%C%31" Text="{{0:Gruppe 1}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-510_R-5101" />
     <ParameterRef Id="M-00FA_A-0001-01-0000_UP-100%C%32_R-100%C%321" RefId="M-00FA_A-0001-01-0000_UP-100%C%32" Text="{{0:Gruppe 2}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-511_R-5111" />
@@ -157,6 +162,7 @@
     <ComObjectRef Id="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%05" RefId="M-00FA_A-0001-01-0000_O-%K0%" Text="{{0:Ausgang}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-100%C%42_R-100%C%421" ObjectSize="2 Bytes" DatapointType="DPT-9" />
     <ComObjectRef Id="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%06" RefId="M-00FA_A-0001-01-0000_O-%K0%" Text="{{0:Eingang/Status}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-100%C%42_R-100%C%421" FunctionText="Gerät %C%, Eingang/Status" WriteFlag="Enabled" DatapointType="DPST-1-1" />
     <ComObjectRef Id="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%07" RefId="M-00FA_A-0001-01-0000_O-%K0%" Text="{{0:Ein-/Ausgang/Status}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-100%C%42_R-100%C%421" ObjectSize="1 Byte" FunctionText="Gerät %C%, Eingang/Ausgang/Status" WriteFlag="Enabled" DatapointType="DPST-5-10" />
+    <ComObjectRef Id="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%08" RefId="M-00FA_A-0001-01-0000_O-%K0%" Text="{{0:Ausgang}}" TextParameterRefId="M-00FA_A-0001-01-0000_P-100%C%42_R-100%C%421" ObjectSize="2 Bytes" DatapointType="DPST-9-20" />
   </ComObjectRefs>
   <Dynamic>
     <choose ParamRefId="M-00FA_A-0001-01-0000_P-528_R-5281">
@@ -245,7 +251,7 @@
               <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_P-100%C%24_R-100%C%241" Value="26" />
               <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%45_R-100%C%451" />
               <choose ParamRefId="M-00FA_A-0001-01-0000_UP-100%C%45_R-100%C%451">
-                <when test="10 11">
+                <when test="10 15">
                   <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%02" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%25_R-100%C%251" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%26_R-100%C%261" />
@@ -253,7 +259,15 @@
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%28_R-100%C%281" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%29_R-100%C%291" />
                 </when>
-                <when test="12">
+                <when test="11 12 13">
+                  <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%08" />
+                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%25_R-100%C%255" />
+                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%26_R-100%C%265" />
+                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%27_R-100%C%275" />
+                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%28_R-100%C%285" />
+                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%29_R-100%C%295" />
+                </when>
+                <when test="16">
                   <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%04" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%25_R-100%C%252" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%26_R-100%C%262" />
@@ -261,7 +275,7 @@
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%28_R-100%C%282" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%29_R-100%C%292" />
                 </when>
-                <when test="13">
+                <when test="17">
                   <ComObjectRefRef RefId="M-00FA_A-0001-01-0000_O-%K0%_R-%K0%03" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%25_R-100%C%253" />
                   <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-100%C%26_R-100%C%263" />

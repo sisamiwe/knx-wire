@@ -42,6 +42,7 @@ bool WireDevice::isIButton() {
 }
 
 void WireDevice::processOneWire(uint8_t iDeviceIndex) {
+    
     if (mDevice != NULL)
     {
         bool lLastSent = false;
@@ -52,7 +53,7 @@ void WireDevice::processOneWire(uint8_t iDeviceIndex) {
             case MODEL_DS18B20:
             case MODEL_DS18S20:
             case MODEL_DS2438:
-                processSensor(10.0, 1.0, iDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset, iDeviceIndex + WIRE_KoOffset);
+                processSensor(10.0, iDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset, iDeviceIndex + WIRE_KoOffset);
                 break;
             case MODEL_DS1990:
                 lLastSent = (mData.sensor.lastSentValue != 0);
@@ -62,8 +63,6 @@ void WireDevice::processOneWire(uint8_t iDeviceIndex) {
                     knx.getGroupObject(iDeviceIndex + WIRE_KoOffset).value(lNewState, getDPT(VAL_DPT_1));
                     printDebug("KO%d sendet Wert: %d\n", iDeviceIndex + WIRE_KoOffset, lNewState);
                     mData.sensor.lastSentValue = lNewState;
-                    // for iButtons, we do also Group-Processing
-
                 }
                 break;
             case MODEL_DS2408:
@@ -94,10 +93,14 @@ void WireDevice::setup(OneWire *iOneWire, uint8_t iModelFunction) {
 }
 
 // generic sensor processing
-void WireDevice::processSensor(float iOffsetFactor, float iValueFactor, uint16_t iParamIndex, uint16_t iKoNumber) {
+void WireDevice::processSensor(float iOffsetFactor, uint16_t iParamIndex, uint16_t iKoNumber) {
     bool lForce = mData.sensor.sendDelay == 0;
     bool lSend = lForce;
-
+    float lValueFactor = 1.0;
+    // value factor depends on model funtion 
+    if (mModelFunction >= ModelFunction_RawVDD && mModelFunction <= ModelFunction_RawVSens) {
+        lValueFactor = 1000.0;
+    }
     // process send cycle
     uint32_t lCycle = knx.paramInt(iParamIndex + WIRE_sSensorCycle) * 1000;
 
@@ -116,8 +119,8 @@ void WireDevice::processSensor(float iOffsetFactor, float iValueFactor, uint16_t
         if (lValid)
         {
             // we have now the internal sensor value, we correct it now
+            lValue = lValue * lValueFactor;
             lValue += (lOffset / iOffsetFactor);
-            lValue = lValue / iValueFactor;
             // smoothing (? glätten ?) of the new value
             // Formel: Value = ValueAlt + (ValueNeu - ValueAlt) / p
             if (!(lForce && mData.sensor.lastValue == 0.0))
