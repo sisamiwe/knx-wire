@@ -50,7 +50,7 @@ void ProcessHeartbeat()
         // we waited enough, let's send a heartbeat signal
         knx.getGroupObject(LOG_KoHeartbeat).value(true, getDPT(VAL_DPT_1));
         // if there is an error, we send it with heartbeat, too
-        // if (knx.paramByte(LOG_Error) & 128) {
+        // if (knx.paramByte(LOG_Error) & LOG_ErrorMask) {
         //     if (getError()) sendError();
         // }
         gHeartbeatDelay = millis();
@@ -173,7 +173,7 @@ void appSetup(bool iSaveSupported)
         // GroupObject &lKoRequestValues = knx.getGroupObject(LOG_KoRequestValues);
         if (GroupObject::classCallback() == 0) GroupObject::classCallback(ProcessKoCallback);
         gLogic.setup(iSaveSupported);
-        bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & 16;
+        bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & LOG_IdSearchMask;
         gBusMaster[0].setup(lSearchNewDevices, true);
         gBusMaster[1].setup(lSearchNewDevices, true);
         gBusMaster[2].setup(lSearchNewDevices, true);
