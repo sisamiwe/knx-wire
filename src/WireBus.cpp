@@ -257,6 +257,8 @@ void WireBus::setDeviceParameter(OneWire *iDevice, uint16_t iParamIndex)
 
 void WireBus::loop()
 {
+    knx.loop(); // improve knx responsiveness
+
     processOneWire(gForceSensorRead);
     processUnknownDevices();
     processIButtonGroups();
