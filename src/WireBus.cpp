@@ -20,7 +20,7 @@ WireBus::WireBus()
     : WireBus(0) {
 }
 
-WireBus::WireBus(uint8_t iI2cAddressOffset) : gOneWireBM(iI2cAddressOffset, WireBus::processNewIdCallback) {
+WireBus::WireBus(uint8_t iI2cAddressOffset) : gOneWireBM(iI2cAddressOffset, WireBus::processNewIdCallback, WireBus::knxLoopCallback) {
 }
 
 WireBus::~WireBus() {
@@ -43,6 +43,18 @@ void WireBus::processKOCallback(GroupObject &iKo)
                 lDevice->setValue(iKo.value(getDPT(VAL_DPT_1)));
         }
     }
+}
+
+// callback to a method of an instance (Pattern)
+// this static callback gets a pointer to the instance
+void WireBus::loopCallback(void *iThis)
+{
+    WireBus *self = static_cast<WireBus *>(iThis);
+    self->loop();
+}
+
+void WireBus::knxLoopCallback() {
+    knx.loop();
 }
 
 void WireBus::processUnknownDevices()
@@ -141,6 +153,7 @@ void WireBus::processIButtonGroups()
                     }
                 }
                 lGroupBit >>= 1;
+                knx.loop();
             }
         }
         if (sIndex >= sDeviceCount && sIButtonExist) {
@@ -159,6 +172,7 @@ void WireBus::processIButtonGroups()
                     }
                 }
                 lGroupBit >>= 1;
+                knx.loop();
             }
         }
         if (sIndex >= sDeviceCount)

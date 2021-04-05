@@ -3,6 +3,7 @@
 #include "Sensor.h"
 #include "OneWire.h"
 #include "WireDevice.h"
+#include "OneWireDS2482.h"
 
 typedef bool (*getSensorValue)(MeasureType, float &);
 
@@ -24,6 +25,8 @@ class WireBus
 
   public:
     static bool processNewIdCallback(OneWire *iOneWireSensor);
+    static void loopCallback(void *iThis);
+    static void knxLoopCallback(); // just to avoid knx reference in common
     static bool measureOneWire(MeasureType iMeasureType, float &eValue);
     static void processIButtonGroups();
 

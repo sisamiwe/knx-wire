@@ -1,6 +1,6 @@
 # Applikationsbeschreibung OneWire
 
-Die Applikation OneWire ist im File WireGateway-v3.x-yy.knxprod enthalten und erlaubt die Parametrisierung des WireGateways mittels der ETS.
+Die Applikation OneWire ist im File WireGateway-v3.x.knxprod enthalten und erlaubt die Parametrisierung des WireGateways mittels der ETS.
 
 Sie ist in die Bereiche
 
@@ -14,7 +14,7 @@ Der letzte Punkt ist in der Applikationsbeschreibung Logik beschrieben.
 
 ## Änderungshistorie
 
-01.04.2021: Firmware 3.0.0, Applikation 3.0 - 3.3
+10.04.2021: Firmware 3.0.0, Applikation 3.0
 
 * Initiales 1-Wire-Beta-Release
 
@@ -26,13 +26,13 @@ Diese Applikation erlaubt es, 1-Wire-Geräte, die über den 1-Wire-Bus mit dem W
 
 Auch wenn diese Anleitung für das WireGateway ist, wird die gleiche Applikation auch für das Sensormodul verwendet und kann hierfür herangezogen werden. An den wenigen Stellen, an den sich die Einstellungen im Sensormodul unterscheiden, wird speziell darauf hingewiesen.
 
-Der 1-Wire-Bus ist so entworfen, dass alle angeschlossenen Geräte immer wieder abgefragt werden müssen, ob sie neue Werte haben (polling). Da diese Abfragen einige Zeit benötigen, ist der 1-Wire-Bus nicht dazu geeignet, auf kurzfristige Ereignisse (Zählimpulse, kurze Tastendrücke) zu erfassen oder unmittelbar auf so ein Ereignis zu reagieren. Aus diesem Grunde bietet die KNX-Applikation auch nur Funktionalitäten an, die sich für Sensorabfragen eignen bzw. Fensterkontakte eignen, also alles keine zeitkritischen Ereignisse.
+Der 1-Wire-Bus ist so entworfen, dass alle angeschlossenen Geräte immer wieder abgefragt werden müssen, ob sie neue Werte haben (polling). Da diese Abfragen einige Zeit benötigen, ist der 1-Wire-Bus nicht dazu geeignet, auf kurzfristige Ereignisse (Zählimpulse, kurze Tastendrücke) zu erfassen oder unmittelbar auf so ein Ereignis zu reagieren. Aus diesem Grunde bietet die KNX-Applikation auch nur Funktionalitäten an, die sich für Sensorabfragen bzw. Fensterkontakte eignen, also alles keine zeitkritischen Ereignisse.
 
 ### 1-Wire-Geräte
 
 Beim 1-Wire-Bus wird jede digital ansprechbare Einheit über eine weltweit eindeutige ID angesprochen. Es ist aber nicht so, dass jedes physikalische Gerät nur eine ID hat. So liefert 1-Wire-Luftfeuchtesensor - verkauft als ein Gerät mit einem 1-Wire-Anschluß - zwei ID: Eine zum ansprechen des Temperatursensors und eine zum ansprechen des Luftfeuchtemessers.
 
-In dieser Applikation wird alles, was eine 1-Wire-ID liefert, als ein (virtuelles) Gerät betrachtet. Der oben erwähnte Sensor würde somit 2 Geräte repräsentieren: Temperatur und Luftfeuchte. Ein 1-Wire-Gerät hat auf der KNX-Seite genau ein KO zugewiesen. 
+In dieser Applikation wird alles, was eine 1-Wire-ID liefert, als ein (virtuelles) Gerät betrachtet. Der oben erwähnte Sensor würde somit 2 Geräte repräsentieren: Temperatur und Luftfeuchte. Ein 1-Wire-Gerät hat auf der KNX-Seite genau ein KO zugewiesen.
 
 Leider ist die Betrachtung komplizierter. Es gibt 1-Wire-Geräte, die liefern nur eine 1-Wire-ID (z.B. ein 8-Kanal-IO), aber mehrere Funktionen, die ein KO erfordern. Ein 8 Bit-IO kann über ein 1-Byte-KO mit dem KNX-Bus kommunizieren, aber auch über 8 1-Bit-KO. Es obliegt hier dem Nutzer, die Art der Nutzung festzulegen und das entsprechend zu parametrieren. Aus Sicht von KNX wären dann aber 8 1-Bit-KO dann 8 Geräte (z.B. 8 Fensterkontakte).
 
@@ -46,7 +46,7 @@ Es wurde der Begriff "Gerät" und nicht "Kanal" gewählt, um verwechslungen mit 
 
 Die gesamte 1-Wire-Kommunikation basiert auf einer weltweit eindeutigen ID für jedes 1-Wire-Gerät. Diese ID muss mann kennen und in der Applikation eingeben. Falls eine solche ID nicht bekannt ist, kann diese ID auch mit diesem Modul ermittelt werden, da es auch eine ID-Suche unterstützt und alle ID, die es auf dem 1-Wire-Bus ermittelt hat und die noch nicht bekannt sind, über ein entsprechendes Kommunikationsobjet ausgeben kann.
 
-Das Verfahren ist relativ einfach: Man schließt ein neues 1-Wire-Gerät an den 1-Wire-Anschluß des Moduls an, wobei der parasitäre Anschluß nicht unterstützt wird. Nach 1-2 Sekunden erscheinen neu gefundene ID am KO20. Dazu muss die Suche nach neuen Geräten parametriert sein. 
+Das Verfahren ist relativ einfach: Man schließt ein neues 1-Wire-Gerät an den 1-Wire-Anschluß des Moduls an, wobei der parasitäre Anschluß nicht unterstützt wird. Nach 1-2 Sekunden erscheinen neu gefundene ID am KO20. Dazu muss die Suche nach neuen Geräten parametriert sein.
 
 ### Unterstützte Geräte
 
@@ -70,7 +70,7 @@ Hier werden Einstellungen getroffen, die die generelle Arbeitsweise des WireGate
 
 Dieses Feld gibt an, für wie viele Logikkanäle dieses Applikationsprogramm erstellt wurde.
 
-Es stehen ETS-Applikationen mit 10, 20, 40 und 80 Logikkanälen zur Verfügung. Für die 1-Wire-Applikation macht die Anzahl der Logikkanäle keinen funktionalen Unterschied. Allerdings beeinflußt die Anzahl der Logikkanäle wesentlich die Programmierzeit mit der ETS. Ein WireGateway mit 10 Logikkanälen braucht ca. 30 Sekunden für die Programmierung, mit 80 Logikkanälen weit über 3 Minuten. Die Programmierzeit hängt immer von der Anzahl der verfügbaren Logikkanäle ab, nicht von der Anzahl der genutzen.
+Diese Angabe dient nur zur Information, sie wird wahrscheinlich in kommenden Versionen der Applikation entfernt werden. Es stehen immer 80 Logikkanäle zur Verfügung.
 
 ### Zeit bis das Gerät nach einem Neustart aktiv wird
 
@@ -88,9 +88,23 @@ Dieses Gerät kann Uhrzeit und Datum vom Bus empfangen. Nach einem Neustart kön
 
 Wenn dieser Parameter gesetzt ist, wird die Uhrzeit und das Datum alle 20-30 Sekunden über ein Lesetelegramm vom Bus gelesen, bis eine entsprechende Antwort kommt. Falls keine Uhr im KNX-System vorhanden ist oder die Uhr nicht auf Leseanfragen antworten kann, sollte dieser Parameter auf "Nein" gesetzt werden.
 
+Die im Modul enthaltenen Zeitschaltuhren beginnen erst zu funktionieren, wenn eine gültige Uhrzeit und ein gültiges Datum empfangen wurde. Wenn dieser Prameter auf "Nein" gesetzt wird, kann es sehr lange dauern, bis Zeitschaltuhren nach einem Neustart ihre Funktion aufnehmen.
+
 ### Diagnoseobjekt anzeigen
 
 Das Diagnoseobjekt (KO 7) ist derzeit für interne Verwendung (für Debug-Zwecke) vorgesehen und sollte in der Praxis nicht mit einer GA belegt werden.
+
+### Watchdog aktivieren
+
+Das Modul unterstützt auch einen Watchdog. Dies ist eine Schaltung, die dafür sorgt, dass ein undefinierter Modulzustand, in dem das Modul nicht mehr auf KNX-Telegramme reagiert, zu einem Modul-Neustart führt.
+
+Für reine Sensoren sind Watchdogs eine gute Lösung, um Hänger zu vermeiden. Ein solcher Neutstart geht schnell und der Sensor liefert wieder seine Werte. Nach dem Neustart werden wie gewohnt alle Messwerte auf den Bus gesendet. Somit kommt ein Messwert außer der Reihe, also z.B. schon nach 2 Minuten und erst dann wieder alle 5 Minuten. Da man normalerweise auch Messwerte bei bestimmten Abweichungen senden lässt, die dann auch außer der Reihe kommen, ist das vertretbar.
+
+Wenn man Logiken nutzt, muss man diese so aufbauen, dass sie stabil gegenüber einem Neustart sind, der ja jederzeit vorkommen kann. Keiner will mitten in der Nacht vom Buzzer geweckt werden. Das Logikmodul erlaubt sehr viele "Startup-Einstellungen", um das möglichst feingranular steuern zu können. Allerdings muss man das auch machen! Wenn man also Logiken macht und den Watchdog benutzt, muss man die Logiken nicht nur auf Funktion, sondern auch auf Neustartverhalten testen. Der komfortabelste Weg hier ist in der ETS "Gerät zurücksetzen". Man kann diesen Befehl aber auch über eine Logik auslösen und z.B. auf eine Taste legen. So kann man in der Testphase jederzeit spontan das Gerät zurücksetzen und sehen, ob es Seiteneffekte bei Neustart gibt.
+
+Der Watchdog kann mit dieser Einstellung aktiviert werden.
+
+Für die Nutzung von 1-Wire ist der Watchdog nicht notwendig und sollte nur eingeschaltet werden, wenn es unerwartete bzw. unerklärbare "Hänger" des Moduls gibt.
 
 ## 1-Wire
 
@@ -116,11 +130,20 @@ Dieses Feld ist nicht in der Applikation zum Sensormodul sichtbar. Beim Sensormo
 
 Um die ID von neuen 1-Wire-Geräten herauszufinden, kann man diese mit dem 1-Wire-Anschluss verbinden. Daraufhin wird über das KO20 "IDs unbekannter Geräte" die ID dieses Gerätes ausgegeben. Dazu muss die Einstellung "neue Geräte-Id auf den Bus senden" ausgewählt sein.
 
-Sobald man alle neuen Geräte an den 1-Wire-Bus angeschlossen hat, sollte man die Einstellung "neue Geräte ignorieren" auswählen und nur so im produktiven Betrieb gehen.
+Die ausgegebene ID ist vom Typ DPT16 und kann im Gruppenmonitor ausgelesen werden. Das Telegramm ist einfach zu erkennen, es hat rechts in der Spalte Info folgendes Aussehen:
+![Unbekannte Id](UnbekannteID.png)
+Dabei ist der Wert des Telegramms wichtig, im angezeigten Beispiel sind es die Zeichen ganz am Ende der Zeile hinter dem senkrechten Strich "|":
+
+    108BE4A8030800
+
+Diese Id ist später für die ID-Eingabe wichtig. Dabei bilden die ersten beiden Stellen (im Beispiel die 10) die Gerätefamilie ab. Die Folgenden Stellen müssen dann über passende Auswahlfelder eingegeben werden. Die obige ID sieht dann in der Applikation so aus:
+![Beispiel-ID](beispiel-id.png)
+
+Sobald man alle neuen Geräte an den 1-Wire-Bus angeschlossen hat, sollte man die Einstellung "neue Geräte ignorieren" auswählen und nur so in den produktiven Betrieb gehen.
 
 Die Suche von neuen Geräten auf dem 1-Wire-Bus kostet (relativ zu einer Geräteabfrage) sehr viel Zeit und ist zudem noch Timing-kritisch. Bei eingeschalteter Geräte-Suche ist es sehr wahrscheinlich, dass Signalisierungen von iButton oder Inputs von IO-Bausteinen stark verspätet (>2 Sekunden) oder gar nicht ankommen. Das entsprechende gilt für Ouputs.
 
-Daher gilt ganz klar die Empfehlung, dass die Suche nur für den Anschluß neuer Geräte aktiviert werden sollte. 
+Daher gilt ganz klar die Empfehlung, dass die Suche nur für den Anschluß neuer Geräte aktiviert werden sollte.
 
 #### Fehlerobjekt(e) anzeigen
 
@@ -134,7 +157,7 @@ In zukünftigen Versionen soll es eine stabile Zuordnung zwischen Bit und Sensor
 
 Falls mit diesem Modul keine iButton eingesetzt werden, kann dieses Kapitel komplett ignoriert werden.
 
-iButton können als virtuelle Marker oder Schlüssel betrachtet werden, die Existenz eines iButton am Bus kann eine Aktion auslösen, die Nichtexistens eine andere.
+iButton können als virtuelle Marker oder Schlüssel betrachtet werden, die Existenz eines iButton am Bus kann eine Aktion auslösen, die Nichtexistenz eine andere.
 
 Man kann aber auch Aktionen an Gruppen von iButton hängen, so etwas wie "nur wenn der rote und grüne iButton da ist, soll die Musik starten".
 
@@ -214,7 +237,7 @@ In den folgenden Kapiteln werden die Geräteparameter pro Familie beschrieben.
 
 ### Familie 01 - iButton
 
-iButtons (das 1-Wire-Gerät DS1990) erlauben eine einfache Möglichkeit, eine Signalerkennung zu realisieren. Wenn ein iButton am 1-Wire-Bus angeschlossen ist, kann über seine eindeutige ID erkannt werden, dass es exakt dieser iButton ist. Somit ist die Existenz eines iButton ein verwertbares Signal. iButtons sind so gebaut, dass sie einfach (z.B. über einen magnetischen Halter) mit dem Bus verbunden werdne können.
+iButtons (das 1-Wire-Gerät DS1990) erlauben eine einfache Möglichkeit, eine Signalerkennung zu realisieren. Wenn ein iButton am 1-Wire-Bus angeschlossen ist, kann über seine eindeutige ID erkannt werden, dass es exakt dieser iButton ist. Somit ist die Existenz eines iButton ein verwertbares Signal. iButtons sind so gebaut, dass sie einfach (z.B. über einen magnetischen Halter) mit dem Bus verbunden werden können.
 
 Wird die Familie 01 ausgewählt, erscheint ein passendes 1-Bit-KO mit dem für dieses Gerät vergebenen Namen. Wird der iButton mit seiner ID am 1-Wire-Bus erkannt, sendet das zugehörige KO eine 1. Sobald der iButton nicht mehr am Bus erkannt wird, sendet das KO eine 0.
 
@@ -228,7 +251,7 @@ In der Abbildung nimmt der iButton an der Gruppe 1 und Gruppe 2 teil. Die Gruppe
 
 ### Familie 10 und 28 - Temperatur
 
-Temperaturen können über 1-Wire sehr günstig gemessen werden. Die verfügbaren Sensoren DS18S20 und DS18B20 unterscheiden sich nur in der Genauigkeit: 
+Temperaturen können über 1-Wire sehr günstig gemessen werden. Die verfügbaren Sensoren DS18S20 und DS18B20 unterscheiden sich nur in der Genauigkeit:
 
 * Der DS18S20 misst mit einer Genauigkeit von 0.5 °C
 * Der DS18B20 misst mit einer Genauigkeit von 0.125 °C
@@ -329,7 +352,7 @@ eine Funktion
 
 Die Funktion bekommt die gemessenen Werte Temp (Chiptemperatur), VDD (Spannung am Chip), iVAD (gemessener Analogwert AD1) und VSens (gemessener Analogwert AD2). Sie muss so implementiert werden, dass sie genau einen float-Wert zurückgibt. Dieser Wert wird dann auf den KNX-Bus geschrieben.
 
-Nach dem verändern der Datei 
+Nach dem verändern der Datei
 
     knx-common/src/OneWireDS2438Fromula.cpp
 
@@ -397,7 +420,7 @@ Dieses Applikation unterstützt auch die I/O-Bausteine DS2408 und DS2413. Die Ba
 
 Alles hier gesagte bezieht sich auf die 8-Leitungs-Version, gilt aber analog auch für 2 Leitungen. Während bei 8 Leitungen alle Bits 0-7 betrachtet werden, werden bei 2 Leitungen nur die Bits 0 und Bit 1 betrachtet.
 
-Wird die Familie 29 oder 3A ausgewählt, erscheint ein passendes mit dem für dieses Gerät vergebenen Namen. Der DPT des KO hängt von der Modellfunktion ab.
+Wird die Familie 29 oder 3A ausgewählt, erscheint ein passendes KO mit dem für dieses Gerät vergebenen Namen. Der DPT des KO hängt von der Modellfunktion ab.
 
 Ferner erscheinen ein paar weitere Eingabefelder, mit denen man das Verhalten der einzelnen Input- und Output-Leitungen parametrisieren kann.
 
@@ -413,9 +436,12 @@ Des witeren erscheint eine Tabelle, mit deren Hilfe man angeben kann, welche die
 
 ![Byte-Input-Output](byte-io.png)
 
-Die definition der Ein- und Ausgabe wird vom KNX-Bus aus betrachtet. Ausgabe bedeutet, Werte vom KNX-Bus, die im KO landen, werden vom 1-Wire-Gerät an seinen Ausgängen ausgegeben. Eingabe bedeutet, dass ein Singal an einem Anschluss vom 1-Wire-Gerät auf den KNX-Bus geschrieben wird.
+Die definition der Ein- und Ausgabe wird vom KNX-Bus aus betrachtet:
 
-Es ist wichtig zu beachten, dass man bitweise Ein- und Ausgänge einstellt, aber immer nur ein Byte auf den KNX-Bus verschickt wir, sobald sich ein Eingangswert ändert. Wenn also eine 7 auf den Bus gesendet wird, werden die Ausgänge 0, 1 und 2 gesetzt. Wird dann der Eingang 5 geändert, wird nicht der Wert 32 auf den Bus gesendet, sondern 39 (32 + 7). Es werden immer alle gesetzten Bits auf den Bus übertragen, egal ob diese Bits über den KNX-Bus oder über die externen Eingänge gesetzt wurden.
+* Ausgabe bedeutet, Werte vom KNX-Bus, die im KO landen, werden vom 1-Wire-Gerät an seinen Ausgängen ausgegeben. Somit ist das KO ein Eingang.
+* Eingabe bedeutet, dass ein Singal an einem Anschluss vom 1-Wire-Gerät auf den KNX-Bus geschrieben wird. Somit ist das KO ein Ausgang.
+
+Es ist wichtig zu beachten, dass man bitweise Ein- und Ausgänge einstellt, aber immer nur ein Byte auf den KNX-Bus verschickt wird, sobald sich ein Eingangswert ändert. Wenn also eine 7 auf den Bus gesendet wird, werden die Ausgänge 0, 1 und 2 gesetzt. Wird dann der Eingang 5 geändert, wird nicht der Wert 32 auf den Bus gesendet, sondern 39 (32 + 7). Es werden immer alle gesetzten Bits auf den Bus übertragen, egal ob diese Bits über den KNX-Bus oder über die externen Eingänge gesetzt wurden.
 
 Dieses Beispiel zeigt, dass die Behandlung von Bitwerten als Bytes auf der KNX-Seite schwierig ist. Es eignet sich aber sehr gut, um mehrere Ausgänge gleichzeitig zu setzen.
 
@@ -425,8 +451,8 @@ Die Modellfunktion "Bit n" erlaubt die Behandlung von einzelnen Bits eines I/O-G
 
 Da die Kommunikation von und zu 1-Wire über nur ein KO läuft, wird hier die Kommunikation nochmal genau beschrieben.
 
-* Wenn das Bit als Eingang parametrierrt ist, wird ein geänderter Eingangswert über das KO an den KNX-Bus gesendet. Somit ist das KO ein Ausgang, der aktiv auf den Bus senden kann. Die Flags sind K, L und Ü.
-* Wenn das Bit als Ausgang parametriert ist, wird der Ausgangswert gesetzt, sobald das KO beschrieben wurde. Somit ist das KO ein Eingang, der beschrieben werden kann. Damit der Ausgang auch einen Status zurückmelden kann, sendet das Modul den Status direkt auf demselben KO zurück. Die Flags sind K, L, S und Ü.
+* Wenn das Bit als Eingabe parametriert ist, wird ein geänderter Eingangswert über das KO an den KNX-Bus gesendet. Somit ist das KO ein Ausgang, der aktiv auf den Bus senden kann. Die Flags sind K, L und Ü.
+* Wenn das Bit als Ausgabe parametriert ist, wird der Ausgangswert gesetzt, sobald das KO beschrieben wurde. Somit ist das KO ein Eingang, der beschrieben werden kann. Damit der Ausgang auch einen Status zurückmelden kann, sendet das Modul den Status direkt auf demselben KO zurück. Die Flags sind K, L, S und Ü.
 
 **Anmerkung**: Das Senden des Status auf dem gleichen KO wie das Empfangen erlaubt eine KNX-Konforme nutzung einer Status-GA, sofern die GA in der korrekten reihenfolge zugewiesen wurden: Es muss immer zuerst die Status-GA zugewiesen werden (sendend), anschließend eine oder mehrere Schalt-GA.
 
@@ -444,9 +470,9 @@ Jetzt wird noch ein Gerät definiert, mit selben ID und der Modulfunktion Bit 1.
 
 Man hat jetzt 2 KO "Rot" und "Grün" und kann damit die jeweiliege Farbe ein- und ausschalten.
 
-Wenn Rot und Grün gleichzeitig eingeschaltet werden, leuchtet die LED in einem Orange-Ton. Wenn aber über KNX nacheinander Rot und Grün eingeschaltet werden, sieht man an der LED, dass sie kurz rot leuchtet, bevor sie orange wird.
+Wenn Rot und Grün gleichzeitig eingeschaltet werden, leuchtet die LED in einem Orange-Ton. Wenn aber über KNX nacheinander Rot und Grün eingeschaltet werden, sieht man an der LED, dass sie erst rot leuchtet, bevor sie orange wird.
 
-Selbst wenn man eine Schalt-GA "Orange" an beide KO legt, sieht man noch eine winzige Zeit lang rot, bevor es orange wird, da die beiden KO intern nacheinander abgearbeitet werden.
+Selbst wenn man eine Schalt-GA "Orange" an beide KO legt, sieht man noch eine gewisse Zeit lang rot, bevor es orange wird, da die beiden KO intern nacheinander abgearbeitet werden und es relativ lange dauert, diese Werte an den 1-Wire-Chip zu übertragen.
 
 Eine weitere Möglichkeit ist es, ein drittes Gerät mit der selben ID anzulegen, mit der Modulfunktion Byte und dem Namen "Orange". Wenn jetzt auf dieses KO der Wert 3 gesendet wird, werden wirklich gleichzeitig beide IO-Ausgänge geschaltet und die Farbe Orange erscheint sofort.
 
@@ -458,12 +484,13 @@ Nehmen wir mal an, man hat ein 8-Bit-IO, dessen 4 unteren Bits 0-3 einen Wert au
 
 Dazu legt man ein Gerät mit der passenden ID des 8-Bit-IO an und setzt die oberen 4 Bits als Eingang. Wenn man jetzt eine 7 auf das KO schickt (Bit 0-2 gesetzt), wird bereits vom Gateway die 7 als Statusrückmeldung auf das KO geschrieben. Das ist soweit korrekt, da damit gesagt wird, dass die 7 erfolgreich ausgegeben wurde. Anschließend würde die externe Schaltung die 7 als Status auf die Eingänge 4-7 gespiegelt und somit als 16+32+64 = 112 zurückgegeben. Da immer alle Bits in einem Byte auf den KNX-Bus geschrieben werden, wird der Wert 112 + 7 = 119 auf das KO geschrieben.
 
-Man erhält somit 3 Telegramme: 
+Man erhält somit 3 Telegramme:
+
 * eine 7, die man schreibt
 * eine 7 als unmittelbare Statusmeldung des Gateways
 * eine 119 als Statusmeldung der externen Schaltung
 
-Die Statusrückmeldung kann man zwar auf eine eigene GA senden lassen (1. GA am KO, sendende GA), aber man erhält immer noch 2 Telegramme kurz hintereinander mit unterschiedlichen Werten. Das ist häufig nicht gewünscht. 
+Die Statusrückmeldung kann man zwar auf eine eigene GA senden lassen (1. GA am KO, sendende GA), aber man erhält immer noch 2 Telegramme kurz hintereinander mit unterschiedlichen Werten. Das ist häufig nicht gewünscht.
 
 Dies kann man lösen, indem man ein weiteres Gerät mit der gleichen ID des 8-Bit-IO anlegt und mit gleicher Bitmaske für Ein- und Ausgang. Dem neuen KO weist man eine neue GA zu, auf dieser GA kommen jetzt nur noch die Signale an, die von außen gesendet werden. In unserem Beispiel würde da immer nur die 119 ankommen, und war immer dann, wenn von außen ein Signal eingeht.
 
