@@ -18,6 +18,7 @@ class WireBus
 
     OneWireDS2482 gOneWireBM;
     bool gForceSensorRead = true;
+    bool gIsSetup = false;
 
     void publishSensors(OneWireDS2482 *iBM);
     void processOneWire(bool iForce = false);
@@ -31,10 +32,9 @@ class WireBus
     static void processIButtonGroups();
 
     WireBus();
-    WireBus(uint8_t iI2cAddressOffset);
     ~WireBus();
 
     void loop();
-    void setup(bool iSearchNewDevices, bool iSearchIButtons);
+    void setup(uint8_t iI2cAddressOffset, bool iSearchNewDevices, bool iSearchIButtons);
     void processKOCallback(GroupObject &iKo);
 };

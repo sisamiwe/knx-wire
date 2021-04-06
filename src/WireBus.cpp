@@ -16,11 +16,7 @@ uint8_t WireBus::sDeviceIndex = 0;
 uint32_t WireBus::sUnknownDeviceDelay = 0;
 WireDevice *WireBus::sDevice[COUNT_1WIRE_CHANNEL] = {0};
 
-WireBus::WireBus()
-    : WireBus(0) {
-}
-
-WireBus::WireBus(uint8_t iI2cAddressOffset) : gOneWireBM(iI2cAddressOffset, WireBus::processNewIdCallback, WireBus::knxLoopCallback) {
+WireBus::WireBus() : gOneWireBM(WireBus::processNewIdCallback, WireBus::knxLoopCallback) {
 }
 
 WireBus::~WireBus() {
@@ -273,6 +269,9 @@ void WireBus::loop()
 {
     knx.loop(); // improve knx responsiveness
 
+    if (!gIsSetup)
+        return;
+
     processOneWire(gForceSensorRead);
     processUnknownDevices();
     processIButtonGroups();
@@ -283,6 +282,14 @@ void WireBus::loop()
     gOneWireBM.loop();
 }
 
-void WireBus::setup(bool iSearchNewDevices, bool iSearchIButtons) {
-    gOneWireBM.setup(iSearchNewDevices, iSearchIButtons);
+void WireBus::setup(uint8_t iI2cAddressOffset, bool iSearchNewDevices, bool iSearchIButtons)
+{
+    uint8_t lBusMasterMemOffset = 2 * iI2cAddressOffset;
+    gOneWireBM.setup(iI2cAddressOffset, iSearchNewDevices, iSearchIButtons,
+                     (knx.paramByte(LOG_Busmaster1RSTL + lBusMasterMemOffset) & LOG_Busmaster1RSTLMask) >> LOG_Busmaster1RSTLShift,
+                     (knx.paramByte(LOG_Busmaster1MSP  + lBusMasterMemOffset) & LOG_Busmaster1MSPMask)  >> LOG_Busmaster1MSPShift,
+                     (knx.paramByte(LOG_Busmaster1W0L  + lBusMasterMemOffset) & LOG_Busmaster1W0LMask)  >> LOG_Busmaster1W0LShift,
+                     (knx.paramByte(LOG_Busmaster1REC0 + lBusMasterMemOffset) & LOG_Busmaster1REC0Mask) >> LOG_Busmaster1REC0Shift,
+                     (knx.paramByte(LOG_Busmaster1WPU  + lBusMasterMemOffset) & LOG_Busmaster1WPUMask)  >> LOG_Busmaster1WPUShift);
+    gIsSetup = true;
 }

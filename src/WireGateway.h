@@ -41,6 +41,9 @@
 #define LOG_Diagnose                  10      // 1 Bit, Bit 3
 #define     LOG_DiagnoseMask 0x08
 #define     LOG_DiagnoseShift 3
+#define LOG_Watchdog                  10      // 1 Bit, Bit 2
+#define     LOG_WatchdogMask 0x04
+#define     LOG_WatchdogShift 2
 #define LOG_Neujahr                   11      // 1 Bit, Bit 7
 #define     LOG_NeujahrMask 0x80
 #define     LOG_NeujahrShift 7
@@ -172,9 +175,69 @@
 #define LOG_Group8                    26      // 1 Bit, Bit 0
 #define     LOG_Group8Mask 0x01
 #define     LOG_Group8Shift 0
+#define LOG_Busmaster1RSTL            27      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster1RSTLMask 0xF0
+#define     LOG_Busmaster1RSTLShift 4
+#define LOG_Busmaster2RSTL            27      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster2RSTLMask 0x0F
+#define     LOG_Busmaster2RSTLShift 0
+#define LOG_Busmaster3RSTL            28      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster3RSTLMask 0xF0
+#define     LOG_Busmaster3RSTLShift 4
+#define LOG_Busmaster4RSTL            28      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster4RSTLMask 0x0F
+#define     LOG_Busmaster4RSTLShift 0
+#define LOG_Busmaster1MSP             29      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster1MSPMask 0xF0
+#define     LOG_Busmaster1MSPShift 4
+#define LOG_Busmaster2MSP             29      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster2MSPMask 0x0F
+#define     LOG_Busmaster2MSPShift 0
+#define LOG_Busmaster3MSP             30      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster3MSPMask 0xF0
+#define     LOG_Busmaster3MSPShift 4
+#define LOG_Busmaster4MSP             30      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster4MSPMask 0x0F
+#define     LOG_Busmaster4MSPShift 0
+#define LOG_Busmaster1W0L             31      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster1W0LMask 0xF0
+#define     LOG_Busmaster1W0LShift 4
+#define LOG_Busmaster2W0L             31      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster2W0LMask 0x0F
+#define     LOG_Busmaster2W0LShift 0
+#define LOG_Busmaster3W0L             32      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster3W0LMask 0xF0
+#define     LOG_Busmaster3W0LShift 4
+#define LOG_Busmaster4W0L             32      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster4W0LMask 0x0F
+#define     LOG_Busmaster4W0LShift 0
+#define LOG_Busmaster1REC0            33      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster1REC0Mask 0xF0
+#define     LOG_Busmaster1REC0Shift 4
+#define LOG_Busmaster2REC0            33      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster2REC0Mask 0x0F
+#define     LOG_Busmaster2REC0Shift 0
+#define LOG_Busmaster3REC0            34      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster3REC0Mask 0xF0
+#define     LOG_Busmaster3REC0Shift 4
+#define LOG_Busmaster4REC0            34      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster4REC0Mask 0x0F
+#define     LOG_Busmaster4REC0Shift 0
+#define LOG_Busmaster1WPU             35      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster1WPUMask 0xF0
+#define     LOG_Busmaster1WPUShift 4
+#define LOG_Busmaster2WPU             35      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster2WPUMask 0x0F
+#define     LOG_Busmaster2WPUShift 0
+#define LOG_Busmaster3WPU             36      // 4 Bits, Bit 7-4
+#define     LOG_Busmaster3WPUMask 0xF0
+#define     LOG_Busmaster3WPUShift 4
+#define LOG_Busmaster4WPU             36      // 4 Bits, Bit 3-0
+#define     LOG_Busmaster4WPUMask 0x0F
+#define     LOG_Busmaster4WPUShift 0
 
 // Parameter per channel
-#define LOG_ParamBlockOffset 27
+#define LOG_ParamBlockOffset 37
 #define LOG_ParamBlockSize 100
 #define LOG_fChannelDelay              0      // int32_t
 #define LOG_fLogic                     4      // 8 Bits, Bit 7-0
@@ -654,7 +717,7 @@
 #define LOG_KoKOfO 2
 
 // Parameter per channel
-#define WIRE_ParamBlockOffset 4027
+#define WIRE_ParamBlockOffset 4037
 #define WIRE_ParamBlockSize 17
 #define WIRE_sDeviceId                  0      // char*, 7 Byte
 #define WIRE_sFamilyCode                0      // 8 Bits, Bit 7-0

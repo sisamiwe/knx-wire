@@ -174,8 +174,8 @@ void appSetup(bool iSaveSupported)
         if (GroupObject::classCallback() == 0) GroupObject::classCallback(ProcessKoCallback);
         gLogic.setup(iSaveSupported);
         bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & LOG_IdSearchMask;
-        gBusMaster[0].setup(lSearchNewDevices, true);
-        gBusMaster[1].setup(lSearchNewDevices, true);
-        gBusMaster[2].setup(lSearchNewDevices, true);
+        gBusMaster[0].setup(0, lSearchNewDevices, true);
+        gBusMaster[1].setup(1, lSearchNewDevices, true);
+        gBusMaster[2].setup(2, lSearchNewDevices, true);
     }
 }
