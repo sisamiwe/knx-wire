@@ -14,7 +14,7 @@ Der letzte Punkt ist in der Applikationsbeschreibung Logik beschrieben.
 
 ## Änderungshistorie
 
-10.04.2021: Firmware 3.0.0, Applikation 3.0
+10.04.2021: Firmware 3.0.0, Applikation 3.1
 
 * Initiales 1-Wire-Beta-Release
 
