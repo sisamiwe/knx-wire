@@ -41,6 +41,16 @@
                 <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_UP-6_R-61" SourceParamRefRef="M-00FA_A-0001-01-0000_UP-6_R-62"/>
                 <Assign TargetParamRefRef="M-00FA_A-0001-01-0000_UP-7_R-71" SourceParamRefRef="M-00FA_A-0001-01-0000_UP-7_R-72"/>
               </ParameterBlock>
+              <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-3" Name="Expert" Text="Experten-Einstellungen">
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Die Einstellungen dieser Seite sind nur für Experten, die sich genau mit 1-Wire-Bus-Timing auskennen. Das Datenblatt vom DS2484, Seite 13 ist heranzuziehen." UIHint="Information" />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Falls sich duch Anpassungen hier das Modul nicht mehr über die ETS programmieren lässt, bitte erneut die Firmware per USB aufspielen und dann mit Standardparametern neu programmieren." />
+                <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-530_R-5301" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-531_R-5311" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-532_R-5321" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-533_R-5331" />
+                <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-534_R-5341" />
+              </ParameterBlock>
             </ChannelIndependentBlock>
           </Dynamic>
         </ApplicationProgram>

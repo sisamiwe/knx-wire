@@ -14,6 +14,8 @@
 uint8_t WireBus::sDeviceCount = 0;
 uint8_t WireBus::sDeviceIndex = 0;
 uint32_t WireBus::sUnknownDeviceDelay = 0;
+uint8_t WireBus::sUnknownDeviceNextOutput = 0;
+uint8_t WireBus::sInstances = 0;
 WireDevice *WireBus::sDevice[COUNT_1WIRE_CHANNEL] = {0};
 
 WireBus::WireBus() : gOneWireBM(WireBus::processNewIdCallback, WireBus::knxLoopCallback) {
@@ -25,7 +27,8 @@ WireBus::~WireBus() {
 void WireBus::processKOCallback(GroupObject &iKo)
 {
     // check for 1-Wire-KO
-    if (iKo.asap() >= WIRE_KoOffset && iKo.asap() < ((knx.paramByte(LOG_BusMasterCount) & 0x60) >> 5) * 30 + WIRE_KoOffset) {
+    if (iKo.asap() >= WIRE_KoOffset && iKo.asap() < ((knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift) * 30 + WIRE_KoOffset)
+    {
         uint8_t lDeviceIndex = iKo.asap() - WIRE_KoOffset;
         // has to be an input KO (for an 1W output device)
         uint16_t lParamIndex = lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset;
@@ -55,15 +58,13 @@ void WireBus::knxLoopCallback() {
 
 void WireBus::processUnknownDevices()
 {
-    static uint8_t sIterator = 0;
-    static uint8_t sDelayFactor = 2;
     bool lForce = sUnknownDeviceDelay == 0;
 
-    if (gOneWireBM.DeviceCount() > 0 && (lForce || delayCheck(sUnknownDeviceDelay, sDelayFactor * 1000)))
+    if (sUnknownDeviceNextOutput == gInstance && (lForce || delayCheck(sUnknownDeviceDelay, gDelayFactorProcessUnknownDevices * 1000)))
     {
-        for (; sIterator < gOneWireBM.DeviceCount();)
+        for (; gIteratorProcessUnknownDevices < gOneWireBM.DeviceCount();)
         {
-            OneWire *lSensor = gOneWireBM.Sensor(sIterator++);
+            OneWire *lSensor = gOneWireBM.Sensor(gIteratorProcessUnknownDevices++);
             if (lSensor->Mode() == OneWire::New)
             {
                 // output is 1 new ID in 2 Seconds at max
@@ -73,14 +74,19 @@ void WireBus::processUnknownDevices()
                 sprintf(lBuffer, "%02X%02X%02X%02X%02X%02X%02X", lSensor->Id()[0], lSensor->Id()[1], lSensor->Id()[2], lSensor->Id()[3], lSensor->Id()[4], lSensor->Id()[5], lSensor->Id()[6]);
                 printDebug("%s\n", lBuffer);
                 knx.getGroupObject(LOG_KoNewId).value(lBuffer, getDPT(VAL_DPT_16));
-                sDelayFactor = 2; // check in 2 Seconds for next new ID
+                gDelayFactorProcessUnknownDevices = 2; // check in 2 Seconds for next new ID
                 break;
             }
         }
-        if (sIterator == gOneWireBM.DeviceCount())
+        if (gIteratorProcessUnknownDevices == gOneWireBM.DeviceCount())
         {
-            sIterator = 0;
-            sDelayFactor = 60; // next output of all IDs in a minute
+            gIteratorProcessUnknownDevices = 0;
+            gDelayFactorProcessUnknownDevices = 2;
+            sUnknownDeviceNextOutput++;
+            if (sUnknownDeviceNextOutput >= sInstances) {
+                gDelayFactorProcessUnknownDevices = 60; // next output of all IDs in a minute
+                sUnknownDeviceNextOutput = 0;
+            }
         }
         sUnknownDeviceDelay = millis();
         if (sUnknownDeviceDelay == 0)
@@ -88,6 +94,7 @@ void WireBus::processUnknownDevices()
     }
 }
 
+// TODO INSTANCE
 // static - this is not perfect, but it works
 bool WireBus::measureOneWire(MeasureType iMeasureType, float &eValue)
 {
@@ -105,6 +112,7 @@ void WireBus::processIButtonGroups()
     // as described in doc/iButton-Group-Handling.txt
     // so we iterate per device just through all 8 groups
     // final group result takes at max 90 iterations
+    // currently we have about 3000 iterations per second, so it is still fast enough
     static uint8_t sIndex = 0;
     static bool sIButtonExist = true;
     static uint8_t sToProcess = 0xFF;
@@ -200,8 +208,8 @@ void WireBus::processOneWire(bool iForce) {
 bool WireBus::processNewIdCallback(OneWire *iOneWireSensor)
 {
     bool lResult = false;
-    uint8_t lBusMasterCount = ((knx.paramByte(LOG_BusMasterCount) & 0x60) >> 5) * 30;
-    for (uint8_t lIndex = 0; lIndex < lBusMasterCount; lIndex++)
+    uint8_t lMaxDevices = ((knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift) * 30;
+    for (uint8_t lIndex = 0; lIndex < lMaxDevices; lIndex++)
     {
         uint16_t lParamIndex = lIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset;
         if (knx.paramByte(lParamIndex) > 0) {
@@ -284,12 +292,15 @@ void WireBus::loop()
 
 void WireBus::setup(uint8_t iI2cAddressOffset, bool iSearchNewDevices, bool iSearchIButtons)
 {
-    uint8_t lBusMasterMemOffset = 2 * iI2cAddressOffset;
-    gOneWireBM.setup(iI2cAddressOffset, iSearchNewDevices, iSearchIButtons,
-                     (knx.paramByte(LOG_Busmaster1RSTL + lBusMasterMemOffset) & LOG_Busmaster1RSTLMask) >> LOG_Busmaster1RSTLShift,
-                     (knx.paramByte(LOG_Busmaster1MSP  + lBusMasterMemOffset) & LOG_Busmaster1MSPMask)  >> LOG_Busmaster1MSPShift,
-                     (knx.paramByte(LOG_Busmaster1W0L  + lBusMasterMemOffset) & LOG_Busmaster1W0LMask)  >> LOG_Busmaster1W0LShift,
-                     (knx.paramByte(LOG_Busmaster1REC0 + lBusMasterMemOffset) & LOG_Busmaster1REC0Mask) >> LOG_Busmaster1REC0Shift,
-                     (knx.paramByte(LOG_Busmaster1WPU  + lBusMasterMemOffset) & LOG_Busmaster1WPUMask)  >> LOG_Busmaster1WPUShift);
-    gIsSetup = true;
+    gIsSetup = gOneWireBM.setup(sInstances, iI2cAddressOffset, iSearchNewDevices, iSearchIButtons);
+    gInstance = sInstances++;
+    if (gIsSetup && iI2cAddressOffset == 0) {
+        // Sensormodule case with just one Busmaster DS2484
+        gIsSetup = gOneWireBM.setupTiming(
+                        (knx.paramByte(LOG_Busmaster1RSTL) & LOG_Busmaster1RSTLMask) >> LOG_Busmaster1RSTLShift,
+                        (knx.paramByte(LOG_Busmaster1MSP ) & LOG_Busmaster1MSPMask)  >> LOG_Busmaster1MSPShift,
+                        (knx.paramByte(LOG_Busmaster1W0L ) & LOG_Busmaster1W0LMask)  >> LOG_Busmaster1W0LShift,
+                        (knx.paramByte(LOG_Busmaster1REC0) & LOG_Busmaster1REC0Mask) >> LOG_Busmaster1REC0Shift,
+                        (knx.paramByte(LOG_Busmaster1WPU ) & LOG_Busmaster1WPUMask)  >> LOG_Busmaster1WPUShift);
+    }
 }

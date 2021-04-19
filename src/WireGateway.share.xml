@@ -281,7 +281,7 @@
             </ParameterTypes>
             <Parameters>
               <Union SizeInBit="8">
-                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="25" BitOffset="0" />
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="45" BitOffset="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-500" Name="WireError" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-OnOffYesNo" Text="Fehlerobjekt(e) anzeigen" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-501" Name="BusMasterCount" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterCount" Text="Installierte Busmaster" Value="1" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-502" Name="IdSearch" Offset="0" BitOffset="3" ParameterType="M-00FA_A-0001-01-0000_PT-IdSearch" Text="Device-Suche" Value="1" />
@@ -298,7 +298,7 @@
               <Parameter Id="M-00FA_A-0001-01-0000_P-516" Name="GroupText7" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 7: Name" Value="" />
               <Parameter Id="M-00FA_A-0001-01-0000_P-517" Name="GroupText8" ParameterType="M-00FA_A-0001-01-0000_PT-Text40Byte" Text="Gruppe 8: Name" Value="" />
               <Union SizeInBit="8">
-                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="26" BitOffset="0" />
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="46" BitOffset="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-520" Name="Group1" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="                  Typ" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-521" Name="Group2" Offset="0" BitOffset="1" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="                  Typ" Value="0" />
                 <Parameter Id="M-00FA_A-0001-01-0000_UP-522" Name="Group3" Offset="0" BitOffset="2" ParameterType="M-00FA_A-0001-01-0000_PT-GroupType" Text="                  Typ" Value="0" />
@@ -310,28 +310,13 @@
               </Union>
               <Parameter Id="M-00FA_A-0001-01-0000_P-528" Name="DeviceCount" ParameterType="M-00FA_A-0001-01-0000_PT-ValueDpt5" Text="Anzahl 1Wire-Geräte" Value="0" Access="Read" />
               <Parameter Id="M-00FA_A-0001-01-0000_P-529" Name="BusmasterMax" ParameterType="M-00FA_A-0001-01-0000_PT-ValueDpt5" Text="Maximale Anzahl Busmaster" Value="3" Access="None" />
-              <Union SizeInBit="80">
-                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="27" BitOffset="0" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-530" Name="Busmaster1RSTL" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterRSTL" Text="RSTL (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-531" Name="Busmaster2RSTL" Offset="0" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterRSTL" Text="RSTL (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-532" Name="Busmaster3RSTL" Offset="1" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterRSTL" Text="RSTL (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-533" Name="Busmaster4RSTL" Offset="1" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterRSTL" Text="RSTL (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-534" Name="Busmaster1MSP"  Offset="2" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterMSP"  Text="MSP (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-535" Name="Busmaster2MSP"  Offset="2" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterMSP"  Text="MSP (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-536" Name="Busmaster3MSP"  Offset="3" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterMSP"  Text="MSP (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-537" Name="Busmaster4MSP"  Offset="3" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterMSP"  Text="MSP (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-538" Name="Busmaster1W0L"  Offset="4" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterW0L"  Text="W0L (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-539" Name="Busmaster2W0L"  Offset="4" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterW0L"  Text="W0L (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-540" Name="Busmaster3W0L"  Offset="5" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterW0L"  Text="W0L (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-541" Name="Busmaster4W0L"  Offset="5" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterW0L"  Text="W0L (in Mikrosekunden)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-542" Name="Busmaster1REC0" Offset="6" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterREC0" Text="REC0 (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-543" Name="Busmaster2REC0" Offset="6" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterREC0" Text="REC0 (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-544" Name="Busmaster3REC0" Offset="7" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterREC0" Text="REC0 (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-545" Name="Busmaster4REC0" Offset="7" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterREC0" Text="REC0 (in Mikrosekunden)" Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-546" Name="Busmaster1WPU"  Offset="8" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterWPU"  Text="WPU (in Ohm)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-547" Name="Busmaster2WPU"  Offset="8" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterWPU"  Text="WPU (in Ohm)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-548" Name="Busmaster3WPU"  Offset="9" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterWPU"  Text="WPU (in Ohm)"  Value="6" />
-                <Parameter Id="M-00FA_A-0001-01-0000_UP-549" Name="Busmaster4WPU"  Offset="9" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterWPU"  Text="WPU (in Ohm)"  Value="6" />
+              <Union SizeInBit="24">
+                <Memory CodeSegment="M-00FA_A-0001-01-0000_RS-04-00000" Offset="47" BitOffset="0" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-530" Name="Busmaster1RSTL" Offset="0" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterRSTL" Text="tRSTL (in Mikrosekunden)" Value="6" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-531" Name="Busmaster1MSP"  Offset="0" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterMSP"  Text="tMSP (in Mikrosekunden)"  Value="6" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-532" Name="Busmaster1W0L"  Offset="1" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterW0L"  Text="tW0L (in Mikrosekunden)"  Value="6" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-533" Name="Busmaster1REC0" Offset="1" BitOffset="4" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterREC0" Text="tREC0 (in Mikrosekunden)" Value="6" />
+                <Parameter Id="M-00FA_A-0001-01-0000_UP-534" Name="Busmaster1WPU"  Offset="2" BitOffset="0" ParameterType="M-00FA_A-0001-01-0000_PT-BusMasterParameterWPU"  Text="RWPU (in Ohm)"  Value="6" />
               </Union>
             </Parameters>
             <ParameterRefs>
@@ -371,21 +356,6 @@
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-532_R-5321" RefId="M-00FA_A-0001-01-0000_UP-532" />
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-533_R-5331" RefId="M-00FA_A-0001-01-0000_UP-533" />
               <ParameterRef Id="M-00FA_A-0001-01-0000_UP-534_R-5341" RefId="M-00FA_A-0001-01-0000_UP-534" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-535_R-5351" RefId="M-00FA_A-0001-01-0000_UP-535" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-536_R-5361" RefId="M-00FA_A-0001-01-0000_UP-536" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-537_R-5371" RefId="M-00FA_A-0001-01-0000_UP-537" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-538_R-5381" RefId="M-00FA_A-0001-01-0000_UP-538" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-539_R-5391" RefId="M-00FA_A-0001-01-0000_UP-539" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-540_R-5401" RefId="M-00FA_A-0001-01-0000_UP-540" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-541_R-5411" RefId="M-00FA_A-0001-01-0000_UP-541" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-542_R-5421" RefId="M-00FA_A-0001-01-0000_UP-542" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-543_R-5431" RefId="M-00FA_A-0001-01-0000_UP-543" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-544_R-5441" RefId="M-00FA_A-0001-01-0000_UP-544" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-545_R-5451" RefId="M-00FA_A-0001-01-0000_UP-545" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-546_R-5461" RefId="M-00FA_A-0001-01-0000_UP-546" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-547_R-5471" RefId="M-00FA_A-0001-01-0000_UP-547" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-548_R-5481" RefId="M-00FA_A-0001-01-0000_UP-548" />
-              <ParameterRef Id="M-00FA_A-0001-01-0000_UP-549_R-5491" RefId="M-00FA_A-0001-01-0000_UP-549" />
             </ParameterRefs>
             <ComObjectTable>
               <ComObject Id="M-00FA_A-0001-01-0000_O-20" Name="NewId" Text="IDs unbekannter Geräte" Number="20" FunctionText="Geräte-Id" ObjectSize="14 Bytes" ReadFlag="Disabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" DatapointType="DPST-16-1" />
@@ -533,37 +503,6 @@
                     </choose>
                   </when>
                 </choose>
-                <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-3" Name="Expert" Text="Experten-Einstellungen">>
-                  <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Die Einstellungen dieser Seite sind nur für Experten, die sich genau mit 1-Wire-Bus-Timing auskennen. Das Datenblatt vom DS2484, Seite 13 ist heranzuziehen." UIHint="Information" />
-                  <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Falls sich duch Anpassungen hier das Modul nicht mehr über die ETS programmieren lässt, bitte erneut die Firmware per USB aufspielen und dann mit Standardparametern neu programmieren." />
-                  <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                  <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Busmaster 1" UIHint="Headline" />
-                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-530_R-5301" />
-                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-534_R-5341" />
-                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-538_R-5381" />
-                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-542_R-5421" />
-                  <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-546_R-5461" />
-                  <choose ParamRefId="M-00FA_A-0001-01-0000_UP-500_R-5001">
-                    <when test="2 3">
-                      <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                      <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Busmaster 2" UIHint="Headline" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-531_R-5311" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-535_R-5351" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-539_R-5391" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-543_R-5431" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-547_R-5471" />
-                    </when>
-                    <when test="3">
-                      <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                      <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-nnn" Text="Busmaster 3" UIHint="Headline" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-532_R-5321" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-536_R-5361" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-540_R-5401" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-544_R-5441" />
-                      <ParameterRefRef RefId="M-00FA_A-0001-01-0000_UP-548_R-5481" />
-                    </when>
-                  </choose>
-                </ParameterBlock>
               </ParameterBlock>
               <ParameterBlock Id="M-00FA_A-0001-01-0000_PB-2" Name="IButtonGroups" Text="iButton Gruppierung">
                 <ParameterSeparator Id="M-00FA_A-0001-01-0000_PS-25" Text="iButton-Gruppen" UIHint="Headline" />

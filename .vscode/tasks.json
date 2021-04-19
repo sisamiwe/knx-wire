@@ -88,6 +88,14 @@
                 "kind": "test",
                 "isDefault": true
             }
+        },
+        {
+            "label": "MultiplyChannels-Beta",
+            "type": "shell",
+            "command": "beta\\BuildRelease.cmd",
+            "args": [],
+            "problemMatcher": [],
+            "group": "test"
         }
     ]
 }

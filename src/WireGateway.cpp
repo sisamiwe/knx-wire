@@ -3,9 +3,7 @@
 
 #include "Sensor.h"
 #include "OneWire.h"
-#include "OneWireDS2482.h"
 #include "WireBus.h"
-#include "WireDevice.h"
 
 #include "IncludeManager.h"
 
@@ -13,7 +11,7 @@
 #include "KnxHelper.h"
 
 const uint8_t cFirmwareMajor = 3;    // 0-31
-const uint8_t cFirmwareMinor = 0;    // 0-31
+const uint8_t cFirmwareMinor = 1;    // 0-31
 const uint8_t cFirmwareRevision = 0; // 0-63
 
 // Achtung: Bitfelder in der ETS haben eine gewöhnungswürdige
@@ -21,8 +19,8 @@ const uint8_t cFirmwareRevision = 0; // 0-63
 uint32_t gStartupDelay;
 uint32_t gHeartbeatDelay;
 bool gIsRunning = false;
-WireBus gBusMaster[3];
-WireDevice gDevice[90];
+WireBus gBusMaster[COUNT_1WIRE_BUSMASTER];
+WireDevice gDevice[COUNT_1WIRE_CHANNEL];
 uint16_t gCountSaveInterrupt = 0;
 uint32_t gSaveInterruptTimestamp = 0;
 bool gForceSensorRead = true;
@@ -119,7 +117,10 @@ void ProcessKoCallback(GroupObject &iKo)
     // check if we evaluate own KO
     if (iKo.asap() == LOG_KoDiagnose) {
         ProcessDiagnoseCommand(iKo);
-    } else {
+    }
+    else
+    {
+        WireBus::processKOCallback(iKo);
         // else dispatch to logicmodule
         gLogic.processInputKo(iKo);
     }
@@ -141,9 +142,11 @@ void appLoop()
     ProcessHeartbeat();
     ProcessReadRequests();
     gLogic.loop();
-    gBusMaster[0].loop();
-    gBusMaster[1].loop();
-    gBusMaster[2].loop();
+    uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
+    for (uint8_t lBusmasterIndex = 0; lBusmasterIndex < lNumBusmaster; lBusmasterIndex++)
+    {
+        gBusMaster[lBusmasterIndex].loop();
+    }
 
     // at Startup, we want to send all values immediately
     // ProcessSensors(gRuntimeData.forceSensorRead);
@@ -153,15 +156,15 @@ void appLoop()
 void appSetup(bool iSaveSupported)
 {
     // try to get rid of occasional I2C lock...
-    // savePower();
-    digitalWrite(PROG_LED_PIN, HIGH);
-    digitalWrite(LED_YELLOW_PIN, HIGH);
-    // delay(100);
-    // restorePower();
+    savePower();
+    ledProg(true);
+    ledInfo(true);
+    delay(500);
+    restorePower();
     // check hardware availability
     boardCheck();
-    digitalWrite(PROG_LED_PIN, LOW);
-    digitalWrite(LED_YELLOW_PIN, LOW);
+    ledInfo(false);
+    ledProg(false);
 
     if (knx.configured())
     {
@@ -173,9 +176,28 @@ void appSetup(bool iSaveSupported)
         // GroupObject &lKoRequestValues = knx.getGroupObject(LOG_KoRequestValues);
         if (GroupObject::classCallback() == 0) GroupObject::classCallback(ProcessKoCallback);
         gLogic.setup(iSaveSupported);
+        // should we search for new devices?
         bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & LOG_IdSearchMask;
-        gBusMaster[0].setup(0, lSearchNewDevices, true);
-        gBusMaster[1].setup(1, lSearchNewDevices, true);
-        gBusMaster[2].setup(2, lSearchNewDevices, true);
+        // are there iButtons?
+        uint8_t lIsIButton = 0;
+        for (uint8_t lDeviceIndex = 0; lDeviceIndex < COUNT_1WIRE_CHANNEL; lDeviceIndex++)
+        {
+            uint8_t lFamily = knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
+            if (lFamily == 1) {
+                uint8_t lBusmaster = 1 << knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
+                lIsIButton |= lBusmaster;
+            }
+        }
+        Wire.setClock(400000);
+        uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
+        lIsIButton = 4; // TEMP
+        gBusMaster[0].setup(2, lSearchNewDevices, (lIsIButton & 4));
+        // if (lNumBusmaster > 1) {
+        //     gBusMaster[1].setup(3, lSearchNewDevices, (lIsIButton & 2));
+        //     if (lNumBusmaster > 2)
+        //     {
+        //         gBusMaster[2].setup(2, lSearchNewDevices, (lIsIButton & 4));
+        //     }
+        // }  
     }
 }
