@@ -56,15 +56,15 @@
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunction" Name="ModelFunction">
                 <TypeRestriction Base="Value" SizeInBit="8">
                   <Enumeration Text="Default" Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-0" />
-                  <Enumeration Text="Bit 1" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-1" />
-                  <Enumeration Text="Bit 2" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-2" />
-                  <Enumeration Text="Bit 3" Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-3" />
-                  <Enumeration Text="Bit 4" Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-4" />
-                  <Enumeration Text="Bit 5" Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-5" />
-                  <Enumeration Text="Bit 6" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-6" />
-                  <Enumeration Text="Bit 7" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-7" />
-                  <Enumeration Text="Bit 8" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-8" />
-                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-9" />
+                  <Enumeration Text="Bit 1"   Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-1" />
+                  <Enumeration Text="Bit 2"   Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-2" />
+                  <Enumeration Text="Bit 3"   Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-3" />
+                  <Enumeration Text="Bit 4"   Value="4" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-4" />
+                  <Enumeration Text="Bit 5"   Value="5" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-5" />
+                  <Enumeration Text="Bit 6"   Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-6" />
+                  <Enumeration Text="Bit 7"   Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-7" />
+                  <Enumeration Text="Bit 8"   Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-8" />
+                  <Enumeration Text="Byte"    Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-9" />
                   <Enumeration Text="Temperatur (On Chip)" Value="10" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-10" />
                   <Enumeration Text="Spannung vom Chip (VDD)" Value="11" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-11" />
                   <Enumeration Text="Spannung vom AD-Wandler (VAD)" Value="12" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-12" />
@@ -73,15 +73,15 @@
                   <Enumeration Text="Luftfeuchte" Value="16" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-16" />
                   <Enumeration Text="Helligkeit" Value="17" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-17" />
                   <!-- 18-49 future extensions -->
-                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-50" />
-                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-51" />
-                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-52" />
-                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-53" />
-                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-54" />
-                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-55" />
-                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-56" />
-                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-57" />
-                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-58" />
+                  <Enumeration Text="Benutzerdefiniert 1"  Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-50" />
+                  <Enumeration Text="Benutzerdefiniert 2"  Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-51" />
+                  <Enumeration Text="Benutzerdefiniert 3"  Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-52" />
+                  <Enumeration Text="Benutzerdefiniert 4"  Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-53" />
+                  <Enumeration Text="Benutzerdefiniert 5"  Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-54" />
+                  <Enumeration Text="Benutzerdefiniert 6"  Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-55" />
+                  <Enumeration Text="Benutzerdefiniert 7"  Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-56" />
+                  <Enumeration Text="Benutzerdefiniert 8"  Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-57" />
+                  <Enumeration Text="Benutzerdefiniert 9"  Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-58" />
                   <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-59" />
                   <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-60" />
                   <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-61" />
@@ -105,6 +105,14 @@
                   <Enumeration Text="Benutzerdefiniert 30" Value="79" Id="M-00FA_A-0001-01-0000_PT-ModelFunction_EN-79" />
                 </TypeRestriction>
               </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS18B20" Name="ModelFunctionDS18B20">
+                <TypeRestriction Base="Value" SizeInBit="8">
+                  <Enumeration Text="   9 Bit - 0.5°C"    Value="0" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS18B20_EN-0" />
+                  <Enumeration Text="10 Bit - 0.25°C"    Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS18B20_EN-1" />
+                  <Enumeration Text="11 Bit - 0.125°C"   Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS18B20_EN-2" />
+                  <Enumeration Text="12 Bit - 0.0625°C"  Value="3" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS18B20_EN-3" />
+                </TypeRestriction>
+              </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408" Name="ModelFunctionDS2408">
                 <TypeRestriction Base="Value" SizeInBit="8">
                   <Enumeration Text="Bit 0" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-1" />
@@ -115,14 +123,14 @@
                   <Enumeration Text="Bit 5" Value="6" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-6" />
                   <Enumeration Text="Bit 6" Value="7" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-7" />
                   <Enumeration Text="Bit 7" Value="8" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-8" />
-                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-9" />
+                  <Enumeration Text="Byte"  Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2408_EN-9" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413" Name="ModelFunctionDS2413">
                 <TypeRestriction Base="Value" SizeInBit="8">
                   <Enumeration Text="Bit 0" Value="1" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-1" />
                   <Enumeration Text="Bit 1" Value="2" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-2" />
-                  <Enumeration Text="Byte" Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-9" />
+                  <Enumeration Text="Byte"  Value="9" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2413_EN-9" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438" Name="ModelFunctionDS2438">
@@ -135,15 +143,15 @@
                   <Enumeration Text="Luftfeuchte" Value="16" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-16" />
                   <Enumeration Text="Helligkeit" Value="17" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-17" />
                   <!-- 18-49 future extensions -->
-                  <Enumeration Text="Benutzerdefiniert 1" Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-50" />
-                  <Enumeration Text="Benutzerdefiniert 2" Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-51" />
-                  <Enumeration Text="Benutzerdefiniert 3" Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-52" />
-                  <Enumeration Text="Benutzerdefiniert 4" Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-53" />
-                  <Enumeration Text="Benutzerdefiniert 5" Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-54" />
-                  <Enumeration Text="Benutzerdefiniert 6" Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-55" />
-                  <Enumeration Text="Benutzerdefiniert 7" Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-56" />
-                  <Enumeration Text="Benutzerdefiniert 8" Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-57" />
-                  <Enumeration Text="Benutzerdefiniert 9" Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-58" />
+                  <Enumeration Text="Benutzerdefiniert 1"  Value="50" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-50" />
+                  <Enumeration Text="Benutzerdefiniert 2"  Value="51" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-51" />
+                  <Enumeration Text="Benutzerdefiniert 3"  Value="52" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-52" />
+                  <Enumeration Text="Benutzerdefiniert 4"  Value="53" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-53" />
+                  <Enumeration Text="Benutzerdefiniert 5"  Value="54" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-54" />
+                  <Enumeration Text="Benutzerdefiniert 6"  Value="55" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-55" />
+                  <Enumeration Text="Benutzerdefiniert 7"  Value="56" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-56" />
+                  <Enumeration Text="Benutzerdefiniert 8"  Value="57" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-57" />
+                  <Enumeration Text="Benutzerdefiniert 9"  Value="58" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-58" />
                   <Enumeration Text="Benutzerdefiniert 10" Value="59" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-59" />
                   <Enumeration Text="Benutzerdefiniert 11" Value="60" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-60" />
                   <Enumeration Text="Benutzerdefiniert 12" Value="61" Id="M-00FA_A-0001-01-0000_PT-ModelFunctionDS2438_EN-61" />
@@ -169,8 +177,8 @@
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterCount" Name="BusMasterCount">
                 <TypeRestriction Base="Value" SizeInBit="2">
-                  <Enumeration Text="1 Busmaster (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-0" />
-                  <Enumeration Text="2 Busmaster (links+rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-1" />
+                  <Enumeration Text="1 Busmaster (links)"              Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-0" />
+                  <Enumeration Text="2 Busmaster (links+rechts)"       Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-1" />
                   <Enumeration Text="3 Busmaster (links+rechts+unten)" Value="3" Id="M-00FA_A-0001-01-0000_PT-BusMaster_EN-2" />
                 </TypeRestriction>
               </ParameterType>
@@ -181,15 +189,15 @@
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2" Name="BusMasterSelect2">
                 <TypeRestriction Base="Value" SizeInBit="2">
-                  <Enumeration Text="Busmaster 1 (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2_EN-0" />
+                  <Enumeration Text="Busmaster 1 (links)"  Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2_EN-0" />
                   <Enumeration Text="Busmaster 2 (rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect2_EN-1" />
                 </TypeRestriction>
               </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3" Name="BusMasterSelect3">
                 <TypeRestriction Base="Value" SizeInBit="2">
-                  <Enumeration Text="Busmaster 1 (links)" Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-0" />
+                  <Enumeration Text="Busmaster 1 (links)"  Value="1" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-0" />
                   <Enumeration Text="Busmaster 2 (rechts)" Value="2" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-1" />
-                  <Enumeration Text="Busmaster 3 (unten)" Value="3" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-2" />
+                  <Enumeration Text="Busmaster 3 (unten)"  Value="3" Id="M-00FA_A-0001-01-0000_PT-BusMasterSelect3_EN-2" />
                 </TypeRestriction>
               </ParameterType>
 

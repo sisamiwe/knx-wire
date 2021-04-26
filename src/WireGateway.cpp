@@ -3,7 +3,8 @@
 
 #include "Sensor.h"
 #include "OneWire.h"
-#include "WireBus.h"
+#include "WireDevice.h"
+#include <OneWireDS2482.h>
 
 #include "IncludeManager.h"
 
@@ -11,7 +12,7 @@
 #include "KnxHelper.h"
 
 const uint8_t cFirmwareMajor = 3;    // 0-31
-const uint8_t cFirmwareMinor = 1;    // 0-31
+const uint8_t cFirmwareMinor = 2;    // 0-31
 const uint8_t cFirmwareRevision = 0; // 0-63
 
 // Achtung: Bitfelder in der ETS haben eine gewöhnungswürdige
@@ -19,7 +20,7 @@ const uint8_t cFirmwareRevision = 0; // 0-63
 uint32_t gStartupDelay;
 uint32_t gHeartbeatDelay;
 bool gIsRunning = false;
-WireBus gBusMaster[COUNT_1WIRE_BUSMASTER];
+OneWireDS2482* gBusMaster[COUNT_1WIRE_BUSMASTER];
 WireDevice gDevice[COUNT_1WIRE_CHANNEL];
 uint16_t gCountSaveInterrupt = 0;
 uint32_t gSaveInterruptTimestamp = 0;
@@ -61,10 +62,13 @@ void ProcessHeartbeat()
 
 void ProcessReadRequests() {
     // this method is called after startup delay and executes read requests, which should just happen once after startup
-    static bool sCalled = false;
-    if (!sCalled) {
+    static bool sCalledProcessReadRequests = false;
+    if (!sCalledProcessReadRequests)
+    {
+        // we go through all IO devices defined as outputs and check for initial read requests
+        WireDevice::processReadRequests();
         gLogic.processReadRequests();
-        sCalled = true;
+        sCalledProcessReadRequests = true;
     }
 }
 
@@ -120,7 +124,7 @@ void ProcessKoCallback(GroupObject &iKo)
     }
     else
     {
-        WireBus::processKOCallback(iKo);
+        WireDevice::processKOCallback(iKo);
         // else dispatch to logicmodule
         gLogic.processInputKo(iKo);
     }
@@ -142,10 +146,12 @@ void appLoop()
     ProcessHeartbeat();
     ProcessReadRequests();
     gLogic.loop();
+    WireDevice::loop();
     uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
     for (uint8_t lBusmasterIndex = 0; lBusmasterIndex < lNumBusmaster; lBusmasterIndex++)
     {
-        gBusMaster[lBusmasterIndex].loop();
+        gBusMaster[lBusmasterIndex]->loop();
+        knx.loop();
     }
 
     // at Startup, we want to send all values immediately
@@ -180,24 +186,31 @@ void appSetup(bool iSaveSupported)
         bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & LOG_IdSearchMask;
         // are there iButtons?
         uint8_t lIsIButton = 0;
-        for (uint8_t lDeviceIndex = 0; lDeviceIndex < COUNT_1WIRE_CHANNEL; lDeviceIndex++)
-        {
-            uint8_t lFamily = knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
-            if (lFamily == 1) {
-                uint8_t lBusmaster = 1 << knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
-                lIsIButton |= lBusmaster;
+
+
+        Wire.setClock(400000);
+
+        uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
+        gBusMaster[0] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
+        gBusMaster[0]->setup(0, 1, lSearchNewDevices); 
+        if (lNumBusmaster > 1) {
+            gBusMaster[1] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
+            gBusMaster[1]->setup(1, 3, lSearchNewDevices); 
+            if (lNumBusmaster > 2)
+            {
+                gBusMaster[2] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
+                gBusMaster[2]->setup(2, 2, lSearchNewDevices); 
             }
         }
-        Wire.setClock(400000);
-        uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
-        lIsIButton = 4; // TEMP
-        gBusMaster[0].setup(2, lSearchNewDevices, (lIsIButton & 4));
-        // if (lNumBusmaster > 1) {
-        //     gBusMaster[1].setup(3, lSearchNewDevices, (lIsIButton & 2));
-        //     if (lNumBusmaster > 2)
-        //     {
-        //         gBusMaster[2].setup(2, lSearchNewDevices, (lIsIButton & 4));
-        //     }
-        // }  
+
+        // initialize all known 1-Wire-sensors from application data
+        for (uint8_t lDeviceIndex = 0; lDeviceIndex < COUNT_1WIRE_CHANNEL; lDeviceIndex++)
+        {
+            // check for family information
+            uint8_t lFamily = knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
+            if (lFamily > 0) {
+                WireDevice *lDevice = new WireDevice(lDeviceIndex, gBusMaster);
+            }
+        }
     }
 }
