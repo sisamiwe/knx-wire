@@ -295,7 +295,7 @@ void WireDevice::knxLoopCallback()
 {
     // this is a generic dispatcher which ensures, that knx.loop() is called as often as 
     // necessary, but not more often than every 1 ms.
-    if (delayCheck(sKnxLoopCallbackDelay, 1)) {
+    if (delayCheck(sKnxLoopCallbackDelay, 5)) {
         knx.loop();
         sKnxLoopCallbackDelay = millis();
     }
@@ -367,13 +367,13 @@ void WireDevice::setDeviceParameter()
             mOneWire->setParameter(OneWire::MeasureResolution, 0x00, lModelFunction);
             break;
         case MODEL_DS1990:
-            mData.sensor.lastSentValue = -1000.0; // NAN was not working here
+            mData.sensor.lastSentValue = NO_NUM; // NAN was not working here
             break;
         case MODEL_DS2408:
         case MODEL_DS2413:
             mOneWire->setParameter(OneWire::IoMask, knx.paramByte(calcParamIndex(WIRE_sIoBitmask0)), lModelFunction);
             mOneWire->setParameter(OneWire::IoInvertMask, knx.paramByte(calcParamIndex(WIRE_sIoInvertBitmask0)), lModelFunction);
-            mData.sensor.lastSentValue = -1000.0; // NAN was not working here
+            mData.sensor.lastSentValue = NO_NUM; // NAN was not working here
             // for IO, we disable ReadRequests from its KO as long as no valid initial state is known
             knx.getGroupObject(mDeviceIndex + WIRE_KoOffset).commFlag(New);
         default: 
@@ -494,7 +494,7 @@ void WireDevice::processSensor(float iOffsetFactor, uint16_t iParamIndex, uint16
             lValue += (lOffset / iOffsetFactor);
             // smoothing (? glätten ?) of the new value
             // Formel: Value = ValueAlt + (ValueNeu - ValueAlt) / p
-            if (!(lForce && mData.sensor.lastValue == 0.0))
+            if (!lForce && isNum(mData.sensor.lastValue))
             {
                 lValue = mData.sensor.lastValue + (lValue - mData.sensor.lastValue) / knx.paramByte(iParamIndex + WIRE_sSensorSmooth);
             }
@@ -512,8 +512,12 @@ void WireDevice::processSensor(float iOffsetFactor, uint16_t iParamIndex, uint16
                     lSend = true;
             }
             // we always store the new value in KO, even it it is not sent (to satisfy potential read request)
-            mData.sensor.lastValue = lValue;
-            knx.getGroupObject(iKoNumber).valueNoSend(lValue, getDPT(VAL_DPT_9));
+            if (isNum(lValue)) { 
+                mData.sensor.lastValue = lValue;
+                knx.getGroupObject(iKoNumber).valueNoSend(lValue, getDPT(VAL_DPT_9));
+            } else {
+                lSend = false;
+            }
             // wenn in KONNEKTING möglich, sollte der Wert im KO gespeichert werden, ohne dass
             // er gesendet wird, damit ein GroupValueRead zwischendurch auch den korrekten Wert liefert
             // hier lValue ins KO schreiben, KO-Nummer steht in iKoNumber

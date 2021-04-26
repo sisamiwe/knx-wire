@@ -347,7 +347,7 @@ eine Funktion
     float OneWireDS2438Fromula::userFunction<n>(
         float iTemp, float iVDD, float iVAD, float iVSens)
     {
-        return NAN;
+        return NO_NUM;
     }
 
 Die Funktion bekommt die gemessenen Werte Temp (Chiptemperatur), VDD (Spannung am Chip), iVAD (gemessener Analogwert AD1) und VSens (gemessener Analogwert AD2). Sie muss so implementiert werden, dass sie genau einen float-Wert zurückgibt. Dieser Wert wird dann auf den KNX-Bus geschrieben.
