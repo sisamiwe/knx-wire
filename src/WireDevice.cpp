@@ -22,7 +22,7 @@ WireDevice::WireDevice()
 }
 
 // desierilize device from ets parameters
-WireDevice::    WireDevice(uint8_t iDeviceIndex, OneWireDS2482* iBusMaster[])
+WireDevice::WireDevice(uint8_t iDeviceIndex, OneWireDS2482* iBusMaster[])
 {
     mDeviceIndex = iDeviceIndex; // device index in application
     sDevice[sDeviceCount++] = this;
