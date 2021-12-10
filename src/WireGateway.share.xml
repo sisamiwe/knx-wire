@@ -14,7 +14,19 @@
               <RelativeSegment Id="M-00FA_A-0001-01-0000_RS-04-00000" Name="Parameters" Offset="0" Size="0" LoadStateMachine="4" />
             </Code>
             <ParameterTypes>
-              <!-- Parameter types for 1WireGateway -->
+              <!-- Parameter types for WireGateway -->
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-OffsetTemp" Name="OffsetTemp">
+                <TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-100" maxInclusive="100" />
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeltaAbsTemp" Name="DeltaAbsTemp">
+                <TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="500" />
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-Smooth" Name="Smooth">
+                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="240" />
+              </ParameterType>
+              <ParameterType Id="M-00FA_A-0001-01-0000_PT-Percent" Name="Percent">
+                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
+              </ParameterType>
               <ParameterType Id="M-00FA_A-0001-01-0000_PT-DeviceId" Name="DeviceId">
                 <TypeText SizeInBit="56" />
               </ParameterType>

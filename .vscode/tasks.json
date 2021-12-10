@@ -26,10 +26,7 @@
                 "-e",
                 "build"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "problemMatcher": []
         },
         {
@@ -84,10 +81,15 @@
                 "src/WireGateway"
             ],
             "problemMatcher": [],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
+            "group": "test"
+        },
+        {
+            "label": "MultiplyChannels-Release",
+            "type": "shell",
+            "command": "release\\BuildRelease.cmd",
+            "args": [],
+            "problemMatcher": [],
+            "group": "test"
         },
         {
             "label": "MultiplyChannels-Beta",

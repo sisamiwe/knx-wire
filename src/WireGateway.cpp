@@ -1,3 +1,4 @@
+#ifdef WIREGATEWAY
 #include "Helper.h"
 #include "Hardware.h"
 
@@ -12,7 +13,7 @@
 #include "KnxHelper.h"
 
 const uint8_t cFirmwareMajor = 3;    // 0-31
-const uint8_t cFirmwareMinor = 6;    // 0-31
+const uint8_t cFirmwareMinor = 3;    // 0-31
 const uint8_t cFirmwareRevision = 0; // 0-63
 
 // Achtung: Bitfelder in der ETS haben eine gewöhnungswürdige
@@ -185,32 +186,37 @@ void appSetup(bool iSaveSupported)
         // should we search for new devices?
         bool lSearchNewDevices = knx.paramByte(LOG_IdSearch) & LOG_IdSearchMask;
         // are there iButtons?
-        uint8_t lIsIButton = 0;
+        // uint8_t lIsIButton = 0;
 
 
         Wire.setClock(400000);
 
-        uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
         gBusMaster[0] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
         gBusMaster[0]->setup(0, 1, lSearchNewDevices); 
+        uint8_t lNumBusmaster = (knx.paramByte(LOG_BusMasterCount) & LOG_BusMasterCountMask) >> LOG_BusMasterCountShift;
+#if COUNT_1WIRE_BUSMASTER > 1
         if (lNumBusmaster > 1) {
             gBusMaster[1] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
-            gBusMaster[1]->setup(1, 3, lSearchNewDevices); 
+            gBusMaster[1]->setup(1, 3, lSearchNewDevices);
+#if COUNT_1WIRE_BUSMASTER > 2
             if (lNumBusmaster > 2)
             {
                 gBusMaster[2] = new OneWireDS2482(WireDevice::processNewIdCallback, WireDevice::knxLoopCallback);
                 gBusMaster[2]->setup(2, 2, lSearchNewDevices); 
             }
         }
-
+#endif
+#endif
         // initialize all known 1-Wire-sensors from application data
         for (uint8_t lDeviceIndex = 0; lDeviceIndex < COUNT_1WIRE_CHANNEL; lDeviceIndex++)
         {
             // check for family information
             uint8_t lFamily = knx.paramByte(lDeviceIndex * WIRE_ParamBlockSize + WIRE_ParamBlockOffset + WIRE_sFamilyCode);
             if (lFamily > 0) {
-                WireDevice *lDevice = new WireDevice(lDeviceIndex, gBusMaster);
+                // WireDevice *lDevice = new WireDevice(lDeviceIndex, gBusMaster);
+                new WireDevice(lDeviceIndex, gBusMaster);
             }
         }
     }
 }
+#endif
