@@ -6,13 +6,13 @@ void appLoop();
 
 void setup()
 {
-    Serial.begin(115200);
+    SERIAL_DEBUG.begin(115200);
     pinMode(PROG_LED_PIN, OUTPUT);
     digitalWrite(PROG_LED_PIN, HIGH);
     delay(DEBUG_DELAY);
     digitalWrite(PROG_LED_PIN, LOW);
-    Serial.println("Startup called...");
-    ArduinoPlatform::SerialDebug = &Serial;
+    SERIAL_DEBUG.println("Startup called...");
+    ArduinoPlatform::SerialDebug = &SERIAL_DEBUG;
 
 #ifdef INFO_LED_PIN
     pinMode(INFO_LED_PIN, OUTPUT);
