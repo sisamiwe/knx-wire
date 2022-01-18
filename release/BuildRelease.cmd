@@ -1,2 +1,2 @@
-%USERPROFILE%\bin\MultiplyChannels.exe create beta\WireGateway-v3.3.xml
-del beta\WireGateway-*.h
+%USERPROFILE%\bin\MultiplyChannels.exe create release\WireGateway-v3.8.xml
+del release\WireGateway-*.h
