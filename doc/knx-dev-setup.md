@@ -1,4 +1,4 @@
-# Installation of dev-Environment for WireGateway
+# Installation of dev-Environment for Sensormodule
 
 Only tested on Windows 10!
 
@@ -44,36 +44,68 @@ You should be now in a directory ending with ...\Documents\PlatformIO\Projects
     cd knx
     git checkout release
     cd ..\knx-common
-    git checkout beta
+    git checkout release
     cd ..\knx-logic
-    git checkout beta
+    git checkout release
     cd ..\knx-wire
-    git checkout beta
+    git checkout release
     code WireGateway.code-workspace
 
 Now a new instance of Visual Studio Code is started. You can close the other (previous) instance.
 
-Press Ctrl-Shift-B, select the "**Build PlatformIO** knx-wire" build task and press enter.
+There are 2 hardware versions of the WireGateway available from MASIFI. You can distinguish them by the processor board. If the processor (SAMD21) is directly on the mainboard, we have the zeroUSB-Version. If there is an additional board (ItyBitsyM0), we have the ItyBitsy-Version.
+
+**Please ensure always that the released version fits to your hardware!** To do this, do the following:
+Find the version of your hardware board (ItyBitsy or zeroUSB version).
+
+    In knx-wire, edit the file platformio.ini:  
+    - there is a section prepared for zeroUSB-Version
+            ; select correct hardware to compile for
+            ; the following 2 lines are for board=zeroUSB
+            -D SERIAL_DEBUG=SerialUSB
+            -D BOARD_MASIFI_ONEWIRE
+            ; the following 2 lines are for board=adafruit_itsybitsy_m0
+            ; -D SERIAL_DEBUG=Serial
+            ; -D BOARD_MASIFI_ONEWIRE_ITSYBITSY_M0
+    - if you have the ItsyBitsy version, you have to change it to
+            ; select correct hardware to compile for
+            ; the following 2 lines are for board=zeroUSB
+            ; -D SERIAL_DEBUG=SerialUSB
+            ; -D BOARD_MASIFI_ONEWIRE
+            ; the following 2 lines are for board=adafruit_itsybitsy_m0
+            -D SERIAL_DEBUG=Serial
+            -D BOARD_MASIFI_ONEWIRE_ITSYBITSY_M0
+
+With this firmware you get watchdog-support.
+      With the setting
+            -D WATCHDOG
+      the watchdog functionality is enabled. The default is
+            ;-D WATCHDOG
+      which disables watchdog functionality.
+
+Press Ctrl-Shift-B, select the "**Build PlatformIO** knx-sensor" build task and press enter.
 
 Now the compiler starts, this may take a while, there will be many yellow warnings, they can be ignored.
 
 At the end, there should be a message like
 
     Linking .pio\build\build\firmware.elf
+    Building .pio\build\build\firmware.bin
     Checking size .pio\build\build\firmware.elf
     Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-    RAM:   [==        ]  23.7% (used 7780 bytes from 32768 bytes)
-    Flash: [=====     ]  49.3% (used 129364 bytes from 262144 bytes)
-    Building .pio\build\build\firmware.bin
+    RAM:   [==        ]  22.0% (used 7216 bytes from 32768 bytes)
+    Flash: [======    ]  55.7% (used 145892 bytes from 262144 bytes)
     ============================ [SUCCESS] Took 34.60 seconds ======
 
-Now you successfully build the beta Firmware for the WireGateway, containing a ETS configurable knx stack, a logic module with 80 logic channels and a one wire module for up to 90 one wire sensors.
+Now you successfully build the Firmware for the WireGateway, containing a ETS configurable knx stack, a logic module with 80 logic channels, a one wire module for up to 90 one wire sensors.
 
 Precompiled firmware versions are not released anymore, you have always to compile your own.
 
 ## How to upload the Firmware to your Hardware
 
 Connect your device via USB to your PC.
+
+Open (again) the file knx-wire/src/WireGateway.cpp
 
 Press Ctrl-Shift-B, select "**Upload USB** knx-wire" build task and press enter.
 
@@ -95,15 +127,15 @@ Go to the Visual Studio Code instance, which is containing the knx-wire project
 
 Press Ctrl-Shift-P, enter "run test task" and click the appearing "Tasks: Run Test Task"
 
-In the following dropdown select "**MultiplyChannels-Beta** knx-wire"
+In the following dropdown select "**MultiplyChannels-Release** knx-wire"
 
 Wait for the success message in the terminal window
 
 The freshly build
 
-* WireGateway-v3.x-beta.knxprod
+* WireGateway-v3.x.knxprod
 
-you will find in the beta directory of the knx-wire project
+you will find in the release directory of the knx-wire project
 
 You can import this knxprod in your ETS (minimum 5.6) like any other knxprod.
 
